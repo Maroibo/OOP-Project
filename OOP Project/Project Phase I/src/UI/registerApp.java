@@ -9,7 +9,7 @@ public class registerApp extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
     	String viewFileName = "registrationPane.fxml";
-    	String windowTite = "Registration Widonow";
+    	String windowTite = "Registration Window";
         Parent root = FXMLLoader.load(getClass().getResource(viewFileName));
         stage.setTitle(windowTite);
         stage.setScene(new Scene(root, 600, 400));
