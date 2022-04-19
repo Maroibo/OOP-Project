@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MainController">
    <bottom>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </bottom>
@@ -31,7 +30,7 @@
                   <Font name="Times New Roman" size="24.0" />
                </font>
             </Label>
-            <Button alignment="CENTER" cancelButton="true" contentDisplay="CENTER" layoutX="220.0" layoutY="193.0" mnemonicParsing="false" text="Register" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+            <Button fx:id="registerButton" alignment="CENTER" cancelButton="true" contentDisplay="CENTER" layoutX="220.0" layoutY="193.0" mnemonicParsing="false" onAction="#onRegisterClick" text="Register" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
                <font>
                   <Font name="Times New Roman" size="14.0" />
                </font>
@@ -39,7 +38,7 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </Button>
-            <Button layoutX="309.0" layoutY="193.0" mnemonicParsing="false" text="Login">
+            <Button fx:id="loginButton" layoutX="309.0" layoutY="193.0" mnemonicParsing="false" onAction="#onLoginClick" text="Login">
                <font>
                   <Font name="Times New Roman" size="14.0" />
                </font>
