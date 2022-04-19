@@ -14,8 +14,7 @@ public class MainApp extends Application {
         Parent root = FXMLLoader.load(getClass().getResource(viewFileName));
         stage.setTitle(windowTite);
         stage.setScene(new Scene(root, 600, 400));
-        stage.show();
-        
+        stage.show(); 
     }
 
     public static void main(String[] args) {

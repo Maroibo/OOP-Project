@@ -91,7 +91,7 @@
                   <Insets left="300.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Button alignment="BOTTOM_RIGHT" layoutX="100.0" mnemonicParsing="false" text="Cancel">
+            <Button fx:id="cancelButton" alignment="BOTTOM_RIGHT" layoutX="100.0" mnemonicParsing="false" onAction="#onCanelClick" text="Cancel">
                <HBox.margin>
                   <Insets bottom="10.0" left="15.0" top="10.0" />
                </HBox.margin>
