@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="496.0" prefWidth="678.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18">
+   <children>
+      <HBox prefHeight="42.0" prefWidth="508.0">
+         <children>
+            <Label text="Deals On Hold">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <ScrollPane layoutY="46.0" prefHeight="449.0" prefWidth="678.0">
+         <content>
+            <TreeTableView prefHeight="450.0" prefWidth="678.0">
+              <columns>
+                <TreeTableColumn prefWidth="97.59996873140335" text="Items" />
+                <TreeTableColumn prefWidth="404.0000305175781" text="Description" />
+                  <TreeTableColumn prefWidth="161.5999755859375" text="Seller Contact" />
+              </columns>
+            </TreeTableView>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
