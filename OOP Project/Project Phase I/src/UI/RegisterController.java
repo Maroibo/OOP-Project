@@ -1,14 +1,19 @@
 package UI;
 
 import java.io.IOException;
+import java.util.Optional;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
@@ -33,8 +38,6 @@ public class RegisterController {
 
     @FXML
     private ComboBox<?> traderTypeComboBox;
-    @FXML
-    private RegistrationCancelApp cancel;
 
     @FXML
     void onBackClicked(ActionEvent event) {
@@ -49,14 +52,15 @@ public class RegisterController {
     }
     @FXML
     void onCanelClick(ActionEvent event) {
-//       try {
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("registrationCanelPane.fxml"));
-//            Stage stage = (Stage) cancelButton.getScene().getWindow();
-//            Scene scene = new Scene(loader.load());
-//           stage.setScene(scene);
-//        }catch (IOException io){
-//            io.printStackTrace();
-//       }
+    	Alert alert=new Alert(AlertType.CONFIRMATION);
+    	alert.setTitle("Canelation Panel");
+    	alert.setHeaderText("Are you sure?");
+    	alert.setContentText("Are you sure you want to cancel this form?");
+    	Optional<ButtonType> result=alert.showAndWait();
+    	if(result.isPresent()&&result.get()==ButtonType.OK) {
+    		
+    	}
+    	
     }
 
 }
