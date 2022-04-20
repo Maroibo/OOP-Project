@@ -99,13 +99,5 @@
          </children>
       </HBox>
       <ComboBox fx:id="traderTypeComboBox" prefWidth="265.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <Button fx:id="backButton" mnemonicParsing="false" onAction="#onBackClicked" prefHeight="26.0" prefWidth="54.0">
-         <GridPane.margin>
-            <Insets left="15.0" />
-         </GridPane.margin>
-         <graphic>
-            <Label text="Back" />
-         </graphic>
-      </Button>
    </children>
 </GridPane>

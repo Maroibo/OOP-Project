@@ -11,15 +11,15 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.BuyerMainController">
    <top>
       <HBox prefHeight="82.0" prefWidth="546.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Buy">
+            <Button fx:id="buyButton" mnemonicParsing="false" onAction="#onBuyClick" text="Buy">
                <HBox.margin>
                   <Insets left="10.0" top="25.0" />
                </HBox.margin></Button>
-            <Button mnemonicParsing="false" text="Deals on Hold">
+            <Button fx:id="dealsOnHoldButton" mnemonicParsing="false" onAction="#onHoldClick" text="Deals on Hold">
                <HBox.margin>
                   <Insets left="15.0" top="25.0" />
                </HBox.margin></Button>
@@ -27,7 +27,7 @@
                <HBox.margin>
                   <Insets left="280.0" top="13.0" />
                </HBox.margin></Label>
-            <ComboBox prefWidth="150.0">
+            <ComboBox fx:id="filterComboBox" prefWidth="150.0">
                <HBox.margin>
                   <Insets top="10.0" />
                </HBox.margin></ComboBox>
@@ -41,8 +41,8 @@
                <children>
                   <TreeTableView prefHeight="355.0" prefWidth="670.0">
                     <columns>
-                      <TreeTableColumn prefWidth="178.39998704195023" text="Items" />
-                      <TreeTableColumn prefWidth="491.2000427246094" text="Description" />
+                      <TreeTableColumn fx:id="itemsColumn" prefWidth="178.39998704195023" text="Items" />
+                      <TreeTableColumn fx:id="descriptionColumn" prefWidth="491.2000427246094" text="Description" />
                     </columns>
                   </TreeTableView>
                </children>

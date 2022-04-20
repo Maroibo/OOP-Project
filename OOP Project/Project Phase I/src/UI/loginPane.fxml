@@ -61,7 +61,7 @@
                   <Insets left="300.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="clearButton" alignment="BOTTOM_RIGHT" layoutX="100.0" mnemonicParsing="false" text="Clear">
+            <Button fx:id="clearButton" alignment="BOTTOM_RIGHT" layoutX="100.0" mnemonicParsing="false" onAction="#onclearClicked" text="Clear">
                <HBox.margin>
                   <Insets bottom="10.0" left="15.0" top="10.0" />
                </HBox.margin>

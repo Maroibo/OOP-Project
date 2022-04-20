@@ -1,22 +1,20 @@
 package UI;
 
-import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class BuySmallPaneApp extends Application {
+public class DealOnHoldApp extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
-    	String viewFileName = "buySmallPane.fxml";
-    	String windowTite = "Buy Window";
+    	String viewFileName = "dealsOnHoldPane.fxml";
+    	String windowTite = "Deals on Hold Window";
         Parent root = FXMLLoader.load(getClass().getResource(viewFileName));
         stage.setTitle(windowTite);
-        stage.setScene(new Scene(root, 660, 207));
+        stage.setScene(new Scene(root, 700, 450));
         stage.show();
 	}
 

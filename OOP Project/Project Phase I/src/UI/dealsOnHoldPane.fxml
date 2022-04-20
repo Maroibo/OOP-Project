@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="496.0" prefWidth="678.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18">
+<AnchorPane prefHeight="496.0" prefWidth="678.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.DealsOnHoldController">
    <children>
       <HBox prefHeight="42.0" prefWidth="508.0">
          <children>
@@ -28,9 +27,9 @@
          <content>
             <TreeTableView prefHeight="450.0" prefWidth="678.0">
               <columns>
-                <TreeTableColumn prefWidth="97.59996873140335" text="Items" />
-                <TreeTableColumn prefWidth="404.0000305175781" text="Description" />
-                  <TreeTableColumn prefWidth="161.5999755859375" text="Seller Contact" />
+                <TreeTableColumn fx:id="itemsColumn" prefWidth="97.59996873140335" text="Items" />
+                <TreeTableColumn fx:id="descriptionColumn" prefWidth="404.0000305175781" text="Description" />
+                  <TreeTableColumn fx:id="sellerColumn" prefWidth="161.5999755859375" text="Seller Contact" />
               </columns>
             </TreeTableView>
          </content>

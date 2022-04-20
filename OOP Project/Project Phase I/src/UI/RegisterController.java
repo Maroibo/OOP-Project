@@ -24,8 +24,6 @@ public class RegisterController {
     @FXML
     private Button cancelButton;
 
-    @FXML
-    private Button backButton;
 
     @FXML
     private TextField idTextField;
@@ -37,19 +35,8 @@ public class RegisterController {
     private TextField phoneTextField;
 
     @FXML
-    private ComboBox<?> traderTypeComboBox;
+    private ComboBox<TraderType> traderTypeComboBox;
 
-    @FXML
-    void onBackClicked(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("mainPane.fxml"));
-            Stage stage = (Stage) backButton.getScene().getWindow();
-            Scene scene = new Scene(loader.load());
-            stage.setScene(scene);
-        }catch (IOException io){
-            io.printStackTrace();
-        }
-    }
     @FXML
     void onCanelClick(ActionEvent event) {
     	Alert alert=new Alert(AlertType.CONFIRMATION);
@@ -58,9 +45,20 @@ public class RegisterController {
     	alert.setContentText("Are you sure you want to cancel this form?");
     	Optional<ButtonType> result=alert.showAndWait();
     	if(result.isPresent()&&result.get()==ButtonType.OK) {
-    		
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("mainPane.fxml"));
+                Stage stage = (Stage) cancelButton.getScene().getWindow();
+                Scene scene = new Scene(loader.load());
+                stage.setScene(scene);
+            }catch (IOException io){
+                io.printStackTrace();
+            }
     	}
     	
+    }
+    @FXML
+    public void initialize() {
+    	traderTypeComboBox.getItems().addAll(TraderType.values());
     }
 
 }

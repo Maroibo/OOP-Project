@@ -37,5 +37,13 @@ public class LoginController {
             stage.setScene(scene);
         }catch (IOException io){
             io.printStackTrace();
-        }}}
+        }}
+
+    @FXML
+    void onclearClicked(ActionEvent event) {
+    	idTextField.setText("");
+    	phoneTextField.setText("");
+    }
+
+}
     
