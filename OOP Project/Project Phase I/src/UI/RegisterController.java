@@ -3,6 +3,7 @@ package UI;
 import java.io.IOException;
 import java.util.Optional;
 
+import eQatarSystem.Trader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +17,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import files.*;
 
 public class RegisterController {
 
@@ -35,7 +37,10 @@ public class RegisterController {
     private TextField phoneTextField;
 
     @FXML
-    private ComboBox<TraderType> traderTypeComboBox;
+    private ComboBox<String> traderTypeComboBox;
+    
+    @FXML
+    private Button submitButton;
 
     @FXML
     void onCanelClick(ActionEvent event) {
@@ -57,8 +62,40 @@ public class RegisterController {
     	
     }
     @FXML
+    void onSubmitClicked(ActionEvent event) throws ClassNotFoundException {
+    	String name=nameTextField.getText();
+    	int id=Integer.parseInt(idTextField.getText());
+    	int phone=Integer.parseInt(phoneTextField.getText());
+    	String adress=adressTextField.getText();
+    	if(traderTypeComboBox.getValue().equals("Buyer")) {
+    		Trader t1=new Trader(id,name,false,true,phone,adress);
+        	try {
+        		ReaderAndWriter.refresh();
+    			ReaderAndWriter.twrite(t1);
+    		} catch (IOException e) {
+    			e.printStackTrace();
+    		}
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("BuyerMainPane.fxml"));
+                Stage stage = (Stage) submitButton.getScene().getWindow();
+                Scene scene = new Scene(loader.load());
+                stage.setScene(scene);
+            }catch (IOException io){
+                io.printStackTrace();
+            }
+    	}if(traderTypeComboBox.getValue().equals("Seller")) {
+    		Trader t1=new Trader(id,name,true,false,phone,adress);
+    	try {
+    		ReaderAndWriter.refresh();
+			ReaderAndWriter.twrite(t1);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}}
+    	
+    }
+    @FXML
     public void initialize() {
-    	traderTypeComboBox.getItems().addAll(TraderType.values());
+    	traderTypeComboBox.getItems().addAll("Buyer","Seller");
     }
 
 }

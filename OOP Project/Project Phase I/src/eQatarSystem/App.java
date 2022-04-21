@@ -1,8 +1,10 @@
 package eQatarSystem;
 
+import java.io.IOException;
+
 public class App {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		Trader t1 = new Trader(1, "Marwan Emad", false, true, 63458365, "Alwakra");
 		Trader t2 = new Trader(2, "Ali Mohammed", true, false, 38420582, "Alkhor");
 		Trader t3 = new Trader(3, "Alhasan Mahmood", true, false, 34496714, "Doha");
@@ -47,94 +49,94 @@ public class App {
 		
 		System.out.println("Testing EQatar System");
 		System.out.println("--------------------------");
-		EQatar sys = new EQatar();
-		sys.addElectronic(e1);
-		sys.addElectronic(e8);
-		sys.addElectronic(e3);
-		sys.addElectronic(e4);
-		sys.addElectronic(e5);
-		sys.addElectronic(e6);
-		sys.addElectronic(e7);
-		sys.addTrader(t1);
-		sys.addTrader(t2);
-		sys.addTrader(t3);
-		sys.addTrader(t4);
+
+		EQatar.addElectronic(e1);
+		EQatar.addElectronic(e8);
+		EQatar.addElectronic(e3);
+		EQatar.addElectronic(e4);
+		EQatar.addElectronic(e5);
+		EQatar.addElectronic(e6);
+		EQatar.addElectronic(e7);
+		EQatar.addTrader(t1);
+		EQatar.addTrader(t2);
+		EQatar.addTrader(t3);
+		EQatar.addTrader(t4);
 		
 		System.out.println("Finding Trader and Electronic Items:");
 		System.out.println("---------------------------------------");
 		System.out.println("Trader with ID 1 :");
 		System.out.println();
-		System.out.println(sys.findTrader(1));
+		System.out.println(EQatar.findTrader(1));
 		System.out.println("Electronic item with ID 1 :");
-		System.out.println(sys.findElectronic(1));
+		System.out.println(EQatar.findElectronic(1));
 		System.out.println("---------------------------------------");
 		System.out.println();
 		
 		System.out.println("We changed electronic item with the (id: 5) to sold");
-		sys.changeElectronicStatusToSold(5);
-		System.out.println(sys.findElectronic(5));
+		EQatar.changeElectronicStatusToSold(5);
+		System.out.println(EQatar.findElectronic(5));
 		System.out.println("-----------------------------------------");
 		System.out.println();
 		
 		System.out.println("Now we are creating deals:");
 		System.out.println("-----------------------------------------");
-		sys.createDeal(t3, e7, "2022-04-14");
-		sys.createDeal(t3, e6, "2022-02-05");
-		sys.createDeal(t3, e5, "2022-06-25");
-		sys.createDeal(t3, e4, "2022-10-03");
-		sys.createDeal(t3, e3, "2022-09-15");
-		System.out.println(sys.findDeal(1));
+		EQatar.createDeal(t3, e7, "2022-04-14");
+		EQatar.createDeal(t3, e6, "2022-02-05");
+		EQatar.createDeal(t3, e5, "2022-06-25");
+		EQatar.createDeal(t3, e4, "2022-10-03");
+		EQatar.createDeal(t3, e3, "2022-09-15");
+		System.out.println(EQatar.findDeal(1));
 		System.out.println("-----------------------------------------");
 		System.out.println();
 		
 		System.out.println("List of UNCLOSED deals:");
 		System.out.println("-----------------------------------------");
-		System.out.println(sys.getListOfUnClosedDeals());
+		System.out.println(EQatar.getListOfUnClosedDeals());
 		System.out.println();
 		
 		System.out.println("List of CLOSED deals:");
 		System.out.println("-----------------------------------------");
-		System.out.println(sys.getListOfClosedDeals());
+		System.out.println(EQatar.getListOfClosedDeals());
 		System.out.println();
 		
 		System.out.println("Now we close all the deals:");
 		System.out.println("-----------------------------------------");
-		sys.closeDeal(1);
-		sys.closeDeal(2);
-		sys.closeDeal(3);
-		sys.closeDeal(4);
-		sys.closeDeal(5);
-		System.out.println(sys.getListOfClosedDeals());
+		EQatar.closeDeal(1);
+		EQatar.closeDeal(2);
+		EQatar.closeDeal(3);
+		EQatar.closeDeal(4);
+		EQatar.closeDeal(5);
+		System.out.println(EQatar.getListOfClosedDeals());
 		System.out.println("-----------------------------------------");
 		System.out.println();
 		
 		System.out.println("List of UNPAID invoices:");
 		System.out.println("-----------------------------------------");
-		System.out.println(sys.getListOfUnPaidInvoices());
+		System.out.println(EQatar.getListOfUnPaidInvoices());
 		System.out.println("-----------------------------------------");
 		System.out.println();
 		
 		System.out.println("List of deals created on a specific date:");
 		System.out.println("-----------------------------------------");
-		System.out.println(sys.getDealsCreatedOnSpecificDate("2022-04-14"));
+		System.out.println(EQatar.getDealsCreatedOnSpecificDate("2022-04-14"));
 		System.out.println("-----------------------------------------");
 		System.out.println();
 		
 		System.out.println("List of Available Cameras:");
 		System.out.println("-----------------------------------------");
-		System.out.println(sys.getListOfAvailableCameras());
+		System.out.println(EQatar.getListOfAvailableCameras());
 		System.out.println("-----------------------------------------");
 		System.out.println();
 		
 		System.out.println("List of Available Smartphones:");
 		System.out.println("-----------------------------------------");
-		System.out.println(sys.getListOfAvailableSmartphones());
+		System.out.println(EQatar.getListOfAvailableSmartphones());
 		System.out.println("-----------------------------------------");
 		System.out.println();
 		
 		System.out.println("List of Available Video Games:");
 		System.out.println("-----------------------------------------");
-		System.out.println(sys.getListOfAvailableVideoGames());
+		System.out.println(EQatar.getListOfAvailableVideoGames());
 		System.out.println("-----------------------------------------");
 		System.out.println();
 	}

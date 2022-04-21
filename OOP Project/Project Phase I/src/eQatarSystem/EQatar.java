@@ -1,5 +1,9 @@
 package eQatarSystem;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
 /**
@@ -10,21 +14,38 @@ import java.util.ArrayList;
  * {@link Electronic}
  */	
 public class EQatar {
-	private ArrayList<Electronic> electronics;
-	private ArrayList<Trader> traders;
-	private ArrayList<Deal> deals;
-	
-	public EQatar() {
-		this.electronics = new ArrayList<Electronic>();
-		this.traders = new ArrayList<Trader>();
-		this.deals = new ArrayList<Deal>();
+	protected static ArrayList<Electronic> electronics=new ArrayList<Electronic>();
+	protected static ArrayList<Trader> traders=new ArrayList<Trader>();
+	protected static ArrayList<Deal> deals=new ArrayList<Deal>();
+	public  static ArrayList<Electronic> getElectronics() {
+		return electronics;
 	}
-	
+
+	public static ArrayList<Trader> getTraders() {
+		return traders;
+	}
+
+	public static ArrayList<Deal> getDeals() {
+		return deals;
+	}
+
+	public static void setElectronics(ArrayList<Electronic> electronics) {
+		EQatar.electronics = electronics;
+	}
+
+	public static void setTraders(ArrayList<Trader> traders) {
+		EQatar.traders = traders;
+	}
+
+	public static void setDeals(ArrayList<Deal> deals) {
+		EQatar.deals = deals;
+	}
+
 	/**
 	 * addElectronic method adds a new electronic item to the product catalog of the system.
 	 * @param electronic
 	 */
-	public void addElectronic(Electronic electronic) {
+	public  static void addElectronic(Electronic electronic) {
 		electronics.add(electronic);
 	}
 	
@@ -33,7 +54,7 @@ public class EQatar {
 	 * @param id
 	 * @return Electronic object
 	 */
-	public Electronic findElectronic(int id) {
+	public static  Electronic findElectronic(int id) {
 		for(int i = 0; i < electronics.size(); i++) {
 			if(electronics.get(i).getId() == id)
 				return electronics.get(i);
@@ -45,7 +66,7 @@ public class EQatar {
 	 * This method changes the status of a specific item with the “id” to sold; setting isSold attribute to true.
 	 * @param id
 	 */
-	public void changeElectronicStatusToSold(int id) {
+	public static void changeElectronicStatusToSold(int id) {
 		for(int i = 0; i < electronics.size(); i++) {
 			if(electronics.get(i).getId() == id) {
 				electronics.get(i).setSold(true);
@@ -57,7 +78,7 @@ public class EQatar {
 	 * addTrader method adds a new trader to the system only if trader is not buyer & seller at the same time.
 	 * @param trader
 	 */
-	public void addTrader(Trader trader) {
+	public static void addTrader(Trader trader) {
 		if(!(trader.isBuyer() && trader.isSeller())) {
 			traders.add(trader);
 		}
@@ -68,7 +89,7 @@ public class EQatar {
 	 * @param id
 	 * @return Trader object
 	 */
-	public Trader findTrader(int id) {
+	public static Trader findTrader(int id) {
 		for(int i = 0; i < traders.size(); i++) {
 			if(traders.get(i).getId() == id)
 				return traders.get(i);
@@ -80,7 +101,7 @@ public class EQatar {
 	 * This method returns a list of smartphones that are not sold yet.
 	 * @return ArrayList of Smartphone
 	 */
-	public ArrayList<Smartphone> getListOfAvailableSmartphones() {
+	public static  ArrayList<Smartphone> getListOfAvailableSmartphones() {
 		ArrayList<Smartphone> availableSmartphones = new ArrayList<Smartphone>();
 		for(Electronic e: electronics) {
 			if(e instanceof Smartphone) {
@@ -97,7 +118,7 @@ public class EQatar {
 	 * This method returns a list of cameras that are not sold yet. 
 	 * @return ArrayList of Camera
 	 */
-	public ArrayList<Camera> getListOfAvailableCameras(){
+	public static ArrayList<Camera> getListOfAvailableCameras(){
 		ArrayList<Camera> availableCameras = new ArrayList<Camera>();
 		for(Electronic e: electronics) {
 			if(e instanceof Camera) {
@@ -114,7 +135,7 @@ public class EQatar {
 	 * This method returns a list of video games that are not sold yet.
 	 * @return ArrayList of VideoGame
 	 */
-	public ArrayList<VideoGame> getListOfAvailableVideoGames(){
+	public static ArrayList<VideoGame> getListOfAvailableVideoGames(){
 		ArrayList<VideoGame> availableVideoGames = new ArrayList<VideoGame>();
 		for(Electronic e: electronics) {
 			if(e instanceof VideoGame) {
@@ -132,8 +153,8 @@ public class EQatar {
 	 * @param buyer
 	 * @param electronic
 	 */
-	public void createDeal(Trader buyer, Electronic electronic, String dateCreated) {
-		deals.add(new Deal(buyer, this.findSellerByElectronicId(electronic.getId()), electronic, dateCreated));
+	public static void createDeal(Trader buyer, Electronic electronic, String dateCreated) {
+		deals.add(new Deal(buyer, findSellerByElectronicId(electronic.getId()), electronic, dateCreated));
 	}
 	
 	/**
@@ -141,7 +162,7 @@ public class EQatar {
 	 * @param id
 	 * @return Trader object
 	 */
-	public Trader findSellerByElectronicId(int id) {
+	public static Trader findSellerByElectronicId(int id) {
 		for (int i = 0; i < traders.size(); i++) {
 			if (traders.get(i).isSeller()) {
 				for (Electronic e : traders.get(i).getList()) {
@@ -157,7 +178,7 @@ public class EQatar {
 	 * This method returns a list of deals that are closed; isClosed attribute is true.
 	 * @return ArrayList of Deal
 	 */
-	public ArrayList<Deal> getListOfClosedDeals() {
+	public static ArrayList<Deal> getListOfClosedDeals() {
 		ArrayList<Deal> closedDeals = new ArrayList<Deal>();
 		for(Deal d: deals) {
 			if(d.getIsClosed()) {
@@ -171,7 +192,7 @@ public class EQatar {
 	 * This method returns a list of deals that are not closed; isClosed attribute is false.
 	 * @return ArrayList of Deal
 	 */
-	public ArrayList<Deal> getListOfUnClosedDeals() {
+	public static ArrayList<Deal> getListOfUnClosedDeals() {
 		ArrayList<Deal> unClosedDeals = new ArrayList<Deal>();
 		for(Deal d: deals) {
 			if(!(d.getIsClosed())) {
@@ -186,7 +207,7 @@ public class EQatar {
 	 * @param id
 	 * @return Deal object
 	 */
-	public Deal findDeal(int id) {
+	public static Deal findDeal(int id) {
 		for (int i = 0; i < deals.size(); i++) {
 			if (deals.get(i).getDealNo() == id)
 				return deals.get(i);
@@ -198,7 +219,7 @@ public class EQatar {
 	 * This method returns a list of invoices that are not yet paid; isPaid attribute is false.
 	 * @return ArrayList of Invoice
 	 */
-	public ArrayList<Invoice> getListOfUnPaidInvoices() {
+	public static ArrayList<Invoice> getListOfUnPaidInvoices() {
 		ArrayList<Invoice> unPaidInvoices = new ArrayList<Invoice>();
 		for(Deal d: deals) {
 			if(!(d.getInvoice().isPaid())) {
@@ -213,7 +234,7 @@ public class EQatar {
 	 * @param dateCreated
 	 * @return ArrayList of Deal
 	 */
-	public ArrayList<Deal> getDealsCreatedOnSpecificDate(String dateCreated) {
+	public static ArrayList<Deal> getDealsCreatedOnSpecificDate(String dateCreated) {
 		ArrayList<Deal> specificDateDeals = new ArrayList<Deal>();
 		for(Deal d: deals) {
 			if(d.getDateCreated().equals(dateCreated)) {
@@ -227,12 +248,13 @@ public class EQatar {
 	 * closeDeal method searches for a deal having the “dealNo” to change its status to closed; setting isClosed attribute to true.
 	 * @param dealNo
 	 */
-	public void closeDeal(int dealNo) {
+	public static void closeDeal(int dealNo) {
 		for(Deal d: deals) {
 			if(d.getDealNo() == dealNo) {
 				d.setClosed(true);
 			}
 		}
 	}
+
 	
 }

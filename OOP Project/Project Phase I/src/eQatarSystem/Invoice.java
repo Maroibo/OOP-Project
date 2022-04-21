@@ -1,10 +1,12 @@
 package eQatarSystem;
 
+import java.io.Serializable;
+
 /**
  * @author Alhasan Mahmood - 202104902
  * @version 1.0.0
  */
-public class Invoice {
+public class Invoice implements Serializable{
 	private int invoiceNo;
 	private double amount;
 	private String dateCreated;

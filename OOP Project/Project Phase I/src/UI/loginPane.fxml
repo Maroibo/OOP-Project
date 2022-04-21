@@ -56,7 +56,7 @@
       <TextField fx:id="phoneTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="265.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
          <children>
-            <Button fx:id="submitButton" mnemonicParsing="false" text="Submit">
+            <Button fx:id="submitButton" mnemonicParsing="false" onAction="#onSubmitClicked" text="Submit">
                <HBox.margin>
                   <Insets left="300.0" top="10.0" />
                </HBox.margin>

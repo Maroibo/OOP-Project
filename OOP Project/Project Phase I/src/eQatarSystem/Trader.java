@@ -1,12 +1,13 @@
 package eQatarSystem;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * @author Anas Hammad - 202003757
  * @version 1.0.0
  */
-public class Trader {
+public class Trader implements Serializable{
 	private int id;
 	private String name;
 	private boolean isSeller;
@@ -134,11 +135,13 @@ public class Trader {
 	 * @return String of Electronics toString
 	 */
 	public String allElectronics() {
+		if(electronics.size()>0) {
 		String e = electronics.get(0).toString();
 		for (int i = 0; i < electronics.size(); i++) {
 			e += "\n" + electronics.get(i).toString();
 		}
-		return e;
+		return e;}
+		return null;
 	}
 	
 	
