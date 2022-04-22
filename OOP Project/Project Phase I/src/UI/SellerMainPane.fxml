@@ -3,106 +3,21 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.control.TreeTableColumn?>
 <?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane style="-fx-background-image: url('Img/mainBackground3.jpg'); -fx-background-size: 700px;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.SellerMainController">
-   <top>
-      <HBox alignment="CENTER" prefHeight="82.0" prefWidth="546.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="sellButton" alignment="CENTER" graphicTextGap="7.0" mnemonicParsing="false" onAction="#onSellClick" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black; -fx-border-width: 1.5;" text="Sell" textAlignment="CENTER" HBox.hgrow="ALWAYS">
-               <HBox.margin>
-                  <Insets bottom="25.0" left="20.0" right="20.0" top="25.0" />
-               </HBox.margin>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <padding>
-                  <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
-               </padding>
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="Img/sell.png"></Image>
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="updateButton" mnemonicParsing="false" onAction="#onUpdateClick" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black; -fx-border-width: 1.5;" text="Update" HBox.hgrow="ALWAYS">
-               <HBox.margin>
-                  <Insets bottom="25.0" left="20.0" right="20.0" top="25.0" />
-               </HBox.margin>
-               <padding>
-                  <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
-               </padding>
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="Img/update.png"></Image>
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="closeDealButton" mnemonicParsing="false" onAction="#onCloseDealClick" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black; -fx-border-width: 1.5;" text="Close Deal" HBox.hgrow="ALWAYS">
-               <HBox.margin>
-                  <Insets bottom="25.0" left="20.0" right="20.0" top="25.0" />
-               </HBox.margin>
-               <padding>
-                  <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
-               </padding>
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="Img/handshake.png"></Image>
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="saveButton" mnemonicParsing="false" onAction="#onSaveClick" style="-fx-background-radius: 20; -fx-background-color: linear-gradient(from 14.511% 0.0% to 100.0% 100.0%, #5ec4ff 0.0%, #5ec4ff 0.6711%, #24a3ed 99.7763%, #24a3ed 100.0%); -fx-border-radius: 20; -fx-border-color: black; -fx-border-width: 1.5;" text="Save" textFill="WHITE" HBox.hgrow="ALWAYS">
-               <HBox.margin>
-                  <Insets bottom="25.0" left="20.0" right="20.0" top="25.0" />
-               </HBox.margin>
-               <padding>
-                  <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
-               </padding>
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="Img/save.png"></Image>
-                     </image>
-                     <effect>
-                        <ColorAdjust brightness="1.0" saturation="-1.0">
-                           <input>
-                              <Glow level="0.69" />
-                           </input>
-                        </ColorAdjust>
-                     </effect>
-                  </ImageView>
-               </graphic>
-            </Button>
-         </children>
-      </HBox>
-   </top>
    <center>
       <ScrollPane hbarPolicy="ALWAYS" prefHeight="370.0" prefWidth="686.0" vbarPolicy="ALWAYS" BorderPane.alignment="CENTER">
          <content>
@@ -129,4 +44,115 @@
          </BorderPane.margin>
       </ScrollPane>
    </center>
+   <top>
+      <VBox prefHeight="100.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <ToolBar prefHeight="0.0" prefWidth="686.0" style="-fx-background-color: #152036;">
+               <items>
+                  <Button fx:id="logoutButton" graphicTextGap="7.0" mnemonicParsing="false" onAction="#onLogoutClick" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" text="Log Out">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="Img/logout.png"></Image>
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Button>
+               </items>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" height="40.47" radius="9.6175" width="0.0" />
+               </effect>
+            </ToolBar>
+            <HBox maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="200.0" spacing="20.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Button fx:id="sellButton" alignment="CENTER" graphicTextGap="7.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onSellClick" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black; -fx-border-width: 1.5;" text="Sell" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="Img/sell.png"></Image>
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="updateButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onUpdateClick" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black; -fx-border-width: 1.5;" text="Update" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="Img/update.png"></Image>
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="closeDealButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onCloseDealClick" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black; -fx-border-width: 1.5;" text="Close Deal" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="Img/handshake.png"></Image>
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="saveButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onSaveClick" style="-fx-background-radius: 20; -fx-background-color: linear-gradient(from 14.511% 0.0% to 100.0% 100.0%, #5ec4ff 0.0%, #5ec4ff 0.6711%, #24a3ed 99.7763%, #24a3ed 100.0%); -fx-border-radius: 20; -fx-border-color: black; -fx-border-width: 1.5;" text="Save" textFill="WHITE" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="Img/save.png"></Image>
+                           </image>
+                           <effect>
+                              <ColorAdjust brightness="1.0" saturation="-1.0">
+                                 <input>
+                                    <Glow level="0.69" />
+                                 </input>
+                              </ColorAdjust>
+                           </effect>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
 </BorderPane>

@@ -16,7 +16,7 @@ public class BuyBigController {
 
     @FXML
     void onProceedClick(ActionEvent event) {
-    	try {
+    	try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("BuyerMainPane.fxml"));
             Stage stage = (Stage) proceedButton.getScene().getWindow();
             Scene scene = new Scene(loader.load());

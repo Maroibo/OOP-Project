@@ -37,6 +37,9 @@ public class BuyerMainController {
     private TreeTableColumn<?, ?> itemsColumn;
 
     @FXML
+    private Button logoutButton;
+
+    @FXML
     void onBuyClick(ActionEvent event) {
     	Alert alert=new Alert(AlertType.CONFIRMATION);
     	alert.setTitle("Confirmation Panel");
@@ -66,6 +69,19 @@ public class BuyerMainController {
             io.printStackTrace();
         }
     }
+
+    @FXML
+    void onLogoutClick(ActionEvent event) {
+    	try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("loginPane.fxml"));
+            Stage stage = (Stage) logoutButton.getScene().getWindow();
+            Scene scene = new Scene(loader.load());
+            stage.setScene(scene);
+        }catch (IOException io){
+            io.printStackTrace();
+        }
+    }
+    
     @FXML
     public void initialize() {
     	filterComboBox.getItems().addAll(ElectronicType.values());

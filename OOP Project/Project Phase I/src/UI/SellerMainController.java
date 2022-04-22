@@ -22,6 +22,9 @@ public class SellerMainController {
     private TreeTableColumn<?, ?> itemsColumn1;
 
     @FXML
+    private Button logoutButton;
+
+    @FXML
     private Button saveButton;
 
     @FXML
@@ -42,6 +45,18 @@ public class SellerMainController {
         }
     }
 
+    @FXML
+    void onLogoutClick(ActionEvent event) {
+    	try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("loginPane.fxml"));
+            Stage stage = (Stage) logoutButton.getScene().getWindow();
+            Scene scene = new Scene(loader.load());
+            stage.setScene(scene);
+        }catch (IOException io){
+            io.printStackTrace();
+        }
+    }
+    
     @FXML
     void onSaveClick(ActionEvent event) {
 

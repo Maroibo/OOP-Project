@@ -24,7 +24,7 @@ public class MainController  {
 
     @FXML
     void onLoginClick(ActionEvent event) {
-        try {
+        try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("loginPane.fxml"));
             Stage stage = (Stage) loginButton.getScene().getWindow();
             Scene scene = new Scene(loader.load());

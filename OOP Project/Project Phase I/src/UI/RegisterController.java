@@ -65,5 +65,4 @@ public class RegisterController {
     public void initialize() {
     	traderTypeComboBox.getItems().addAll("Buyer", "Seller");
     }
-
 }

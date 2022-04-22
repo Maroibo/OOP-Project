@@ -16,7 +16,7 @@ public class CloseDealCameraApp extends Application {
     	String windowTite = "Close Camera Deal Window";
         Parent root = FXMLLoader.load(getClass().getResource(viewFileName));
         stage.setTitle(windowTite);
-        stage.setScene(new Scene(root, 350, 500));
+        stage.setScene(new Scene(root, 350,500));
         stage.setResizable(false);
         stage.show();
 	}

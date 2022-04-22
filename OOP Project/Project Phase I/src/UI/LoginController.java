@@ -28,7 +28,7 @@ public class LoginController {
     private TextField phoneNumberTextField;
 
     @FXML
-    void onBackClicked(ActionEvent event) {
+    void onBackClicked(ActionEvent event){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("mainPane.fxml"));
             Stage stage = (Stage) backButton.getScene().getWindow();

@@ -94,7 +94,7 @@ public class SellController {
 
     @FXML
     void onCancelClick(ActionEvent event) {
-    	try {
+    	try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("SellerMainPane.fxml"));
             Stage stage = (Stage) cancelButton.getScene().getWindow();
             Scene scene = new Scene(loader.load());

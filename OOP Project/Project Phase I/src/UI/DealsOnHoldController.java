@@ -35,7 +35,7 @@ public class DealsOnHoldController {
             Stage stage = (Stage) backButton.getScene().getWindow();
             Scene scene = new Scene(loader.load());
             stage.setScene(scene);
-        }catch (IOException io){
+        } catch (IOException io){
             io.printStackTrace();
         }
     }

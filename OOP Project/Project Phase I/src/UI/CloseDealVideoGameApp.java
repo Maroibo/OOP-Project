@@ -16,7 +16,7 @@ public class CloseDealVideoGameApp extends Application {
     	String windowTite = "Close Video Game Deal Window";
         Parent root = FXMLLoader.load(getClass().getResource(viewFileName));
         stage.setTitle(windowTite);
-        stage.setScene(new Scene(root, 350, 500));
+        stage.setScene(new Scene(root, 350,500));
         stage.setResizable(false);
         stage.show();
 	}

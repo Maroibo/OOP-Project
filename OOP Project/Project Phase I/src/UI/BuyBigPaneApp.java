@@ -19,7 +19,6 @@ public class BuyBigPaneApp extends Application {
         stage.show();
 	}
 
-
 	public static void main(String[] args) {
 		launch(args);
 	}

@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-    	String viewFileName = "/UI/mainPane.fxml";
+    	String viewFileName = "mainPane.fxml";
     	String windowTite = "Main UI Window";
         Parent root = FXMLLoader.load(getClass().getResource(viewFileName));
         stage.setTitle(windowTite);
