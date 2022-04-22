@@ -10,12 +10,12 @@ public class LoginApp extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
-    	String viewFileName = "/UI/loginPane.fxml";
+    	String viewFileName = "loginPane.fxml";
     	String windowTite = "Login Window";
         Parent root = FXMLLoader.load(getClass().getResource(viewFileName));
         stage.setTitle(windowTite);
-        stage.setScene(new Scene(root, 600, 400));
-        
+        stage.setScene(new Scene(root, 520,500));
+        stage.setResizable(false);
         stage.show();
 	}
 

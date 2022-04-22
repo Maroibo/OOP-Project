@@ -5,41 +5,27 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.control.TreeTableColumn?>
 <?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.BuyerMainController">
-   <top>
-      <HBox prefHeight="82.0" prefWidth="546.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="buyButton" mnemonicParsing="false" onAction="#onBuyClick" text="Buy">
-               <HBox.margin>
-                  <Insets left="10.0" top="25.0" />
-               </HBox.margin></Button>
-            <Button fx:id="dealsOnHoldButton" mnemonicParsing="false" onAction="#onHoldClick" text="Deals on Hold">
-               <HBox.margin>
-                  <Insets left="15.0" top="25.0" />
-               </HBox.margin></Button>
-            <Label text="Filter: ">
-               <HBox.margin>
-                  <Insets left="280.0" top="13.0" />
-               </HBox.margin></Label>
-            <ComboBox fx:id="filterComboBox" prefWidth="150.0">
-               <HBox.margin>
-                  <Insets top="10.0" />
-               </HBox.margin></ComboBox>
-         </children>
-      </HBox>
-   </top>
+<BorderPane style="-fx-background-image: url('Img/mainBackground3.jpg'); -fx-background-size: 900px;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.BuyerMainController">
    <center>
       <ScrollPane prefHeight="370.0" prefWidth="686.0" BorderPane.alignment="CENTER">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="369.0" prefWidth="683.0">
                <children>
-                  <TreeTableView prefHeight="355.0" prefWidth="670.0">
+                  <TreeTableView fx:id="ItemsTable" prefHeight="355.0" prefWidth="670.0">
                     <columns>
                       <TreeTableColumn fx:id="itemsColumn" prefWidth="178.39998704195023" text="Items" />
                       <TreeTableColumn fx:id="descriptionColumn" prefWidth="491.2000427246094" text="Description" />
@@ -50,4 +36,91 @@
         </content>
       </ScrollPane>
    </center>
+   <top>
+      <VBox prefHeight="100.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <ToolBar prefHeight="0.0" prefWidth="686.0" style="-fx-background-color: #152036;" VBox.vgrow="ALWAYS">
+              <items>
+                <Button fx:id="logoutButton" graphicTextGap="7.0" mnemonicParsing="false" onAction="#onLogoutClick" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" text="Log Out">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="Img/logout.png"></Image>
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Button>
+              </items>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" height="40.47" radius="9.6175" width="0.0" />
+               </effect>
+            </ToolBar>
+            <HBox prefHeight="0.0" prefWidth="666.0" spacing="20.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Button fx:id="buyButton" alignment="CENTER" graphicTextGap="7.0" mnemonicParsing="false" onAction="#onBuyClick" prefHeight="40.0" prefWidth="180.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: linear-gradient(from 14.511% 0.0% to 100.0% 100.0%, #5ec4ff 0.0%, #5ec4ff 0.6711%, #24a3ed 99.7763%, #24a3ed 100.0%); -fx-border-color: black; -fx-border-width: 1.5;" text="Buy" textAlignment="CENTER" textFill="WHITE" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="Img/buy.png"></Image>
+                           </image>
+                           <effect>
+                              <ColorAdjust brightness="1.0" saturation="-1.0">
+                                 <input>
+                                    <Glow level="0.74" />
+                                 </input>
+                              </ColorAdjust>
+                           </effect>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="dealsOnHoldButton" alignment="CENTER" graphicTextGap="7.0" mnemonicParsing="false" onAction="#onHoldClick" prefHeight="40.0" prefWidth="250.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black; -fx-border-width: 1.5;" text="Deals on Hold" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="Img/handshake.png"></Image>
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                     </padding>
+                  </Button>
+                  <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="217.0" text="Filter: " textFill="WHITE" translateX="10.0" translateY="10.0" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="filterComboBox" prefHeight="30.0" prefWidth="218.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black; -fx-border-width: 1.5;" translateY="5.0" HBox.hgrow="ALWAYS" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
 </BorderPane>

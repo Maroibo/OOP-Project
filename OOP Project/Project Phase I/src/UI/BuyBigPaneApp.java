@@ -14,10 +14,10 @@ public class BuyBigPaneApp extends Application {
     	String windowTite = "Buy Window";
         Parent root = FXMLLoader.load(getClass().getResource(viewFileName));
         stage.setTitle(windowTite);
-        stage.setScene(new Scene(root, 630, 700));
+        stage.setScene(new Scene(root, 640, 750));
+        stage.setResizable(false);
         stage.show();
 	}
-
 
 	public static void main(String[] args) {
 		launch(args);

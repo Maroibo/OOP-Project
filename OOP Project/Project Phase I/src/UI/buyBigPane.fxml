@@ -9,19 +9,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18">
+<BorderPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.BuyBigController">
    <top>
       <VBox prefHeight="71.0" prefWidth="638.0" BorderPane.alignment="CENTER">
          <children>
             <Label text="dd/mm/yyyy">
                <graphic>
-                  <Label text="Date Created: ">
+                  <Label alignment="CENTER" text="Date Created: ">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                      <padding>
-                        <Insets left="10.0" top="10.0" />
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </Label>
                </graphic>
@@ -36,10 +35,10 @@
                <graphic>
                   <Label text="Deal No: ">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                      <padding>
-                        <Insets left="10.0" />
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </Label>
                </graphic>
@@ -51,10 +50,10 @@
                <graphic>
                   <Label text="Invoice No: ">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                      <padding>
-                        <Insets left="10.0" />
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </Label>
                </graphic>
@@ -68,9 +67,9 @@
    <center>
       <AnchorPane prefHeight="460.0" prefWidth="638.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="226.0" layoutY="14.0" text="Item description">
+            <Label layoutX="226.0" layoutY="14.0" prefHeight="31.0" prefWidth="165.0" text="Item Description" AnchorPane.bottomAnchor="416.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="247.0" AnchorPane.topAnchor="14.0">
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="21.0" />
                </font>
             </Label>
             <Label layoutX="286.0" layoutY="56.0" text="XXX">
@@ -82,7 +81,7 @@
                <graphic>
                   <Label text="Invoice Status: ">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
                </graphic>
@@ -90,9 +89,9 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="222.0" layoutY="260.0" text="Seller description">
+            <Label layoutX="222.0" layoutY="260.0" text="Seller Description">
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="21.0" />
                </font>
             </Label>
             <Label layoutX="286.0" layoutY="300.0" text="XXX">
@@ -106,12 +105,16 @@
    <bottom>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Proceed">
+            <Button fx:id="proceedButton" alignment="CENTER" graphicTextGap="7.0" mnemonicParsing="false" onAction="#onProceedClick" prefHeight="35.0" prefWidth="100.0" style="-fx-background-radius: 20; -fx-background-color: linear-gradient(from 14.511% 0.0% to 100.0% 100.0%, #5ec4ff 0.0%, #5ec4ff 0.6711%, #24a3ed 99.7763%, #24a3ed 100.0%); -fx-border-radius: 20; -fx-border-color: black;" text="Proceed" textAlignment="CENTER" textFill="WHITE" translateX="490.0" translateY="40.0" HBox.hgrow="ALWAYS">
                <HBox.margin>
-                  <Insets left="550.0" top="66.0" />
+                  <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
                </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
             </Button>
          </children>
       </HBox>
    </bottom>
 </BorderPane>
+
