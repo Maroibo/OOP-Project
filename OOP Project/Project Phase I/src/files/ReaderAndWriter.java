@@ -15,9 +15,9 @@ import eQatarSystem.*;
 
 public class ReaderAndWriter {
 	public static EQatar sys;
-	private static ArrayList<Trader> t=new ArrayList<Trader>();
-	private static ArrayList<Deal> d=new ArrayList<Deal>();
-	private static ArrayList<Electronic> e=new ArrayList<Electronic>();
+	public static ArrayList<Trader> t=new ArrayList<Trader>();
+	public static ArrayList<Deal> d=new ArrayList<Deal>();
+	public static ArrayList<Electronic> e=new ArrayList<Electronic>();
 
 	public static void twrite(Trader trader) throws IOException {
 		FileOutputStream f=new FileOutputStream("trader.dat");
@@ -62,6 +62,22 @@ public class ReaderAndWriter {
 		EQatar.setDeals(d);
 		e=eread();
 		EQatar.setElectronics(e);
+	}
+	public static ArrayList<Integer> getElectronicsIds(){
+		if(e.size()>0) {
+		ArrayList<Integer> i=new ArrayList<Integer>();
+		for(Electronic elec: e) {
+			i.add(elec.getId());
+		}return i;}
+		return null;
+	}
+	public static ArrayList<String> getElectronicsToString(){
+		if(e.size()>0) {
+		ArrayList<String> i=new ArrayList<String>();
+		for(Electronic elec: e) {
+			i.add(elec.toString());
+		}return i;}
+		return null;
 	}
 
 }

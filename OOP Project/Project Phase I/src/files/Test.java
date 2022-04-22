@@ -15,8 +15,7 @@ public class Test {
 //		ReaderAndWriter.refresh();
 		System.out.println(ReaderAndWriter.tread());
 		System.out.println(ReaderAndWriter.dread());
-		System.out.println(ReaderAndWriter.eread());
-		
+		System.out.println(ReaderAndWriter.eread());	
 	}
 
 }

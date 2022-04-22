@@ -3,6 +3,10 @@ package UI;
 import java.io.IOException;
 import java.util.Optional;
 
+import eQatarSystem.Electronic;
+import files.ReaderAndWriter;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.TreeTableView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
@@ -22,15 +27,18 @@ public class BuyerMainController {
 
     @FXML
     private Button dealsOnHoldButton;
+    
+    @FXML
+    private TreeTableView<Electronic> ItemsTable;
 
     @FXML
-    private TreeTableColumn<?, ?> descriptionColumn;
+    private TreeTableColumn<Electronic,String> descriptionColumn;
 
     @FXML
     private ComboBox<ElectronicType> filterComboBox;
 
     @FXML
-    private TreeTableColumn<?, ?> itemsColumn;
+    private TreeTableColumn<Electronic,Integer> itemsColumn;
 
     @FXML
     void onBuyClick(ActionEvent event) {
@@ -63,7 +71,7 @@ public class BuyerMainController {
         }
     }
     @FXML
-    public void initialize() {
+    public void initialize() throws ClassNotFoundException, IOException {
     	filterComboBox.getItems().addAll(ElectronicType.values());
     }
 
