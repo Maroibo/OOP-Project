@@ -15,6 +15,7 @@ public class BuyerMainApp extends Application {
         Parent root = FXMLLoader.load(getClass().getResource(viewFileName));
         stage.setTitle(windowTite);
         stage.setScene(new Scene(root, 700, 450));
+        stage.setResizable(false);
         stage.show();
 	}
 

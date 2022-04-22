@@ -7,14 +7,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class LoginController {
 
     @FXML
-    private Label backButton;
+    private Button backButton;
 
     @FXML
     private Button clearButton;
@@ -23,10 +22,10 @@ public class LoginController {
     private TextField idTextField;
 
     @FXML
-    private TextField phoneTextField;
+    private Button loginButton;
 
     @FXML
-    private Button submitButton;
+    private TextField phoneNumberTextField;
 
     @FXML
     void onBackClicked(ActionEvent event) {
@@ -40,10 +39,14 @@ public class LoginController {
         }}
 
     @FXML
-    void onclearClicked(ActionEvent event) {
+    void onClearClicked(ActionEvent event) {
     	idTextField.setText("");
-    	phoneTextField.setText("");
+    	phoneNumberTextField.setText("");
+    }
+
+    @FXML
+    void onLoginButton(ActionEvent event) {
+
     }
 
 }
-    
