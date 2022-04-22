@@ -1,5 +1,7 @@
 package eQatarSystem;
 
+import java.io.Serializable;
+
 /**
  * @author Mhd Hadi Nouh - 201909591
  * @version 1.0.0
@@ -7,7 +9,7 @@ package eQatarSystem;
  * {@link VideoGame}
  * {@link Camera}
  */
-public class Electronic {
+public class Electronic implements Serializable{
 	private int id;
 	private double price;
 	private String brand;

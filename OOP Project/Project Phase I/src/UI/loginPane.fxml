@@ -61,7 +61,11 @@
    <bottom>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
+
             <Button fx:id="backButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onBackClicked" prefHeight="35.0" prefWidth="0.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" text="Back" textAlignment="CENTER" translateX="-10.0" translateY="40.0" HBox.hgrow="ALWAYS">
+
+            <Button fx:id="submitButton" mnemonicParsing="false" onAction="#onSubmitClicked" text="Submit">
+
                <HBox.margin>
                   <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
                </HBox.margin>

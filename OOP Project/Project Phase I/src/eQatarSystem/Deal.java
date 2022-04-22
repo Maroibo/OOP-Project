@@ -1,5 +1,6 @@
 package eQatarSystem;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -8,7 +9,7 @@ import java.util.Calendar;
  * @version 1.0.0
  * {@link Invoice}
  */
-public class Deal {
+public class Deal implements Serializable{
 	private static int totalDeals = 0;
 	private String dateCreated;
 	private int dealNo;
