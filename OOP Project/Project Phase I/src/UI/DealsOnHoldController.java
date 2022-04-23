@@ -20,13 +20,13 @@ public class DealsOnHoldController {
     private Button backButton;
 
     @FXML
-    private TreeTableColumn<?, ?> descriptionColumn;
+    private TreeTableColumn<?, ?> dealNoColumn;
 
     @FXML
-    private TreeTableColumn<?, ?> itemsColumn;
+    private TreeTableColumn<?, ?> electronicItemColumn;
 
     @FXML
-    private TreeTableColumn<?, ?> sellerColumn;
+    private TreeTableColumn<?, ?> sellerContactColumn;
 
     @FXML
     void onBackClick(ActionEvent event) {

@@ -8,27 +8,46 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.TreeTableView;
 import javafx.stage.Stage;
 
 public class SellerMainController {
 
     @FXML
+    private TreeTableView<?> ItemsTable;
+
+    @FXML
+    private TreeTableColumn<?, ?> brandColumn;
+
+    @FXML
     private Button closeDealButton;
 
     @FXML
-    private TreeTableColumn<?, ?> descriptionColumn1;
+    private TreeTableColumn<?, ?> colorColumn;
 
     @FXML
-    private TreeTableColumn<?, ?> itemsColumn1;
+    private TreeTableColumn<?, ?> idColumn;
+
+    @FXML
+    private TreeTableColumn<?, ?> itemsColumn;
 
     @FXML
     private Button logoutButton;
+
+    @FXML
+    private TreeTableColumn<?, ?> priceColumn;
 
     @FXML
     private Button saveButton;
 
     @FXML
     private Button sellButton;
+
+    @FXML
+    private TreeTableColumn<?, ?> soldColumn;
+
+    @FXML
+    private TreeTableColumn<?, ?> typeColumn;
 
     @FXML
     private Button updateButton;

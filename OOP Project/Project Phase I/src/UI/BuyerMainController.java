@@ -3,10 +3,6 @@ package UI;
 import java.io.IOException;
 import java.util.Optional;
 
-import eQatarSystem.Electronic;
-import files.ReaderAndWriter;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,32 +14,45 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.TreeTableView;
-import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 public class BuyerMainController {
 
+    @FXML
+    private TreeTableView<?> ItemsTable;
+
+    @FXML
+    private TreeTableColumn<?, ?> brandColumn;
 
     @FXML
     private Button buyButton;
 
     @FXML
-    private Button dealsOnHoldButton;
-    
-    @FXML
-    private TreeTableView<Electronic> ItemsTable;
+    private TreeTableColumn<?, ?> colorColumn;
 
     @FXML
-    private TreeTableColumn<Electronic,String> descriptionColumn;
+    private Button dealsOnHoldButton;
 
     @FXML
     private ComboBox<ElectronicType> filterComboBox;
 
     @FXML
-    private TreeTableColumn<Electronic,Integer> itemsColumn;
+    private TreeTableColumn<?, ?> idColumn;
+
+    @FXML
+    private TreeTableColumn<?, ?> itemsColumn;
 
     @FXML
     private Button logoutButton;
+
+    @FXML
+    private TreeTableColumn<?, ?> priceColumn;
+
+    @FXML
+    private TreeTableColumn<?, ?> soldColumn;
+
+    @FXML
+    private TreeTableColumn<?, ?> typeColumn;
 
     @FXML
     void onBuyClick(ActionEvent event) {

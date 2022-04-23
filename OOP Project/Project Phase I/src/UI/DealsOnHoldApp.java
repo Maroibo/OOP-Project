@@ -14,7 +14,7 @@ public class DealsOnHoldApp extends Application {
     	String windowTite = "Deals On Hold Window";
         Parent root = FXMLLoader.load(getClass().getResource(viewFileName));
         stage.setTitle(windowTite);
-        stage.setScene(new Scene(root, 700,450));
+        stage.setScene(new Scene(root, 650, 520));
         stage.setResizable(false);
         stage.show();
     }

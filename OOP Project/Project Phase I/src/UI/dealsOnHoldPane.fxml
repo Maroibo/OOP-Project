@@ -14,11 +14,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="518.0" prefWidth="678.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.DealsOnHoldController">
+<AnchorPane prefHeight="519.0" prefWidth="600.0" style="-fx-background-image: url('Img/mainBackground3.jpg'); -fx-background-size: 900px;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.DealsOnHoldController">
    <children>
       <HBox prefHeight="71.0" prefWidth="678.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label alignment="CENTER" graphicTextGap="8.0" text="Deals On Hold" textAlignment="CENTER" translateX="10.0">
+            <Label alignment="CENTER" graphicTextGap="8.0" text="Deals On Hold" textAlignment="CENTER" textFill="WHITE" translateX="10.0">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
@@ -28,15 +28,22 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="Img/handshake.png"></Image>
+                        <Image url="@../../../../../../Downloads/smartphone.png" />
                      </image>
+                     <effect>
+                        <ColorAdjust brightness="1.0" saturation="-1.0">
+                           <input>
+                              <Glow level="0.53" />
+                           </input>
+                        </ColorAdjust>
+                     </effect>
                   </ImageView>
                </graphic>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </Label>
-            <Button fx:id="backButton" alignment="CENTER" graphicTextGap="0.0" mnemonicParsing="false" onAction="#onBackClick" prefHeight="43.0" prefWidth="100.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: linear-gradient(from 14.511% 0.0% to 100.0% 100.0%, #5ec4ff 0.0%, #5ec4ff 0.6711%, #24a3ed 99.7763%, #24a3ed 100.0%); -fx-border-color: black; -fx-border-width: 1.5;" text="Back" textAlignment="CENTER" textFill="WHITE" translateX="325.0" translateY="4.0" HBox.hgrow="ALWAYS">
+            <Button fx:id="backButton" alignment="CENTER" graphicTextGap="0.0" mnemonicParsing="false" onAction="#onBackClick" prefHeight="43.0" prefWidth="100.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: linear-gradient(from 14.511% 0.0% to 100.0% 100.0%, #5ec4ff 0.0%, #5ec4ff 0.6711%, #24a3ed 99.7763%, #24a3ed 100.0%); -fx-border-color: black; -fx-border-width: 1.5;" text="Back" textAlignment="CENTER" textFill="WHITE" translateX="310.0" translateY="4.0" HBox.hgrow="ALWAYS">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
@@ -46,7 +53,7 @@
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" translateY="1.0">
                      <image>
-                        <Image url="Img/back.png"></Image>
+                        <Image url="@../../../../../../Downloads/smartphone.png" />
                      </image>
                      <effect>
                         <ColorAdjust brightness="1.0" saturation="-1.0">
@@ -63,17 +70,16 @@
             </Button>
          </children>
       </HBox>
-      <ScrollPane layoutY="70.0" prefHeight="449.0" prefWidth="678.0">
+      <ScrollPane layoutY="70.0" prefHeight="449.0" prefWidth="655.0">
          <content>
-            <TreeTableView fx:id="DealsTable" prefHeight="450.0" prefWidth="678.0">
+            <TreeTableView fx:id="DealsTable" prefHeight="450.0" prefWidth="641.0">
               <columns>
-                <TreeTableColumn fx:id="itemsColumn" prefWidth="97.59996873140335" text="Items" />
-                <TreeTableColumn fx:id="descriptionColumn" prefWidth="404.0000305175781" text="Description" />
-                  <TreeTableColumn fx:id="sellerColumn" prefWidth="161.5999755859375" text="Seller Contact" />
+                <TreeTableColumn fx:id="dealNoColumn" minWidth="100.0" prefWidth="200.0" resizable="false" text="Deal Number" />
+                <TreeTableColumn fx:id="electronicItemColumn" prefWidth="220.0" resizable="false" text="Electronic Item" />
+                  <TreeTableColumn fx:id="sellerContactColumn" prefWidth="220.0" resizable="false" text="Seller Contact Information" />
               </columns>
             </TreeTableView>
          </content>
       </ScrollPane>
    </children>
 </AnchorPane>
-

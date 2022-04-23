@@ -17,31 +17,29 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane style="-fx-background-image: url('Img/mainBackground3.jpg'); -fx-background-size: 700px;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.SellerMainController">
+<BorderPane prefHeight="515.0" prefWidth="736.0" style="-fx-background-image: url('Img/mainBackground3.jpg'); -fx-background-size: 750px;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.SellerMainController">
    <center>
       <ScrollPane hbarPolicy="ALWAYS" prefHeight="370.0" prefWidth="686.0" vbarPolicy="ALWAYS" BorderPane.alignment="CENTER">
-         <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="369.0" prefWidth="683.0">
-               <children>
-                  <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="368.0" prefWidth="686.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <TreeTableView prefHeight="355.0" prefWidth="670.0">
-                           <columns>
-                              <TreeTableColumn fx:id="itemsColumn1" prefWidth="178.39998704195023" text="Items" />
-                              <TreeTableColumn fx:id="descriptionColumn1" prefWidth="491.2000427246094" text="Description" />
-                           </columns>
-                        </TreeTableView>
-                     </children>
-                  </HBox>
-               </children>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </AnchorPane>
-         </content>
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
+         <content>
+            <AnchorPane prefHeight="355.0" prefWidth="719.0">
+               <children>
+                  <TreeTableView fx:id="ItemsTable" prefHeight="355.0" prefWidth="723.0">
+                     <columns>
+                        <TreeTableColumn fx:id="itemsColumn" prefWidth="120.0" text="Items" />
+                        <TreeTableColumn fx:id="typeColumn" prefWidth="100.0" text="Type" />
+                        <TreeTableColumn fx:id="idColumn" maxWidth="4000.0" prefWidth="100.0" text="ID" />
+                        <TreeTableColumn fx:id="priceColumn" maxWidth="4000.0" prefWidth="100.0" text="Price" />
+                        <TreeTableColumn fx:id="brandColumn" maxWidth="4000.0" prefWidth="100.0" text="Brand" />
+                        <TreeTableColumn fx:id="colorColumn" maxWidth="4000.0" prefWidth="100.0" text="Color" />
+                        <TreeTableColumn fx:id="soldColumn" maxWidth="4000.0" prefWidth="100.0" text="Sold" />
+                     </columns>
+                  </TreeTableView>
+               </children>
+            </AnchorPane>
+         </content>
       </ScrollPane>
    </center>
    <top>
@@ -53,7 +51,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="Img/logout.png"></Image>
+                              <Image url="@../../../../../../Downloads/logout.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -87,7 +85,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="Img/sell.png"></Image>
+                              <Image url="@../../../../../../Downloads/smartphone.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -102,7 +100,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="Img/update.png"></Image>
+                              <Image url="@../../../../../../Downloads/smartphone.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -117,7 +115,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="Img/handshake.png"></Image>
+                              <Image url="@../../../../../../Downloads/smartphone.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -132,7 +130,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="Img/save.png"></Image>
+                              <Image url="@../../../../../../Downloads/smartphone.png" />
                            </image>
                            <effect>
                               <ColorAdjust brightness="1.0" saturation="-1.0">

@@ -14,7 +14,7 @@ public class BuyerMainApp extends Application {
     	String windowTite = "Buyer UI Window";
         Parent root = FXMLLoader.load(getClass().getResource(viewFileName));
         stage.setTitle(windowTite);
-        stage.setScene(new Scene(root, 685,500));
+        stage.setScene(new Scene(root, 735, 515));
         stage.setResizable(false);
         stage.show();
 	}
