@@ -1,20 +1,15 @@
 package UI;
 
-
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 
-public class MainController  {
+public class MainController {
 
     @FXML
     private Button loginButton;
@@ -24,7 +19,7 @@ public class MainController  {
 
     @FXML
     void onLoginClick(ActionEvent event) {
-        try {
+        try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("loginPane.fxml"));
             Stage stage = (Stage) loginButton.getScene().getWindow();
             Scene scene = new Scene(loader.load());

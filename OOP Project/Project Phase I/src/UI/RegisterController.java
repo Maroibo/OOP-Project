@@ -4,28 +4,26 @@ import java.io.IOException;
 import java.util.Optional;
 
 import eQatarSystem.Trader;
+import files.ReaderAndWriter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.stage.Window;
-import files.*;
 
 public class RegisterController {
 
     @FXML
     private TextField adressTextField;
-    @FXML
-    private Button cancelButton;
 
+    @FXML
+    private Button backButton;
 
     @FXML
     private TextField idTextField;
@@ -37,30 +35,29 @@ public class RegisterController {
     private TextField phoneTextField;
 
     @FXML
-    private ComboBox<String> traderTypeComboBox;
-    
-    @FXML
-    private Button submitButton;
+    private Button registerButton;
 
     @FXML
-    void onCanelClick(ActionEvent event) {
+    private ComboBox<String> traderTypeComboBox;
+
+    @FXML
+    void onBackClick(ActionEvent event) {
     	Alert alert=new Alert(AlertType.CONFIRMATION);
     	alert.setTitle("Canelation Panel");
-    	alert.setHeaderText("Are you sure?");
-    	alert.setContentText("Are you sure you want to cancel this form?");
+    	alert.setHeaderText("Are you sure you want to cancel this form?");
     	Optional<ButtonType> result=alert.showAndWait();
     	if(result.isPresent()&&result.get()==ButtonType.OK) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("mainPane.fxml"));
-                Stage stage = (Stage) cancelButton.getScene().getWindow();
+                Stage stage = (Stage) backButton.getScene().getWindow();
                 Scene scene = new Scene(loader.load());
                 stage.setScene(scene);
             }catch (IOException io){
                 io.printStackTrace();
             }
     	}
-    	
     }
+    
     @FXML
     void onSubmitClicked(ActionEvent event) throws ClassNotFoundException {
     	String name=nameTextField.getText();
@@ -77,7 +74,7 @@ public class RegisterController {
     		}
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("BuyerMainPane.fxml"));
-                Stage stage = (Stage) submitButton.getScene().getWindow();
+                Stage stage = (Stage) registerButton.getScene().getWindow();
                 Scene scene = new Scene(loader.load());
                 stage.setScene(scene);
             }catch (IOException io){
@@ -95,7 +92,6 @@ public class RegisterController {
     }
     @FXML
     public void initialize() {
-    	traderTypeComboBox.getItems().addAll("Buyer","Seller");
-    }
+    	traderTypeComboBox.getItems().addAll("Buyer", "Seller");
 
-}
+    }}

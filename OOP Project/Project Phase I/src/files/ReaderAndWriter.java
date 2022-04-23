@@ -63,21 +63,24 @@ public class ReaderAndWriter {
 		e=eread();
 		EQatar.setElectronics(e);
 	}
-	public static ArrayList<Integer> getElectronicsIds(){
-		if(e.size()>0) {
-		ArrayList<Integer> i=new ArrayList<Integer>();
-		for(Electronic elec: e) {
-			i.add(elec.getId());
-		}return i;}
-		return null;
+	public static void reset() throws ClassNotFoundException, IOException {
+		t=new ArrayList<Trader>();
+		d=new ArrayList<Deal>();
+		e=new ArrayList<Electronic>();
+		EQatar.setTraders(t);
+		EQatar.setDeals(d);
+		EQatar.setElectronics(e);
+		FileOutputStream f=new FileOutputStream("trader.dat");
+		ObjectOutputStream objOut=new ObjectOutputStream(f);
+		objOut.writeObject(t);
+		objOut.close();
+		FileOutputStream f1=new FileOutputStream("deal.dat");
+		ObjectOutputStream objOut1=new ObjectOutputStream(f1);
+		objOut1.writeObject(d);
+		objOut1.close();
+		FileOutputStream f2=new FileOutputStream("electronic.dat");
+		ObjectOutputStream objOut2=new ObjectOutputStream(f2);
+		objOut2.writeObject(e);
+		objOut2.close();	
 	}
-	public static ArrayList<String> getElectronicsToString(){
-		if(e.size()>0) {
-		ArrayList<String> i=new ArrayList<String>();
-		for(Electronic elec: e) {
-			i.add(elec.toString());
-		}return i;}
-		return null;
-	}
-
 }

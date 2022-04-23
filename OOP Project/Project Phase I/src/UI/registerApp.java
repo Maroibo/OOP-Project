@@ -12,7 +12,8 @@ public class registerApp extends Application {
     	String windowTite = "Registration Window";
         Parent root = FXMLLoader.load(getClass().getResource(viewFileName));
         stage.setTitle(windowTite);
-        stage.setScene(new Scene(root, 600, 400));
+        stage.setScene(new Scene(root, 520, 600));
+        stage.setResizable(false);
         stage.show();
 	}
 

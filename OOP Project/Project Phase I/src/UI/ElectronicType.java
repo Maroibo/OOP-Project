@@ -1,6 +1,5 @@
 package UI;
 
 public enum ElectronicType {
-VideoGame,Smartphone,
-Camera;
+VideoGame,Smartphone,Camera;
 }

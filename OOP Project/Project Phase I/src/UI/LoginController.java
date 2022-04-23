@@ -11,8 +11,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
@@ -20,7 +18,7 @@ import javafx.stage.Stage;
 public class LoginController {
 
     @FXML
-    private Label backButton;
+    private Button backButton;
 
     @FXML
     private Button clearButton;
@@ -29,13 +27,13 @@ public class LoginController {
     private TextField idTextField;
 
     @FXML
-    private TextField phoneTextField;
+    private Button loginButton;
 
     @FXML
-    private Button submitButton;
+    private TextField phoneNumberTextField;
 
     @FXML
-    void onBackClicked(ActionEvent event) {
+    void onBackClicked(ActionEvent event){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("mainPane.fxml"));
             Stage stage = (Stage) backButton.getScene().getWindow();
@@ -46,12 +44,13 @@ public class LoginController {
         }}
 
     @FXML
-    void onclearClicked(ActionEvent event) {
+    void onClearClicked(ActionEvent event) {
     	idTextField.setText("");
-    	phoneTextField.setText("");
+    	phoneNumberTextField.setText("");
     }
+
     @FXML
-    void onSubmitClicked(ActionEvent event) throws ClassNotFoundException, IOException {
+    void onLoginButton(ActionEvent event) throws ClassNotFoundException, IOException {
     	ReaderAndWriter.refresh();
     	Trader t=ReaderAndWriter.sys.findTrader(Integer.parseInt(idTextField.getText()));
     	if(t!=null) {
@@ -75,8 +74,6 @@ public class LoginController {
         	alert.setContentText("Id or Phone number is incorrect");
         	alert.showAndWait();
     	}
-    			
     }
 
 }
-    
