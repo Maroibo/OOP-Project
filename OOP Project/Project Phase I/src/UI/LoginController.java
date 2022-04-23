@@ -64,6 +64,15 @@ public class LoginController {
     		        }catch (IOException io){
     		            io.printStackTrace();
     		        }
+    			}if(t.isSeller()) {
+    		        try {
+    		            FXMLLoader loader = new FXMLLoader(getClass().getResource("SellerMainPane.fxml"));
+    		            Stage stage = (Stage) backButton.getScene().getWindow();
+    		            Scene scene = new Scene(loader.load());
+    		            stage.setScene(scene);
+    		        }catch (IOException io){
+    		            io.printStackTrace();
+    		        }
     			}
     				
     		}

@@ -87,7 +87,16 @@ public class RegisterController {
 			ReaderAndWriter.twrite(t1);
 		} catch (IOException e) {
 			e.printStackTrace();
-		}}
+		}            
+    	try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("SellerMainPane.fxml"));
+            Stage stage = (Stage) registerButton.getScene().getWindow();
+            Scene scene = new Scene(loader.load());
+            stage.setScene(scene);
+        }catch (IOException io){
+            io.printStackTrace();
+        }
+    	}
     	
     }
     @FXML
