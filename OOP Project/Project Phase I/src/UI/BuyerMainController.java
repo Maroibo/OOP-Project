@@ -112,7 +112,7 @@ public class BuyerMainController {
     	soldColumn.setCellValueFactory(new PropertyValueFactory("isSold"));
     	ReaderAndWriter.refresh();
     	ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.sys.getElectronics());
-    	ItemsTable.setItems(list);
+    	//ItemsTable.setItems(list);
     	
     }
 
