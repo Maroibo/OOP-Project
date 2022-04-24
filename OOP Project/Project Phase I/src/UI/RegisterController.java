@@ -69,6 +69,7 @@ public class RegisterController {
         	try {
         		ReaderAndWriter.refresh();
     			ReaderAndWriter.twrite(t1);
+    			ReaderAndWriter.refresh();
     		} catch (IOException e) {
     			e.printStackTrace();
     		}
@@ -85,6 +86,7 @@ public class RegisterController {
     	try {
     		ReaderAndWriter.refresh();
 			ReaderAndWriter.twrite(t1);
+			ReaderAndWriter.refresh();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}            

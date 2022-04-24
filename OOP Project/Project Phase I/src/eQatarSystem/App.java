@@ -16,7 +16,7 @@ public class App {
 		Electronic e4 = new VideoGame(4, 38.2, "Epic Games", "Black", "64", "567", "64", "86", "234");
 		Electronic e5 = new Smartphone(5, 1500.7, "Apple", "White", "128", "6.7", "12");
 		Electronic e6 = new Smartphone(6, 1200.2, "Samsung", "Pink","256", "7.0", "108");
-		Electronic e7 = new Electronic(7, 28.1, "LG", "Brown");
+		//Electronic e7 = new Electronic(7, 28.1, "LG", "Brown");
 		
 		t1.addElectronic(e1);
 		t1.addElectronic(e2);
@@ -25,7 +25,7 @@ public class App {
 		t3.addElectronic(e2);
 		t3.addElectronic(e4);
 		t4.addElectronic(e5);
-		t4.addElectronic(e7);
+		//t4.addElectronic(e7);
 		
 		System.out.println("We registered the following traders:-");
 		System.out.println("--------------------------------------");
@@ -34,8 +34,8 @@ public class App {
 		System.out.println(t3);
 		System.out.println(t4);
 		
-		Electronic e8 = new Electronic(2, 50.6, "HiSense", "Silver");
-		t1.modifyProperties(e8);
+		//Electronic e8 = new Electronic(2, 50.6, "HiSense", "Silver");
+		//t1.modifyProperties(e8);
 		System.out.println("The trader after modifying the properties:\n" + "--------------------------------------");
 		System.out.println(t1);
 		
@@ -51,12 +51,12 @@ public class App {
 		System.out.println("--------------------------");
 
 		EQatar.addElectronic(e1);
-		EQatar.addElectronic(e8);
+		//EQatar.addElectronic(e8);
 		EQatar.addElectronic(e3);
 		EQatar.addElectronic(e4);
 		EQatar.addElectronic(e5);
 		EQatar.addElectronic(e6);
-		EQatar.addElectronic(e7);
+		//EQatar.addElectronic(e7);
 		EQatar.addTrader(t1);
 		EQatar.addTrader(t2);
 		EQatar.addTrader(t3);
@@ -80,7 +80,7 @@ public class App {
 		
 		System.out.println("Now we are creating deals:");
 		System.out.println("-----------------------------------------");
-		EQatar.createDeal(t3, e7, "2022-04-14");
+		//EQatar.createDeal(t3, e7, "2022-04-14");
 		EQatar.createDeal(t3, e6, "2022-02-05");
 		EQatar.createDeal(t3, e5, "2022-06-25");
 		EQatar.createDeal(t3, e4, "2022-10-03");

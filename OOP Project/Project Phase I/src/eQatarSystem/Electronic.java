@@ -9,7 +9,8 @@ import java.io.Serializable;
  * {@link VideoGame}
  * {@link Camera}
  */
-public class Electronic implements Serializable{
+public abstract class Electronic implements Serializable{
+	private String type;
 	private int id;
 	private double price;
 	private String brand;
@@ -17,6 +18,7 @@ public class Electronic implements Serializable{
 	private boolean isSold;
 	
 	public Electronic(int id, double price, String brand, String color) {
+		this.type=this.getClass().getSimpleName();
 		this.id = id;
 		this.price = price;
 		this.brand = brand;

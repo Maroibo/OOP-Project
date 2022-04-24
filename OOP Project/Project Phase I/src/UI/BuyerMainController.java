@@ -3,6 +3,11 @@ package UI;
 import java.io.IOException;
 import java.util.Optional;
 
+import eQatarSystem.Electronic;
+import eQatarSystem.Trader;
+import files.ReaderAndWriter;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,21 +19,22 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.TreeTableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 public class BuyerMainController {
 
     @FXML
-    private TreeTableView<?> ItemsTable;
+    private TreeTableView<Electronic> ItemsTable;
 
     @FXML
-    private TreeTableColumn<?, ?> brandColumn;
+    private TreeTableColumn<Electronic, String> brandColumn;
 
     @FXML
     private Button buyButton;
 
     @FXML
-    private TreeTableColumn<?, ?> colorColumn;
+    private TreeTableColumn<Electronic,String> colorColumn;
 
     @FXML
     private Button dealsOnHoldButton;
@@ -37,22 +43,19 @@ public class BuyerMainController {
     private ComboBox<ElectronicType> filterComboBox;
 
     @FXML
-    private TreeTableColumn<?, ?> idColumn;
-
-    @FXML
-    private TreeTableColumn<?, ?> itemsColumn;
+    private TreeTableColumn<Electronic,Integer> idColumn;
 
     @FXML
     private Button logoutButton;
 
     @FXML
-    private TreeTableColumn<?, ?> priceColumn;
+    private TreeTableColumn<Electronic, Double> priceColumn;
 
     @FXML
-    private TreeTableColumn<?, ?> soldColumn;
+    private TreeTableColumn<Electronic, Boolean> soldColumn;
 
     @FXML
-    private TreeTableColumn<?, ?> typeColumn;
+    private TreeTableColumn<Electronic,String > typeColumn;
 
     @FXML
     void onBuyClick(ActionEvent event) {
@@ -97,9 +100,20 @@ public class BuyerMainController {
         }
     }
     
+    
     @FXML
     public void initialize() throws ClassNotFoundException, IOException {
     	filterComboBox.getItems().addAll(ElectronicType.values());
+    	typeColumn.setCellValueFactory(new PropertyValueFactory("type"));
+    	idColumn.setCellValueFactory(new PropertyValueFactory("id"));
+    	priceColumn.setCellValueFactory(new PropertyValueFactory("price"));
+    	brandColumn.setCellValueFactory(new PropertyValueFactory("brand"));
+    	colorColumn.setCellValueFactory(new PropertyValueFactory("color"));
+    	soldColumn.setCellValueFactory(new PropertyValueFactory("isSold"));
+    	ReaderAndWriter.refresh();
+    	ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.sys.getElectronics());
+    	ItemsTable.setItems(list);
+    	
     }
 
 }

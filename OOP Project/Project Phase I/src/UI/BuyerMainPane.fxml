@@ -27,13 +27,12 @@
                <children>
                   <TreeTableView fx:id="ItemsTable" prefHeight="355.0" prefWidth="723.0">
                     <columns>
-                      <TreeTableColumn fx:id="itemsColumn" prefWidth="120.0" text="Items" />
-                      <TreeTableColumn fx:id="typeColumn" prefWidth="100.0" text="Type" />
-                        <TreeTableColumn fx:id="idColumn" maxWidth="4000.0" prefWidth="100.0" text="ID" />
-                        <TreeTableColumn fx:id="priceColumn" maxWidth="4000.0" prefWidth="100.0" text="Price" />
-                        <TreeTableColumn fx:id="brandColumn" maxWidth="4000.0" prefWidth="100.0" text="Brand" />
-                        <TreeTableColumn fx:id="colorColumn" maxWidth="4000.0" prefWidth="100.0" text="Color" />
-                        <TreeTableColumn fx:id="soldColumn" maxWidth="4000.0" prefWidth="100.0" text="Sold" />
+                      <TreeTableColumn fx:id="typeColumn" prefWidth="120.0" text="Type" />
+                        <TreeTableColumn fx:id="idColumn" maxWidth="4000.0" prefWidth="120.0" text="ID" />
+                        <TreeTableColumn fx:id="priceColumn" maxWidth="4000.0" prefWidth="120.0" text="Price" />
+                        <TreeTableColumn fx:id="brandColumn" maxWidth="4000.0" prefWidth="120.0" text="Brand" />
+                        <TreeTableColumn fx:id="colorColumn" maxWidth="4000.0" prefWidth="120.0" text="Color" />
+                        <TreeTableColumn fx:id="soldColumn" maxWidth="4000.0" prefWidth="120.0" text="Sold" />
                     </columns>
                   </TreeTableView>
                </children>
