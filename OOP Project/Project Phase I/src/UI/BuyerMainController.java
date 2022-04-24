@@ -88,7 +88,7 @@ public class BuyerMainController {
     }
 
     @FXML
-    void onLogoutClick(ActionEvent event) {
+    void onLogoutClick(ActionEvent event) throws IOException {
     	ReaderAndWriter.removeLog();
     	try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("loginPane.fxml"));
@@ -101,7 +101,7 @@ public class BuyerMainController {
     }
     
     @FXML
-    public void initialize() throws ClassNotFoundException, IOException {
+    void initialize() throws ClassNotFoundException, IOException {
     	filterComboBox.getItems().addAll(ElectronicType.values());
     	typeColomn.setCellValueFactory(new PropertyValueFactory("type"));
     	idColumn.setCellValueFactory(new PropertyValueFactory("id"));

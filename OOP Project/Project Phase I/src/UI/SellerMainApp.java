@@ -24,10 +24,5 @@ public class SellerMainApp extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
-//	@Override
-//	public void stop(){
-//	    System.out.println("Stage is closing");
-//	    // Save file
-//	}
 	
 }

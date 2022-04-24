@@ -18,7 +18,7 @@ public class ReaderAndWriter {
 	public static ArrayList<Trader> t=new ArrayList<Trader>();
 	public static ArrayList<Deal> d=new ArrayList<Deal>();
 	public static ArrayList<Electronic> e=new ArrayList<Electronic>();
-	public static ArrayList<Trader> l=new ArrayList<Trader>();
+	public static Trader loginTrader;
 
 	public static void twrite(Trader trader) throws IOException {
 		FileOutputStream f=new FileOutputStream("trader.dat");
@@ -63,13 +63,11 @@ public class ReaderAndWriter {
 		EQatar.setDeals(d);
 		e=eread();
 		EQatar.setElectronics(e);
-		l=lread();
 	}
 	public static void reset() throws ClassNotFoundException, IOException {
 		t=new ArrayList<Trader>();
 		d=new ArrayList<Deal>();
 		e=new ArrayList<Electronic>();
-		l=new ArrayList<Trader>();
 		EQatar.setTraders(t);
 		EQatar.setDeals(d);
 		EQatar.setElectronics(e);
@@ -85,36 +83,25 @@ public class ReaderAndWriter {
 		ObjectOutputStream objOut2=new ObjectOutputStream(f2);
 		objOut2.writeObject(e);
 		objOut2.close();
-		FileOutputStream f3=new FileOutputStream("log.dat");
-		ObjectOutputStream objOut3=new ObjectOutputStream(f3);
-		objOut3.writeObject(e);
-		objOut3.close();
 	}
 	public static void currentLog(Trader t) throws IOException {
-		l.add(t);
+		loginTrader=t;
 		FileOutputStream f2=new FileOutputStream("log.dat");
 		ObjectOutputStream objOut2=new ObjectOutputStream(f2);
-		objOut2.writeObject(l);
+		objOut2.writeObject(loginTrader);
 		objOut2.close();
 	}
-	public static void removeLog() {
-		if(l.size()>0)
-		l.remove(0);
+	public static void removeLog() throws IOException {
+		loginTrader=null;
+		FileOutputStream f2=new FileOutputStream("log.dat");
+		ObjectOutputStream objOut2=new ObjectOutputStream(f2);
+		objOut2.writeObject(loginTrader);
+		objOut2.close();
 	}
-	public static Trader getLog() {
-		if(l.size()>0)
-			return l.get(0);
-		return null;
-	}
-	public static ArrayList<Trader> lread() throws IOException, ClassNotFoundException{
+	public static Trader getLog() throws ClassNotFoundException, IOException {
 		FileInputStream f=new FileInputStream("log.dat");
 		ObjectInputStream objIn=new ObjectInputStream(f);
-		return (ArrayList<Trader>) objIn.readObject();
-	}
-	public static void lwrite() throws IOException {
-		FileOutputStream f=new FileOutputStream("log.dat");
-		ObjectOutputStream objOut=new ObjectOutputStream(f);
-		objOut.writeObject(l);
-		objOut.close();
+		 loginTrader=(Trader) objIn.readObject();
+		return loginTrader;
 	}
 }

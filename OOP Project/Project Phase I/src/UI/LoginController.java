@@ -59,7 +59,6 @@ public class LoginController {
     	Trader t=ReaderAndWriter.sys.findTrader(Integer.parseInt(idTextField.getText()));
     	if(t!=null) {
     		if(t.getId()==Integer.parseInt(idTextField.getText())&&t.getPhoneNumber()==Integer.parseInt(phoneNumberTextField.getText())) {
-    			ReaderAndWriter.refresh();
     			ReaderAndWriter.currentLog(t);
     			if(t.isBuyer()) {
     		        try {

@@ -84,7 +84,6 @@ public class RegisterController {
     	String adress=adressTextField.getText();
     	if(traderTypeComboBox.getValue().equals("Buyer")) {
     		Trader t1=new Trader(id,name,false,true,phone,adress);
-    		ReaderAndWriter.refresh();
     		ReaderAndWriter.currentLog(t1);
         	try {
         		ReaderAndWriter.refresh();
@@ -102,7 +101,6 @@ public class RegisterController {
             }
     	}if(traderTypeComboBox.getValue().equals("Seller")) {
     		Trader t1=new Trader(id,name,true,false,phone,adress);
-    		ReaderAndWriter.refresh();
     		ReaderAndWriter.currentLog(t1);
     	try {
     		ReaderAndWriter.refresh();

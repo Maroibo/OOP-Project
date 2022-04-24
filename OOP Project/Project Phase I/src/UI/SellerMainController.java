@@ -19,8 +19,6 @@ import javafx.stage.Stage;
 public class SellerMainController {
 
     @FXML
-    private TableView<Electronic> itemTable;
-    @FXML
     private TableColumn<Electronic, String> brandColumn1;
 
     @FXML
@@ -33,10 +31,13 @@ public class SellerMainController {
     private TableColumn<Electronic, Integer> idColumn1;
 
     @FXML
+    private TableView<Electronic> itemsTable;
+
+    @FXML
     private Button logoutButton;
 
     @FXML
-    private TableColumn<Electronic,Double> priceColumn1;
+    private TableColumn<Electronic, Double> priceColumn1;
 
     @FXML
     private Button saveButton;
@@ -45,10 +46,10 @@ public class SellerMainController {
     private Button sellButton;
 
     @FXML
-    private TableColumn<Electronic,Boolean> soldColumn1;
+    private TableColumn<Electronic, Boolean> soldColumn1;
 
     @FXML
-    private TableColumn<Electronic,String> typeColomn;
+    private TableColumn<Electronic, String> typeColomn;
 
     @FXML
     private Button updateButton;
@@ -66,7 +67,7 @@ public class SellerMainController {
     }
 
     @FXML
-    void onLogoutClick(ActionEvent event) {
+    void onLogoutClick(ActionEvent event) throws IOException {
     	ReaderAndWriter.removeLog();
     	try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("loginPane.fxml"));
@@ -77,7 +78,7 @@ public class SellerMainController {
             io.printStackTrace();
         }
     }
-    
+
     @FXML
     void onSaveClick(ActionEvent event) {
 
@@ -97,25 +98,20 @@ public class SellerMainController {
 
     @FXML
     void onUpdateClick(ActionEvent event) {
-    	try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("UpdateSmartphonePane.fxml"));
-            Stage stage = (Stage) updateButton.getScene().getWindow();
-            Scene scene = new Scene(loader.load());
-            stage.setScene(scene);
-        }catch (IOException io){
-            io.printStackTrace();
-        }
+
     }
     void initialize() throws ClassNotFoundException, IOException {
     	typeColomn.setCellValueFactory(new PropertyValueFactory("type"));
     	idColumn1.setCellValueFactory(new PropertyValueFactory("id"));
-        priceColumn1.setCellValueFactory(new PropertyValueFactory("price"));
-        brandColumn1.setCellValueFactory(new PropertyValueFactory("brand"));
-        colorColumn1.setCellValueFactory(new PropertyValueFactory("color"));
-        soldColumn1.setCellValueFactory(new PropertyValueFactory("isSold"));
+    	priceColumn1.setCellValueFactory(new PropertyValueFactory("price"));
+    	brandColumn1.setCellValueFactory(new PropertyValueFactory("brand"));
+    	colorColumn1.setCellValueFactory(new PropertyValueFactory("color"));
+    	soldColumn1.setCellValueFactory(new PropertyValueFactory("isSold"));
         ReaderAndWriter.refresh();
-        ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.getLog().getList());
-        itemTable.setItems(list);
+        ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.sys.getElectronics());
+        itemsTable.setItems(list);
     }
+    
 
 }
+
