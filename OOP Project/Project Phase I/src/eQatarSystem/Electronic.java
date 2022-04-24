@@ -18,7 +18,7 @@ public abstract class Electronic implements Serializable{
 	private boolean isSold;
 	
 	public Electronic(int id, double price, String brand, String color) {
-		this.type=this.getClass().getSimpleName();
+		this.type=this.getType();
 		this.id = id;
 		this.price = price;
 		this.brand = brand;
@@ -26,6 +26,19 @@ public abstract class Electronic implements Serializable{
 		this.isSold = isSold;
 	}
 	
+	public String getType() {
+		if(this.getClass().getSimpleName().equals("Camera"))
+			return "Camera";
+		else if(this.getClass().getSimpleName().equals("Smartphone"))
+			return "Smartphone";
+		else
+			return "Video Game";
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
 	//setter and getter for id
 	public int getId() {
 		return id;

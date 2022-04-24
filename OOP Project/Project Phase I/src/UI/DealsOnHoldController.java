@@ -7,26 +7,22 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TreeTableColumn;
-import javafx.scene.control.TreeTableView;
+import javafx.scene.control.TableColumn;
 import javafx.stage.Stage;
 
 public class DealsOnHoldController {
 
     @FXML
-    private TreeTableView<?> DealsTable;
-
-    @FXML
     private Button backButton;
 
     @FXML
-    private TreeTableColumn<?, ?> dealNoColumn;
+    private TableColumn<?, ?> dealNoColumn;
 
     @FXML
-    private TreeTableColumn<?, ?> electronicItemColumn;
+    private TableColumn<?, ?> electronicItemColumn;
 
     @FXML
-    private TreeTableColumn<?, ?> sellerContactColumn;
+    private TableColumn<?, ?> sellerContactColumn;
 
     @FXML
     void onBackClick(ActionEvent event) {

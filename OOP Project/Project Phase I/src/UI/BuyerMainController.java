@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.Optional;
 
 import eQatarSystem.Electronic;
-import eQatarSystem.Trader;
 import files.ReaderAndWriter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,24 +16,24 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.TreeTableColumn;
-import javafx.scene.control.TreeTableView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 public class BuyerMainController {
 
     @FXML
-    private TreeTableView<Electronic> ItemsTable;
-
+    private TableView<Electronic> itemsTable;
+    
     @FXML
-    private TreeTableColumn<Electronic, String> brandColumn;
+    private TableColumn<Electronic,String> brandColumn;
 
     @FXML
     private Button buyButton;
 
     @FXML
-    private TreeTableColumn<Electronic,String> colorColumn;
+    private TableColumn<Electronic,String> colorColumn;
 
     @FXML
     private Button dealsOnHoldButton;
@@ -43,19 +42,19 @@ public class BuyerMainController {
     private ComboBox<ElectronicType> filterComboBox;
 
     @FXML
-    private TreeTableColumn<Electronic,Integer> idColumn;
+    private TableColumn<Electronic,Integer> idColumn;
 
     @FXML
     private Button logoutButton;
 
     @FXML
-    private TreeTableColumn<Electronic, Double> priceColumn;
+    private TableColumn<Electronic,Double> priceColumn;
 
     @FXML
-    private TreeTableColumn<Electronic, Boolean> soldColumn;
+    private TableColumn<Electronic,Boolean> soldColumn;
 
     @FXML
-    private TreeTableColumn<Electronic,String > typeColumn;
+    private TableColumn<Electronic,String> typeColomn;
 
     @FXML
     void onBuyClick(ActionEvent event) {
@@ -90,6 +89,7 @@ public class BuyerMainController {
 
     @FXML
     void onLogoutClick(ActionEvent event) {
+    	ReaderAndWriter.removeLog();
     	try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("loginPane.fxml"));
             Stage stage = (Stage) logoutButton.getScene().getWindow();
@@ -100,20 +100,18 @@ public class BuyerMainController {
         }
     }
     
-    
     @FXML
     public void initialize() throws ClassNotFoundException, IOException {
     	filterComboBox.getItems().addAll(ElectronicType.values());
-    	typeColumn.setCellValueFactory(new PropertyValueFactory("type"));
+    	typeColomn.setCellValueFactory(new PropertyValueFactory("type"));
     	idColumn.setCellValueFactory(new PropertyValueFactory("id"));
-    	priceColumn.setCellValueFactory(new PropertyValueFactory("price"));
-    	brandColumn.setCellValueFactory(new PropertyValueFactory("brand"));
-    	colorColumn.setCellValueFactory(new PropertyValueFactory("color"));
-    	soldColumn.setCellValueFactory(new PropertyValueFactory("isSold"));
-    	ReaderAndWriter.refresh();
-    	ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.sys.getElectronics());
-    	//ItemsTable.setItems(list);
-    	
+        priceColumn.setCellValueFactory(new PropertyValueFactory("price"));
+        brandColumn.setCellValueFactory(new PropertyValueFactory("brand"));
+        colorColumn.setCellValueFactory(new PropertyValueFactory("color"));
+        soldColumn.setCellValueFactory(new PropertyValueFactory("isSold"));
+        ReaderAndWriter.refresh();
+        ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.sys.getElectronics());
+        itemsTable.setItems(list);
     }
 
 }

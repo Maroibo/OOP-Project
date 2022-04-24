@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 public class registerApp extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
-    	String viewFileName = "/UI/registrationPane.fxml";
+    	String viewFileName = "registrationPane.fxml";
     	String windowTite = "Registration Window";
         Parent root = FXMLLoader.load(getClass().getResource(viewFileName));
         stage.setTitle(windowTite);
