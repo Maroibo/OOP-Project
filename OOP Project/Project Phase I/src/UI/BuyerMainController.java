@@ -12,23 +12,19 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.TreeTableColumn;
-import javafx.scene.control.TreeTableView;
+import javafx.scene.control.TableColumn;
 import javafx.stage.Stage;
 
 public class BuyerMainController {
 
     @FXML
-    private TreeTableView<?> ItemsTable;
-
-    @FXML
-    private TreeTableColumn<?, ?> brandColumn;
+    private TableColumn<?, ?> brandColumn;
 
     @FXML
     private Button buyButton;
 
     @FXML
-    private TreeTableColumn<?, ?> colorColumn;
+    private TableColumn<?, ?> colorColumn;
 
     @FXML
     private Button dealsOnHoldButton;
@@ -37,22 +33,19 @@ public class BuyerMainController {
     private ComboBox<ElectronicType> filterComboBox;
 
     @FXML
-    private TreeTableColumn<?, ?> idColumn;
-
-    @FXML
-    private TreeTableColumn<?, ?> itemsColumn;
+    private TableColumn<?, ?> idColumn;
 
     @FXML
     private Button logoutButton;
 
     @FXML
-    private TreeTableColumn<?, ?> priceColumn;
+    private TableColumn<?, ?> priceColumn;
 
     @FXML
-    private TreeTableColumn<?, ?> soldColumn;
+    private TableColumn<?, ?> soldColumn;
 
     @FXML
-    private TreeTableColumn<?, ?> typeColumn;
+    private TableColumn<?, ?> typeColomn;
 
     @FXML
     void onBuyClick(ActionEvent event) {

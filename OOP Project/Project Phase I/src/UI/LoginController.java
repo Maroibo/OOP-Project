@@ -1,18 +1,19 @@
 package UI;
 
 import java.io.IOException;
-import java.util.Optional;
 
-import eQatarSystem.*;
+import eQatarSystem.Trader;
 import files.ReaderAndWriter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class LoginController {
@@ -31,6 +32,9 @@ public class LoginController {
 
     @FXML
     private TextField phoneNumberTextField;
+
+    @FXML
+    private Label registerLBL;
 
     @FXML
     void onBackClicked(ActionEvent event){
@@ -83,6 +87,18 @@ public class LoginController {
         	alert.setContentText("Id or Phone number is incorrect");
         	alert.showAndWait();
     	}
+    }
+
+    @FXML
+    void onRegisterLBLClicked(MouseEvent event) {
+    	try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("registrationPane.fxml"));
+            Stage stage = (Stage) registerLBL.getScene().getWindow();
+            Scene scene = new Scene(loader.load());
+            stage.setScene(scene);
+        }catch (IOException io){
+            io.printStackTrace();
+        }
     }
 
 }

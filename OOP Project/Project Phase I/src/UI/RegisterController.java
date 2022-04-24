@@ -14,7 +14,9 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class RegisterController {
@@ -24,6 +26,9 @@ public class RegisterController {
 
     @FXML
     private Button backButton;
+
+    @FXML
+    private Button clearButton;
 
     @FXML
     private TextField idTextField;
@@ -36,6 +41,9 @@ public class RegisterController {
 
     @FXML
     private Button registerButton;
+
+    @FXML
+    private Label signInLBL;
 
     @FXML
     private ComboBox<String> traderTypeComboBox;
@@ -57,9 +65,19 @@ public class RegisterController {
             }
     	}
     }
-    
+
     @FXML
-    void onSubmitClicked(ActionEvent event) throws ClassNotFoundException {
+    void onClearClicked(ActionEvent event) {
+    	idTextField.setText("");
+    	nameTextField.setText("");
+    	adressTextField.setText("");
+    	phoneTextField.setText("");
+    	traderTypeComboBox.setPromptText("Choose Type of Trader");
+    	
+    }
+
+    @FXML
+    void onRegisterClick(ActionEvent event) throws ClassNotFoundException {
     	String name=nameTextField.getText();
     	int id=Integer.parseInt(idTextField.getText());
     	int phone=Integer.parseInt(phoneTextField.getText());
@@ -97,10 +115,24 @@ public class RegisterController {
             io.printStackTrace();
         }
     	}
-    	
     }
+
+    @FXML
+    void onSignInLBLClicked(MouseEvent event) {
+    	try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("loginPane.fxml"));
+            Stage stage = (Stage) signInLBL.getScene().getWindow();
+            Scene scene = new Scene(loader.load());
+            stage.setScene(scene);
+        }catch (IOException io){
+            io.printStackTrace();
+        }
+    }
+    
     @FXML
     public void initialize() {
     	traderTypeComboBox.getItems().addAll("Buyer", "Seller");
 
-    }}
+    }
+
+}

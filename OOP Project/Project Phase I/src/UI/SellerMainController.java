@@ -7,35 +7,28 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TreeTableColumn;
-import javafx.scene.control.TreeTableView;
+import javafx.scene.control.TableColumn;
 import javafx.stage.Stage;
 
 public class SellerMainController {
 
     @FXML
-    private TreeTableView<?> ItemsTable;
-
-    @FXML
-    private TreeTableColumn<?, ?> brandColumn;
+    private TableColumn<?, ?> brandColumn1;
 
     @FXML
     private Button closeDealButton;
 
     @FXML
-    private TreeTableColumn<?, ?> colorColumn;
+    private TableColumn<?, ?> colorColumn1;
 
     @FXML
-    private TreeTableColumn<?, ?> idColumn;
-
-    @FXML
-    private TreeTableColumn<?, ?> itemsColumn;
+    private TableColumn<?, ?> idColumn1;
 
     @FXML
     private Button logoutButton;
 
     @FXML
-    private TreeTableColumn<?, ?> priceColumn;
+    private TableColumn<?, ?> priceColumn1;
 
     @FXML
     private Button saveButton;
@@ -44,10 +37,10 @@ public class SellerMainController {
     private Button sellButton;
 
     @FXML
-    private TreeTableColumn<?, ?> soldColumn;
+    private TableColumn<?, ?> soldColumn1;
 
     @FXML
-    private TreeTableColumn<?, ?> typeColumn;
+    private TableColumn<?, ?> typeColomn;
 
     @FXML
     private Button updateButton;

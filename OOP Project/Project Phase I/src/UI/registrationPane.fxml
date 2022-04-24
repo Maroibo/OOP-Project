@@ -62,7 +62,7 @@
             <TextField fx:id="phoneTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="265.0" promptText="Enter Your Phone Number" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS" />
             <TextField fx:id="adressTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="266.0" promptText="Enter Your Address" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS" />
             <ComboBox fx:id="traderTypeComboBox" prefHeight="35.0" prefWidth="265.0" promptText="Choose The Type Of Trader" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="ALWAYS" />
-            <Button fx:id="registerButton" mnemonicParsing="false" onAction="#onSubmitClicked" prefHeight="35.0" prefWidth="265.0" style="-fx-background-radius: 20; -fx-background-color: linear-gradient(from 14.511% 0.0% to 100.0% 100.0%, #5ec4ff 0.0%, #5ec4ff 0.6711%, #24a3ed 99.7763%, #24a3ed 100.0%); -fx-border-radius: 20; -fx-border-color: black;" text="Sign Up" textFill="WHITE" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS">
+            <Button fx:id="registerButton" mnemonicParsing="false" onAction="#onRegisterClick" prefHeight="35.0" prefWidth="265.0" style="-fx-background-radius: 20; -fx-background-color: linear-gradient(from 14.511% 0.0% to 100.0% 100.0%, #5ec4ff 0.0%, #5ec4ff 0.6711%, #24a3ed 99.7763%, #24a3ed 100.0%); -fx-border-radius: 20; -fx-border-color: black;" text="Sign Up" textFill="WHITE" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -89,7 +89,7 @@
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../Pictures/math%20lab%20first%20pic.png" />
+                        <Image url="@../../../../../../Downloads/register.png" />
                      </image>
                      <effect>
                         <ColorAdjust brightness="1.0" saturation="-1.0">
@@ -123,16 +123,27 @@
                   <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Label text="Already Have An Account?" textFill="WHITE" translateX="90.0" translateY="-15.0" HBox.hgrow="ALWAYS">
+            <Label text="Already Have an Account?" textFill="WHITE" translateX="125.0" translateY="-15.0" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="System Bold" size="11.0" />
                </font>
             </Label>
-            <Label text="Click On Back Button" textFill="#2f94ed" translateX="98.0" translateY="-15.0" HBox.hgrow="ALWAYS">
+            <Label fx:id="signInLBL" onMouseClicked="#onSignInLBLClicked" text="Sign In" textFill="#2f94ed" translateX="135.0" translateY="-15.0" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="System Bold" size="11.0" />
                </font>
+               <effect>
+                  <Glow level="0.25" />
+               </effect>
             </Label>
+            <Button fx:id="clearButton" alignment="CENTER" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onClearClicked" prefHeight="35.0" prefWidth="100.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" text="Clear" textAlignment="CENTER" translateX="55.0" translateY="40.0" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
+               </HBox.margin>
+            </Button>
          </children>
       </HBox>
    </bottom>

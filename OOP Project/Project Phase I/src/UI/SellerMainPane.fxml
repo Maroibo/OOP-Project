@@ -3,9 +3,9 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.ToolBar?>
-<?import javafx.scene.control.TreeTableColumn?>
-<?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
@@ -26,17 +26,16 @@
          <content>
             <AnchorPane prefHeight="355.0" prefWidth="719.0">
                <children>
-                  <TreeTableView fx:id="ItemsTable" prefHeight="355.0" prefWidth="723.0">
+                  <TableView prefHeight="360.0" prefWidth="722.0">
                      <columns>
-                        <TreeTableColumn fx:id="itemsColumn" prefWidth="120.0" text="Items" />
-                        <TreeTableColumn fx:id="typeColumn" prefWidth="100.0" text="Type" />
-                        <TreeTableColumn fx:id="idColumn" maxWidth="4000.0" prefWidth="100.0" text="ID" />
-                        <TreeTableColumn fx:id="priceColumn" maxWidth="4000.0" prefWidth="100.0" text="Price" />
-                        <TreeTableColumn fx:id="brandColumn" maxWidth="4000.0" prefWidth="100.0" text="Brand" />
-                        <TreeTableColumn fx:id="colorColumn" maxWidth="4000.0" prefWidth="100.0" text="Color" />
-                        <TreeTableColumn fx:id="soldColumn" maxWidth="4000.0" prefWidth="100.0" text="Sold" />
+                        <TableColumn fx:id="typeColomn" prefWidth="120.0" text="Type" />
+                        <TableColumn fx:id="idColumn1" prefWidth="120.0" text="ID" />
+                        <TableColumn fx:id="priceColumn1" prefWidth="120.0" text="Price" />
+                        <TableColumn fx:id="brandColumn1" prefWidth="120.0" text="Brand" />
+                        <TableColumn fx:id="colorColumn1" prefWidth="120.0" text="Color" />
+                        <TableColumn fx:id="soldColumn1" prefWidth="120.0" text="Sold" />
                      </columns>
-                  </TreeTableView>
+                  </TableView>
                </children>
             </AnchorPane>
          </content>
@@ -47,7 +46,7 @@
          <children>
             <ToolBar prefHeight="0.0" prefWidth="686.0" style="-fx-background-color: #152036;">
                <items>
-                  <Button fx:id="logoutButton" graphicTextGap="7.0" mnemonicParsing="false" onAction="#onLogoutClick" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" text="Log Out">
+                  <Button fx:id="logoutButton" graphicTextGap="7.0" mnemonicParsing="false" onAction="#onLogoutClick" prefHeight="39.0" prefWidth="119.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" text="Log Out" translateX="10.0">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                            <image>

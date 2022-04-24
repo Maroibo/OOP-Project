@@ -48,6 +48,9 @@
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
+               <effect>
+                  <Glow level="0.16" />
+               </effect>
             </Button>
          </children>
          <BorderPane.margin>
@@ -69,7 +72,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="clearButton" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClearClicked" prefHeight="35.0" prefWidth="0.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" text="Clear" textAlignment="CENTER" translateX="240.0" translateY="40.0" HBox.hgrow="ALWAYS">
+            <Button fx:id="clearButton" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClearClicked" prefHeight="35.0" prefWidth="0.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" text="Clear" textAlignment="CENTER" translateX="225.0" translateY="40.0" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
                </HBox.margin>
@@ -77,15 +80,18 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <Label text="Not Registered Yet?" textFill="WHITE" translateX="-33.0" translateY="-50.0" HBox.hgrow="ALWAYS">
+            <Label text="Not Registered Yet?" textFill="WHITE" translateX="-42.0" translateY="-50.0" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label text="Click On Back Button" textFill="#2f94ed" translateX="-26.0" translateY="-50.0">
+            <Label fx:id="registerLBL" onMouseClicked="#onRegisterLBLClicked" text="Create an Account" textFill="#2f94ed" translateX="-35.0" translateY="-50.0" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
+               <effect>
+                  <Glow level="0.25" />
+               </effect>
             </Label>
          </children>
       </HBox>
