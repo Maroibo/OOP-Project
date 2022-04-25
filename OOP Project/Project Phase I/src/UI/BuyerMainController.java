@@ -110,7 +110,7 @@ public class BuyerMainController {
         colorColumn.setCellValueFactory(new PropertyValueFactory("color"));
         soldColumn.setCellValueFactory(new PropertyValueFactory("isSold"));
         ReaderAndWriter.refresh();
-        ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.sys.getElectronics());
+        ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.getLog().getElectronics());
         itemsTable.setItems(list);
     }
 
