@@ -102,7 +102,14 @@ public class ReaderAndWriter {
 		FileInputStream f=new FileInputStream("log.dat");
 		ObjectInputStream objIn=new ObjectInputStream(f);
 		 loginTrader=(Trader) objIn.readObject();
-		 
-		return loginTrader;
-	}
+			 return loginTrader;
+}	
+	public static ArrayList<Deal> getDealsOnHold(Trader trader) throws ClassNotFoundException, IOException{
+		ReaderAndWriter.refresh();
+		ArrayList<Deal> deals=new ArrayList<Deal>();
+		for(Deal d: sys.getDeals()) {
+			if(d.getIsClosed()==false&&d.getSeller().getId()==trader.getId())
+				deals.add(d);
+		}return deals;
+}
 }

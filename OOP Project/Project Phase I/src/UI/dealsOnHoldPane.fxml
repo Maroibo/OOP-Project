@@ -74,7 +74,7 @@
          <content>
             <AnchorPane prefHeight="451.0" prefWidth="655.0">
                <children>
-                  <TableView prefHeight="433.0" prefWidth="639.0">
+                  <TableView fx:id="dealsTable" prefHeight="433.0" prefWidth="639.0">
                     <columns>
                       <TableColumn fx:id="dealNoColumn" prefWidth="170.0" text="Deal Number" />
                       <TableColumn fx:id="electronicItemColumn" prefWidth="300.0" text="Electronic Item" />
