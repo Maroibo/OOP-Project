@@ -102,6 +102,7 @@ public class ReaderAndWriter {
 		FileInputStream f=new FileInputStream("log.dat");
 		ObjectInputStream objIn=new ObjectInputStream(f);
 		 loginTrader=(Trader) objIn.readObject();
+		 
 		return loginTrader;
 	}
 }
