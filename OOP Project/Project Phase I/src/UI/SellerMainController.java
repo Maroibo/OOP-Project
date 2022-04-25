@@ -100,6 +100,8 @@ public class SellerMainController {
     void onUpdateClick(ActionEvent event) {
 
     }
+    
+    @FXML
     void initialize() throws ClassNotFoundException, IOException {
     	typeColomn.setCellValueFactory(new PropertyValueFactory("type"));
     	idColumn1.setCellValueFactory(new PropertyValueFactory("id"));
@@ -108,7 +110,7 @@ public class SellerMainController {
     	colorColumn1.setCellValueFactory(new PropertyValueFactory("color"));
     	soldColumn1.setCellValueFactory(new PropertyValueFactory("isSold"));
         ReaderAndWriter.refresh();
-        ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.sys.getElectronics());
+        ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.getLog().getElectronics());
         itemsTable.setItems(list);
     }
     
