@@ -23,7 +23,7 @@ public class BuyerMainApp extends Application {
 		launch(args);
 	}
 	@Override
-	public void stop(){
+		public void stop(){
 		
 	}
 }
