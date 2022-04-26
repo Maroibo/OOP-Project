@@ -22,11 +22,12 @@ public class DealsOnHoldController {
 
     @FXML
     private Button backButton;
-    @FXML
-    private TableView<Deal> dealsTable;
 
     @FXML
     private TableColumn<Deal, Integer> dealNoColumn;
+
+    @FXML
+    private TableView<Deal> dealsTable;
 
     @FXML
     private TableColumn<Deal, Electronic> electronicItemColumn;

@@ -83,9 +83,9 @@ public class LoginController {
     		}
     	} else {
         	Alert alert=new Alert(AlertType.ERROR);
-        	alert.setTitle("Error");
+        	alert.setTitle("Login Error");
         	alert.setHeaderText("Trader Not Found");
-        	alert.setContentText("Id or Phone number is incorrect");
+        	alert.setContentText("ID or Phone Number is Incorrect");
         	alert.showAndWait();
     	}
     }

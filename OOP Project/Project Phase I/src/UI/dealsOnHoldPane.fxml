@@ -3,7 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.ColorAdjust?>
@@ -14,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="519.0" prefWidth="600.0" style="-fx-background-image: url('Img/mainBackground3.jpg'); -fx-background-size: 900px;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.DealsOnHoldController">
+<AnchorPane prefHeight="519.0" prefWidth="666.0" style="-fx-background-image: url('Img/mainBackground3.jpg'); -fx-background-size: 900px;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.DealsOnHoldController">
    <children>
       <HBox prefHeight="71.0" prefWidth="678.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -70,20 +69,16 @@
             </Button>
          </children>
       </HBox>
-      <ScrollPane layoutY="70.0" prefHeight="449.0" prefWidth="655.0">
-         <content>
-            <AnchorPane prefHeight="451.0" prefWidth="655.0">
-               <children>
-                  <TableView fx:id="dealsTable" prefHeight="433.0" prefWidth="639.0">
-                    <columns>
-                      <TableColumn fx:id="dealNoColumn" prefWidth="170.0" text="Deal Number" />
-                      <TableColumn fx:id="electronicItemColumn" prefWidth="300.0" text="Electronic Item" />
-                        <TableColumn fx:id="sellerContactColumn" prefWidth="170.0" text="Seller Contact Information" />
-                    </columns>
-                  </TableView>
-               </children>
-            </AnchorPane>
-         </content>
-      </ScrollPane>
+      <AnchorPane prefHeight="451.0" prefWidth="655.0" translateY="70.0">
+         <children>
+            <TableView fx:id="dealsTable" prefHeight="451.0" prefWidth="666.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-11.0" AnchorPane.topAnchor="0.0">
+               <columns>
+                  <TableColumn fx:id="dealNoColumn" prefWidth="90.0" text="Deal Number" />
+                  <TableColumn fx:id="electronicItemColumn" prefWidth="300.0" text="Electronic Item" />
+                  <TableColumn fx:id="sellerContactColumn" prefWidth="275.0" text="Seller Contact Information" />
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
