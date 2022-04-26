@@ -3,9 +3,17 @@ package UI;
 import java.io.IOException;
 import java.util.Optional;
 
+import eQatarSystem.Electronic;
+import eQatarSystem.Smartphone;
+import eQatarSystem.Trader;
+import eQatarSystem.VideoGame;
+import files.ReaderAndWriter;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -17,37 +25,38 @@ import javafx.stage.Stage;
 public class UpdateVideoGameController {
 
     @FXML
-    private TextField VideoGameBrandTextField;
+    TextField VideoGameBrandTextField;
 
     @FXML
-    private TextField VideoGameColourTextField;
+     TextField VideoGameColourTextField;
 
     @FXML
-    private TextField VideoGameConnectivityTextField;
+     TextField VideoGameConnectivityTextField;
 
     @FXML
-    private TextField VideoGameControllerTextField;
+     TextField VideoGameControllerTextField;
 
     @FXML
-    private TextField VideoGameDimensionsTextField;
+     TextField VideoGameDimensionsTextField;
 
     @FXML
-    private TextField VideoGameDisplayTextField;
+     TextField VideoGameDisplayTextField;
 
     @FXML
-    private TextField VideoGameIdTextField;
+     TextField VideoGameIdTextField;
 
     @FXML
-    private TextField VideoGameMemoryTextField;
+     TextField VideoGameMemoryTextField;
 
     @FXML
-    private TextField VideoGamePriceTextField;
+     TextField VideoGamePriceTextField;
 
     @FXML
     private Button cancelButton;
 
     @FXML
     private Button saveButton;
+    private VideoGame c1;
 
     @FXML
     void onCancelClick(ActionEvent event) {
@@ -62,13 +71,29 @@ public class UpdateVideoGameController {
     }
 
     @FXML
-    void onSaveClick(ActionEvent event) {
+    void onSaveClick(ActionEvent event) throws IOException, ClassNotFoundException {
     	Alert alert=new Alert(AlertType.CONFIRMATION);
     	alert.setTitle("Confirmation Panel");
     	alert.setHeaderText("Are you sure you want to save changes?");
     	alert.setContentText("Item info:");
     	Optional<ButtonType> result=alert.showAndWait();
     	if(result.isPresent()&&result.get()==ButtonType.OK) {
+        	c1.setBrand(VideoGameBrandTextField.getText());
+        	c1.setColor(VideoGameColourTextField.getText());
+        	c1.setDimensions(VideoGameDimensionsTextField.getText());
+        	c1.setMemory(VideoGameMemoryTextField.getText());
+        	c1.setPrice(Double.parseDouble(VideoGamePriceTextField.getText()));
+        	c1.setConnectivity(VideoGameConnectivityTextField.getText());
+        	c1.setController(VideoGameControllerTextField.getText());
+	        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SellerMainPane.fxml"));    
+	        Parent root = (Parent)fxmlLoader.load();          
+	        SellerMainController sellerController = fxmlLoader.getController();
+            Trader t1=ReaderAndWriter.getLog();
+            t1.modifyProperties(c1);
+            ReaderAndWriter.currentLog(t1);
+            ReaderAndWriter.refresh();
+            ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.getLog().getList());
+            sellerController.itemsTable.setItems(list);
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("SellerMainPane.fxml"));
                 Stage stage = (Stage) saveButton.getScene().getWindow();
@@ -78,5 +103,13 @@ public class UpdateVideoGameController {
                 io.printStackTrace();
             }
     	}
+    }
+    @FXML
+    void setSelected(Electronic c) {
+    	this.c1=(VideoGame)c;
+    }
+    @FXML
+    VideoGame getSelected() {
+    	return this.c1;
     }
 }

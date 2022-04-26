@@ -89,7 +89,7 @@ public class Trader implements Serializable{
 	}
 	
 	/**
-	 * addElectronic method adds an electronic item to the trader’s item list (buyer or seller).
+	 * addElectronic method adds an electronic item to the traderï¿½s item list (buyer or seller).
 	 * @param electronic
 	 */
 	public void addElectronic(Electronic electronic) {
@@ -113,10 +113,10 @@ public class Trader implements Serializable{
 			for(Electronic e: electronics) {
 				if(e.getId() == electronic.getId()) {
 					electronics.set(electronics.indexOf(e), electronic);
-				} else
-					System.out.println("You are not a seller you cannot use this method!");
+				} 
 			}
-		}
+		}else
+			System.out.println("You are not a seller you cannot use this method!");
 	}
 	
 	/**

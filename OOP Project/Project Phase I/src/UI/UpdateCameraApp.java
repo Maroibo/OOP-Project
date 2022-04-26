@@ -2,6 +2,7 @@ package UI;
 
 import java.io.IOException;
 
+import eQatarSystem.Electronic;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

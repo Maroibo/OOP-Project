@@ -36,6 +36,7 @@ public class Test {
 		System.out.println(ReaderAndWriter.dread());
 //		System.out.println(ReaderAndWriter.eread());
 		System.out.println(ReaderAndWriter.getLog().getList());
+		System.out.println(ReaderAndWriter.getLog().isSeller());
 	}
 
 }

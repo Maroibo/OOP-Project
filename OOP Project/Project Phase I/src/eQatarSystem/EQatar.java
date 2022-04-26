@@ -255,6 +255,12 @@ public class EQatar {
 			}
 		}
 	}
-
+	public static void modifyProperties(Electronic electronic) {
+			for(Electronic e: electronics) {
+				if(e.getId() == electronic.getId()) {
+					electronics.set(electronics.indexOf(e), electronic);
+				}
+			}
+	}
 	
 }
