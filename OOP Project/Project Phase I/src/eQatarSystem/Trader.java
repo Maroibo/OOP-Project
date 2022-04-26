@@ -152,7 +152,46 @@ public class Trader implements Serializable{
 	public ArrayList<Electronic> getList() {
 		return electronics;
 	}
-
+	
+	public ArrayList<Smartphone> getSmartphones() {
+		ArrayList<Smartphone> Smartphones = new ArrayList<Smartphone>();
+		for(Electronic e: electronics) {
+			if(e instanceof Smartphone) {
+				Smartphone phone = (Smartphone) e;
+				if(!(phone.getIsSold())) {
+					Smartphones.add(phone);
+				}
+			}
+		}
+		return Smartphones;
+	}
+	
+	public ArrayList<Camera> getCameras(){
+		ArrayList<Camera> Cameras = new ArrayList<Camera>();
+		for(Electronic e: electronics) {
+			if(e instanceof Camera) {
+				Camera camera = (Camera) e;
+				if(!(camera.getIsSold())) {
+					Cameras.add(camera);
+				}
+			}
+		}
+		return Cameras;
+	}
+	
+	public ArrayList<VideoGame> getVideoGames(){
+		ArrayList<VideoGame> VideoGames = new ArrayList<VideoGame>();
+		for(Electronic e: electronics) {
+			if(e instanceof VideoGame) {
+				VideoGame game = (VideoGame) e;
+				if(!(game.getIsSold())) {
+					VideoGames.add(game);
+				}
+			}
+		}
+		return VideoGames;
+	}
+	
 	public String toString() {
 		String details = String.format(
 			"-(ID: %d)-\tName: %S\nPhone Number: %d\nAddress: %s\tType of Trader: %S\n",

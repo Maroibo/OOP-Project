@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.ToolBar?>
@@ -18,29 +17,6 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane prefHeight="515.0" prefWidth="736.0" style="-fx-background-image: url('Img/mainBackground3.jpg'); -fx-background-size: 750px;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.SellerMainController">
-   <center>
-      <ScrollPane hbarPolicy="ALWAYS" prefHeight="370.0" prefWidth="686.0" vbarPolicy="ALWAYS" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets />
-         </BorderPane.margin>
-         <content>
-            <AnchorPane prefHeight="355.0" prefWidth="719.0">
-               <children>
-                  <TableView fx:id="itemsTable" prefHeight="360.0" prefWidth="722.0">
-                     <columns>
-                        <TableColumn fx:id="typeColomn" prefWidth="120.0" text="Type" />
-                        <TableColumn fx:id="idColumn1" prefWidth="120.0" text="ID" />
-                        <TableColumn fx:id="priceColumn1" prefWidth="120.0" text="Price" />
-                        <TableColumn fx:id="brandColumn1" prefWidth="120.0" text="Brand" />
-                        <TableColumn fx:id="colorColumn1" prefWidth="120.0" text="Color" />
-                        <TableColumn fx:id="soldColumn1" prefWidth="120.0" text="Sold" />
-                     </columns>
-                  </TableView>
-               </children>
-            </AnchorPane>
-         </content>
-      </ScrollPane>
-   </center>
    <top>
       <VBox prefHeight="100.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -152,4 +128,20 @@
          </children>
       </VBox>
    </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="itemsTable" prefHeight="374.0" prefWidth="736.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <columns>
+                  <TableColumn fx:id="typeColomn" prefWidth="122.5" text="Type" />
+                  <TableColumn fx:id="idColumn1" prefWidth="122.5" text="ID" />
+                  <TableColumn fx:id="priceColumn1" prefWidth="122.5" text="Price" />
+                  <TableColumn fx:id="brandColumn1" prefWidth="122.5" text="Brand" />
+                  <TableColumn fx:id="colorColumn1" prefWidth="122.5" text="Color" />
+                  <TableColumn fx:id="soldColumn1" prefWidth="122.5" text="Sold" />
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </center>
 </BorderPane>
