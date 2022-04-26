@@ -46,7 +46,7 @@ public class Camera extends Electronic {
 	
 	@Override
 	public String toString() {
-		String details = String.format("Pixel Size: %s\nZoom: %s\nLens Size: %s\n",
+		String details = String.format("Pixel Size: %s\nZoom: %s\tLens Size: %s",
 				this.getPixelSize(), this.getZoom(), this.getLensSize());
 		return super.toString() + details;
 	}

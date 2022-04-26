@@ -114,5 +114,5 @@ public class SellerMainController {
         itemsTable.setItems(list);
     }
     
-}
 
+}

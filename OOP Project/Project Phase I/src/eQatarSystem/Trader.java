@@ -89,7 +89,7 @@ public class Trader implements Serializable{
 	}
 	
 	/**
-	 * addElectronic method adds an electronic item to the trader’s item list (buyer or seller).
+	 * addElectronic method adds an electronic item to the traderï¿½s item list (buyer or seller).
 	 * @param electronic
 	 */
 	public void addElectronic(Electronic electronic) {
@@ -155,9 +155,8 @@ public class Trader implements Serializable{
 
 	public String toString() {
 		String details = String.format(
-				"-(ID: %d)-\nName: %S\nPhone Number: %d\nAddress: %s\nType of Trader: %s\nElectronics related to Trader:\n%s"
-				+ "\n----------------------------------\n",
-				this.getId(), this.getName(), this.getPhoneNumber(), this.getAddress(), this.typeOfTrader(), this.allElectronics());
+			"-(ID: %d)-\tName: %S\nPhone Number: %d\nAddress: %s\tType of Trader: %S\n",
+			this.getId(), this.getName(), this.getPhoneNumber(), this.getAddress(), this.typeOfTrader());
 		return details;
 	}
 

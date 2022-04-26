@@ -10,7 +10,7 @@ import java.util.Calendar;
  * {@link Invoice}
  */
 public class Deal implements Serializable{
-	private static int totalDeals = 0;
+	private static int totalDeals = 1;
 	private String dateCreated;
 	private int dealNo;
 	private Trader buyer;
