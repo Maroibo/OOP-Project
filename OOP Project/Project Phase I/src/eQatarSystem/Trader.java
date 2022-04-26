@@ -113,10 +113,10 @@ public class Trader implements Serializable{
 			for(Electronic e: electronics) {
 				if(e.getId() == electronic.getId()) {
 					electronics.set(electronics.indexOf(e), electronic);
-				} else
-					System.out.println("You are not a seller you cannot use this method!");
+				} 
 			}
-		}
+		}else
+			System.out.println("You are not a seller you cannot use this method!");
 	}
 	
 	/**
