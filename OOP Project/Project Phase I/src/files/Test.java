@@ -23,7 +23,7 @@ public class Test {
 		t2.addElectronic(e1);
 		t2.addElectronic(e3);
 		t2.addElectronic(e5);
-			ReaderAndWriter.refresh();
+		ReaderAndWriter.refresh();
 		ReaderAndWriter.ewrite(e1);
 		ReaderAndWriter.refresh();
 		ReaderAndWriter.ewrite(e3);
