@@ -1,15 +1,20 @@
 package UI;
 
 import java.io.IOException;
+import java.io.Reader;
+import java.util.ArrayList;
 import java.util.Optional;
 
+import eQatarSystem.Deal;
 import eQatarSystem.Electronic;
+import eQatarSystem.Trader;
 import files.ReaderAndWriter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -42,7 +47,7 @@ public class BuyerMainController {
     private TableColumn<Electronic, Integer> idColumn;
 
     @FXML
-    private TableView<Electronic> itemsTable;
+     TableView<Electronic> itemsTable;
 
     @FXML
     private Button logoutButton;
@@ -55,24 +60,31 @@ public class BuyerMainController {
 
     @FXML
     private TableColumn<Electronic, String> typeColomn;
+    
+    private Electronic selected;
+    
 
     private void showAllElectronics() throws ClassNotFoundException, IOException {
-    	ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.getLog().getElectronics());
+    	ReaderAndWriter.refresh();
+    	ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.sys.getListOfAvailableElectronics());
         itemsTable.setItems(list);
     }
     
     private void showSmartphones() throws ClassNotFoundException, IOException {
-    	ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.getLog().getSmartphones());
+    	ReaderAndWriter.refresh();
+    	ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.sys.getListOfAvailableSmartphone());
         itemsTable.setItems(list);
     }
     
     private void showCameras() throws ClassNotFoundException, IOException {
-    	ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.getLog().getCameras());
+    	ReaderAndWriter.refresh();
+    	ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.sys.getListOfAvailableCamera());
         itemsTable.setItems(list);
     }
     
     private void showVideoGames() throws ClassNotFoundException, IOException {
-    	ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.getLog().getVideoGames());
+    	ReaderAndWriter.refresh();
+    	ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.sys.getListOfAvailableVideoGame());
         itemsTable.setItems(list);
     }
     
@@ -90,22 +102,52 @@ public class BuyerMainController {
     }
 
     @FXML
-    void onBuyClick(ActionEvent event) {
-    	Alert alert=new Alert(AlertType.CONFIRMATION);
-    	alert.setTitle("Confirmation Panel");
-    	alert.setHeaderText("Are you sure you want to buy this item?");
-    	alert.setContentText("Item info:");
-    	Optional<ButtonType> result=alert.showAndWait();
-    	if(result.isPresent()&&result.get()==ButtonType.OK) {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("buyBigPane.fxml"));
-                Stage stage = (Stage) buyButton.getScene().getWindow();
-                Scene scene = new Scene(loader.load());
-                stage.setScene(scene);
-            }catch (IOException io){
-                io.printStackTrace();
-            }
+    void onBuyClick(ActionEvent event) throws ClassNotFoundException, IOException {
+    	this.selected=itemsTable.getSelectionModel().getSelectedItem();
+    	if(selected != null) {
+    		Alert alert=new Alert(AlertType.CONFIRMATION);
+        	alert.setTitle("Confirmation Panel");
+        	alert.setHeaderText("Are you sure you want to buy this item?");
+        	alert.setContentText("Item info: "+selected.toString());
+        	Optional<ButtonType> result=alert.showAndWait();
+        	if(result.isPresent()&&result.get()==ButtonType.OK) {
+        		ReaderAndWriter.refresh();
+        		Trader seller = ReaderAndWriter.sys.findSellerByElectronicId(selected.getId());
+        		ReaderAndWriter.refresh();
+        		String date = String.format("%s",java.time.LocalDate.now());
+        		Deal d = new Deal(ReaderAndWriter.getLog(), seller, selected, date);
+        		ReaderAndWriter.dwrite(d);
+        		ReaderAndWriter.refresh();
+        		ArrayList<Electronic> electronics = ReaderAndWriter.e;
+        		for(int i=0; i<electronics.size(); i++) {
+        			if(electronics.get(i).getId()==selected.getId()) {
+        				electronics.remove(i);
+        			}
+        		} ReaderAndWriter.setE(electronics);
+        		ReaderAndWriter.save();
+        		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("buyBigPane.fxml"));    
+		        Parent root = (Parent)fxmlLoader.load();          
+		        BuyBigController controller = fxmlLoader.getController();
+		        controller.setC1(d);
+		        controller.dealNoLabel.setText(Integer.toString(controller.getC1().getDealNo()));
+		        controller.invoiceNoLabel.setText(Integer.toString(controller.getC1().getInvoice().getInvoiceNo()));
+		        controller.dateCreatedLabel.setText(controller.getC1().getDateCreated());
+		        controller.invoiceStatusLabel.setText(Boolean.toString(controller.getC1().getInvoice().isPaid()));
+		        controller.itemDescriptionLabel.setText(controller.getC1().getElectronicItem().toString());
+		        controller.sellerDescriptionLabel.setText(controller.getC1().getSeller().toString());
+		        Scene scene = new Scene(root);
+		        Stage stage = (Stage) buyButton.getScene().getWindow();
+		        stage.setScene(scene);    
+		        stage.show();
+        	}
+    	} else {
+    		Alert alert=new Alert(AlertType.ERROR);
+        	alert.setTitle("Selection Error");
+        	alert.setHeaderText("Electronic Item not selected");
+        	alert.setContentText("You have to select an electronic items to buy");
+        	alert.showAndWait();
     	}
+ 
     }
 
     @FXML
@@ -144,7 +186,16 @@ public class BuyerMainController {
         colorColumn.setCellValueFactory(new PropertyValueFactory("color"));
         soldColumn.setCellValueFactory(new PropertyValueFactory("isSold"));
         ReaderAndWriter.refresh();
-        ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.getLog().getElectronics());
+        ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.sys.getListOfAvailableElectronics());
         itemsTable.setItems(list);
     }
+    
+    @FXML
+	public Electronic getSelected() {
+		return selected;
+	}
+    @FXML
+	public void setSelected(Electronic selected) {
+		this.selected = selected;
+	}
 }

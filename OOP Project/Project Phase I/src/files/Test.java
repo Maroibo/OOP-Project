@@ -23,20 +23,35 @@ public class Test {
 		t2.addElectronic(e1);
 		t2.addElectronic(e3);
 		t2.addElectronic(e5);
+		ReaderAndWriter.refresh();
+		ReaderAndWriter.ewrite(e1);
+		ReaderAndWriter.refresh();
+		ReaderAndWriter.ewrite(e3);
+		ReaderAndWriter.refresh();
+		ReaderAndWriter.ewrite(e5);
 		ReaderAndWriter.currentLog(t2);
 		Deal d=new Deal(t1,t2,e1,"22-5-1990");
+		d.setDealNo(1);
 		Deal d2=new Deal(t1,t2,e3,"22-5-1990");
+		d2.setDealNo(2);
 		Deal d3=new Deal(t1,t2,e5,"22-5-1990");
+		d3.setDealNo(3);
+		ReaderAndWriter.refresh();
 		ReaderAndWriter.dwrite(d);
+		ReaderAndWriter.refresh();
 		ReaderAndWriter.dwrite(d2);
+		ReaderAndWriter.refresh();
 		ReaderAndWriter.dwrite(d3);
+		ReaderAndWriter.refresh();
 		ReaderAndWriter.twrite(t1);
+		ReaderAndWriter.refresh();
 		ReaderAndWriter.twrite(t2);
 		System.out.println(ReaderAndWriter.tread());
 		System.out.println(ReaderAndWriter.dread());
-//		System.out.println(ReaderAndWriter.eread());
+		System.out.println(ReaderAndWriter.eread());
 		System.out.println(ReaderAndWriter.getLog().getList());
-		System.out.println(ReaderAndWriter.getLog().isSeller());
+		System.out.println("------------------------------------------");
+		System.out.println(t2.getElectronics());
 	}
 
 }

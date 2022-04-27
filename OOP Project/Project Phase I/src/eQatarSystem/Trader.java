@@ -191,6 +191,13 @@ public class Trader implements Serializable{
 		}
 		return VideoGames;
 	}
+	public ArrayList<Electronic> getUnpaidElectronic(){
+		ArrayList<Electronic> list=new ArrayList<Electronic>();
+		for(Electronic e: this.getElectronics()) {
+			if(e.getIsSold()==false)
+				list.add(e);
+		}return list;
+	}
 	
 	public String toString() {
 		String details = String.format(

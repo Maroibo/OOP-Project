@@ -148,12 +148,69 @@ public class EQatar {
 		return availableVideoGames;
 	}
 	
+	public static ArrayList<Electronic> getListOfAvailableElectronics() {
+		ArrayList<Electronic> availableElectronics = new ArrayList<Electronic>();
+		for(Electronic e: electronics) {
+			boolean a = false;
+			for(Deal d: deals) {
+				if(d.getElectronicItem().getId()==e.getId()) {
+					a = true;
+				}
+			} if(a==false)
+				availableElectronics.add(e);
+		}
+		return availableElectronics;
+	}
+	
+	public static ArrayList<Smartphone> getListOfAvailableSmartphone() {
+		ArrayList<Smartphone> availableSmartphone = new ArrayList<Smartphone>();
+		for(Electronic e: electronics) {
+			boolean a = false;
+			for(Deal d: deals) {
+				if(d.getElectronicItem().getId()==e.getId()) {
+					a = true;
+				}
+			} if(a==false && e instanceof Smartphone)
+				availableSmartphone.add((Smartphone) e);
+		}
+		return availableSmartphone;
+	}
+	
+	public static ArrayList<VideoGame> getListOfAvailableVideoGame() {
+		ArrayList<VideoGame> availableVideoGame = new ArrayList<VideoGame>();
+		for(Electronic e: electronics) {
+			boolean a = false;
+			for(Deal d: deals) {
+				if(d.getElectronicItem().getId()==e.getId()) {
+					a = true;
+				}
+			} if(a==false && e instanceof VideoGame)
+				availableVideoGame.add((VideoGame) e);
+		}
+		return availableVideoGame;
+	}
+	
+	public static ArrayList<Camera> getListOfAvailableCamera() {
+		ArrayList<Camera> availableCamera = new ArrayList<Camera>();
+		for(Electronic e: electronics) {
+			boolean a = false;
+			for(Deal d: deals) {
+				if(d.getElectronicItem().getId()==e.getId()) {
+					a = true;
+				}
+			} if(a==false && e instanceof Camera)
+				availableCamera.add((Camera) e);
+		}
+		return availableCamera;
+	}
 	/**
 	 * createDeal method creates a deal between the buyer and seller on the electronic item.
 	 * @param buyer
 	 * @param electronic
+	 * @throws IOException 
+	 * @throws ClassNotFoundException 
 	 */
-	public static void createDeal(Trader buyer, Electronic electronic, String dateCreated) {
+	public static void createDeal(Trader buyer, Electronic electronic, String dateCreated) throws ClassNotFoundException, IOException {
 		deals.add(new Deal(buyer, findSellerByElectronicId(electronic.getId()), electronic, dateCreated));
 	}
 	
@@ -163,11 +220,12 @@ public class EQatar {
 	 * @return Trader object
 	 */
 	public static Trader findSellerByElectronicId(int id) {
-		for (int i = 0; i < traders.size(); i++) {
-			if (traders.get(i).isSeller()) {
-				for (Electronic e : traders.get(i).getList()) {
-					if (e.getId() == id)
-						return traders.get(i);
+		for(Trader t: traders) {
+			if(t.isSeller()) {
+				for(Electronic e: t.getList()) {
+					if(e.getId() == id) {
+						return t;
+					}
 				}
 			}
 		}

@@ -9,103 +9,95 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.BuyBigController">
+<BorderPane maxHeight="-Infinity" prefHeight="726.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.BuyBigController">
    <top>
-      <VBox prefHeight="71.0" prefWidth="638.0" BorderPane.alignment="CENTER">
+      <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="226.0" prefWidth="638.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="dd/mm/yyyy">
-               <graphic>
-                  <Label alignment="CENTER" text="Date Created: ">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                  </Label>
-               </graphic>
+            <Label text="Deal No: " underline="true" VBox.vgrow="ALWAYS">
                <font>
-                  <Font size="14.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
             </Label>
-            <Label text="xxx">
-               <graphic>
-                  <Label text="Deal No: ">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                  </Label>
-               </graphic>
+            <Label fx:id="dealNoLabel" text="00" translateX="100.0" translateY="-35.0" VBox.vgrow="ALWAYS">
                <font>
-                  <Font size="14.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label text="xxx">
-               <graphic>
-                  <Label text="Invoice No: ">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                  </Label>
-               </graphic>
+            <Label text="Invoice No: " translateY="-20.0" underline="true" VBox.vgrow="ALWAYS">
                <font>
-                  <Font size="14.0" />
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Label>
+            <Label fx:id="invoiceNoLabel" text="00" translateX="123.0" translateY="-55.0" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" text="Date Created: " translateY="-40.0" underline="true" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Label>
+            <Label fx:id="dateCreatedLabel" text="dd/mm/yyyy" translateX="143.0" translateY="-75.0" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label text="Invoice Status: " translateY="-60.0" underline="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Label>
+            <Label fx:id="invoiceStatusLabel" text="UN/PAID" translateX="153.0" translateY="-95.0">
+               <font>
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Label>
          </children>
       </VBox>
    </top>
    <center>
-      <AnchorPane prefHeight="460.0" prefWidth="638.0" BorderPane.alignment="CENTER">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="349.0" prefWidth="638.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="226.0" layoutY="14.0" prefHeight="31.0" prefWidth="165.0" text="Item Description" AnchorPane.bottomAnchor="416.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="247.0" AnchorPane.topAnchor="14.0">
+            <Label alignment="CENTER" layoutY="14.0" prefHeight="31.0" prefWidth="638.0" text="Item Description" translateY="-13.0" underline="true" AnchorPane.bottomAnchor="416.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <Label layoutX="286.0" layoutY="56.0" text="XXX">
+            <Label fx:id="itemDescriptionLabel" alignment="CENTER" layoutX="-1.0" layoutY="45.0" prefHeight="205.0" prefWidth="638.0" text="&lt;&lt;ELECTRONIC ITEM TOSTRING&gt;&gt;">
                <font>
-                  <Font size="14.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="8.0" layoutY="219.0" text="XXXX">
-               <graphic>
-                  <Label text="Invoice Status: ">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-               </graphic>
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="222.0" layoutY="260.0" text="Seller Description">
+            <Label alignment="CENTER" layoutY="260.0" prefHeight="31.0" prefWidth="638.0" text="Seller Description" underline="true">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <Label layoutX="286.0" layoutY="300.0" text="XXX">
+            <Label fx:id="sellerDescriptionLabel" alignment="CENTER" layoutY="300.0" prefHeight="146.0" prefWidth="638.0" text="&lt;&lt;SELLER TOSTRING&gt;&gt;">
                <font>
-                  <Font size="14.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
    </center>
    <bottom>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="55.0" prefWidth="638.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="proceedButton" alignment="CENTER" graphicTextGap="7.0" mnemonicParsing="false" onAction="#onProceedClick" prefHeight="35.0" prefWidth="100.0" style="-fx-background-radius: 20; -fx-background-color: linear-gradient(from 14.511% 0.0% to 100.0% 100.0%, #5ec4ff 0.0%, #5ec4ff 0.6711%, #24a3ed 99.7763%, #24a3ed 100.0%); -fx-border-radius: 20; -fx-border-color: black;" text="Proceed" textAlignment="CENTER" textFill="WHITE" translateX="490.0" translateY="40.0" HBox.hgrow="ALWAYS">
+            <Button fx:id="proceedButton" alignment="CENTER" graphicTextGap="7.0" mnemonicParsing="false" onAction="#onProceedClick" prefHeight="35.0" prefWidth="100.0" style="-fx-background-radius: 20; -fx-background-color: linear-gradient(from 14.511% 0.0% to 100.0% 100.0%, #5ec4ff 0.0%, #5ec4ff 0.6711%, #24a3ed 99.7763%, #24a3ed 100.0%); -fx-border-radius: 20; -fx-border-color: black;" text="Proceed" textAlignment="CENTER" textFill="WHITE" translateX="490.0" translateY="-7.0" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
                </HBox.margin>
@@ -117,4 +109,3 @@
       </HBox>
    </bottom>
 </BorderPane>
-

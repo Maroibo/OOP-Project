@@ -1,8 +1,11 @@
 package eQatarSystem;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
+import files.ReaderAndWriter;
 
 /**
  * @author Alhasan Mahmood - 202104902
@@ -10,7 +13,7 @@ import java.util.Calendar;
  * {@link Invoice}
  */
 public class Deal implements Serializable{
-	private static int totalDeals = 1;
+	private static int totalDeals;
 	private String dateCreated;
 	private int dealNo;
 	private Trader buyer;
@@ -19,13 +22,13 @@ public class Deal implements Serializable{
 	private Invoice invoice;
 	private boolean isClosed;
 	
-	public Deal(Trader buyer, Trader seller, Electronic electronicItem, String dateCreated) {
+	public Deal(Trader buyer, Trader seller, Electronic electronicItem, String dateCreated) throws ClassNotFoundException, IOException {
+		totalDeals=this.getDealCounter();
 		this.dateCreated = dateCreated;
-		this.dealNo = totalDeals;
+		this.dealNo = totalDeals+1;
 		this.buyer = buyer;
 		this.seller = seller;
 		this.electronicItem = electronicItem;
-		totalDeals++;
 		this.createInvoice();
 	}
 
@@ -97,6 +100,11 @@ public class Deal implements Serializable{
 	 */
 	public void createInvoice() {
 		this.invoice = new Invoice(dealNo, this.getElectronicItem().getPrice(), this.getIsClosed(), this.getDateCreated());
+	}
+	
+	private int getDealCounter() throws ClassNotFoundException, IOException {
+		ReaderAndWriter.refresh();
+		return ReaderAndWriter.dread().size();
 	}
 	
 	public String toString() {

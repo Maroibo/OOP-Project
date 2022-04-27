@@ -84,6 +84,27 @@ public class ReaderAndWriter {
 		objOut2.writeObject(e);
 		objOut2.close();
 	}
+	public static void save() throws IOException {
+		FileOutputStream f=new FileOutputStream("trader.dat");
+		ObjectOutputStream objOut=new ObjectOutputStream(f);
+		objOut.writeObject(t);
+		objOut.close();
+		sys.setTraders(t);
+		FileOutputStream f1=new FileOutputStream("deal.dat");
+		ObjectOutputStream objOut1=new ObjectOutputStream(f1);
+		objOut1.writeObject(d);
+		objOut1.close();
+		sys.setDeals(d);
+		FileOutputStream f2=new FileOutputStream("electronic.dat");
+		ObjectOutputStream objOut2=new ObjectOutputStream(f2);
+		objOut2.writeObject(e);
+		objOut2.close();
+		sys.setElectronics(e);
+		FileOutputStream f3=new FileOutputStream("log.dat");
+		ObjectOutputStream objOut3=new ObjectOutputStream(f3);
+		objOut3.writeObject(loginTrader);
+		objOut3.close();
+	}
 	public static void currentLog(Trader t) throws IOException {
 		loginTrader=t;
 		FileOutputStream f2=new FileOutputStream("log.dat");
@@ -108,8 +129,36 @@ public class ReaderAndWriter {
 		ReaderAndWriter.refresh();
 		ArrayList<Deal> deals=new ArrayList<Deal>();
 		for(Deal d: sys.getDeals()) {
+			if(d.getIsClosed()==false&&d.getBuyer().getId()==trader.getId())
+				deals.add(d);
+		}return deals;
+}	
+	public static ArrayList<Deal> getDealsOnHoldSeller(Trader trader) throws ClassNotFoundException, IOException{
+		ReaderAndWriter.refresh();
+		ArrayList<Deal> deals=new ArrayList<Deal>();
+		for(Deal d: sys.getDeals()) {
 			if(d.getIsClosed()==false&&d.getSeller().getId()==trader.getId())
 				deals.add(d);
 		}return deals;
 }
+	
+	public static ArrayList<Trader> getT() {
+		return t;
+	}
+	public static void setT(ArrayList<Trader> t) {
+		ReaderAndWriter.t = t;
+	}
+	public static ArrayList<Deal> getD() {
+		return d;
+	}
+	public static void setD(ArrayList<Deal> d) {
+		ReaderAndWriter.d = d;
+	}
+	public static ArrayList<Electronic> getE() {
+		return e;
+	}
+	public static void setE(ArrayList<Electronic> e) {
+		ReaderAndWriter.e = e;
+	}
+	
 }

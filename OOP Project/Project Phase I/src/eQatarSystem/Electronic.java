@@ -23,7 +23,6 @@ public abstract class Electronic implements Serializable{
 		this.price = price;
 		this.brand = brand;
 		this.color = color;
-		this.isSold = isSold;
 	}
 	
 	public String getType() {

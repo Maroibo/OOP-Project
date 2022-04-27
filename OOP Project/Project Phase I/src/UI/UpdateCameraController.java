@@ -71,7 +71,7 @@ public class UpdateCameraController{
     	Alert alert=new Alert(AlertType.CONFIRMATION);
     	alert.setTitle("Confirmation Panel");
     	alert.setHeaderText("Are you sure you want to save changes?");
-    	alert.setContentText("Item info:");
+    	alert.setContentText("Item info: "+c1.toString());
     	Optional<ButtonType> result=alert.showAndWait();
     	if(result.isPresent()&&result.get()==ButtonType.OK) {
         	c1.setBrand(CameraBrandTextField.getText());
