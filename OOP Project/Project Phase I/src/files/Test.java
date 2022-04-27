@@ -22,7 +22,7 @@ public class Test {
 		Electronic e5 = new Smartphone(5, 1500.7, "Apple", "White", "128", "6.7", "12");
 		t2.addElectronic(e1);
 		t2.addElectronic(e3);
-			t2.addElectronic(e5);
+		t2.addElectronic(e5);
 		ReaderAndWriter.refresh();
 		ReaderAndWriter.ewrite(e1);
 		ReaderAndWriter.refresh();
