@@ -29,7 +29,7 @@ public class Test {
 		ReaderAndWriter.ewrite(e3);
 		ReaderAndWriter.refresh();
 		ReaderAndWriter.ewrite(e5);
-		ReaderAndWriter.currentLog(t1);
+		ReaderAndWriter.currentLog(t2);
 		Deal d=new Deal(t1,t2,e1,"22-5-1990");
 		Deal d2=new Deal(t1,t2,e3,"22-5-1990");
 		Deal d3=new Deal(t1,t2,e5,"22-5-1990");
