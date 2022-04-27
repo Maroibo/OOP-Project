@@ -24,37 +24,70 @@ import javafx.stage.Stage;
 public class BuyerMainController {
 
     @FXML
-    private TableView<Electronic> itemsTable;
-    
-    @FXML
-    private TableColumn<Electronic,String> brandColumn;
+    private TableColumn<Electronic, String> brandColumn;
 
     @FXML
     private Button buyButton;
 
     @FXML
-    private TableColumn<Electronic,String> colorColumn;
+    private TableColumn<Electronic, String> colorColumn;
 
     @FXML
     private Button dealsOnHoldButton;
 
     @FXML
-    private ComboBox<ElectronicType> filterComboBox;
+    private ComboBox<String> filterComboBox;
 
     @FXML
-    private TableColumn<Electronic,Integer> idColumn;
+    private TableColumn<Electronic, Integer> idColumn;
+
+    @FXML
+    private TableView<Electronic> itemsTable;
 
     @FXML
     private Button logoutButton;
 
     @FXML
-    private TableColumn<Electronic,Double> priceColumn;
+    private TableColumn<Electronic, Double> priceColumn;
 
     @FXML
-    private TableColumn<Electronic,Boolean> soldColumn;
+    private TableColumn<Electronic, Boolean> soldColumn;
 
     @FXML
-    private TableColumn<Electronic,String> typeColomn;
+    private TableColumn<Electronic, String> typeColomn;
+
+    private void showAllElectronics() throws ClassNotFoundException, IOException {
+    	ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.getLog().getElectronics());
+        itemsTable.setItems(list);
+    }
+    
+    private void showSmartphones() throws ClassNotFoundException, IOException {
+    	ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.getLog().getSmartphones());
+        itemsTable.setItems(list);
+    }
+    
+    private void showCameras() throws ClassNotFoundException, IOException {
+    	ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.getLog().getCameras());
+        itemsTable.setItems(list);
+    }
+    
+    private void showVideoGames() throws ClassNotFoundException, IOException {
+    	ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.getLog().getVideoGames());
+        itemsTable.setItems(list);
+    }
+    
+    @FXML
+    void handleElectronicTypeFilter(ActionEvent event) throws ClassNotFoundException, IOException {
+    	String selected = filterComboBox.getValue();
+    	if(selected.equalsIgnoreCase("All"))
+    		showAllElectronics();
+    	else if(selected.equalsIgnoreCase("Smartphone"))
+    		showSmartphones();
+    	else if(selected.equalsIgnoreCase("Camera"))
+    		showCameras();
+    	else
+    		showVideoGames();
+    }
 
     @FXML
     void onBuyClick(ActionEvent event) {
@@ -77,7 +110,7 @@ public class BuyerMainController {
 
     @FXML
     void onHoldClick(ActionEvent event) {
-        try {
+    	try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("dealsOnHoldPane.fxml"));
             Stage stage = (Stage) buyButton.getScene().getWindow();
             Scene scene = new Scene(loader.load());
@@ -102,7 +135,8 @@ public class BuyerMainController {
     
     @FXML
     void initialize() throws ClassNotFoundException, IOException {
-    	filterComboBox.getItems().addAll(ElectronicType.values());
+    	filterComboBox.getItems().addAll("All","Smartphone","Camera","Video Game");
+    	filterComboBox.getSelectionModel().selectFirst();
     	typeColomn.setCellValueFactory(new PropertyValueFactory("type"));
     	idColumn.setCellValueFactory(new PropertyValueFactory("id"));
         priceColumn.setCellValueFactory(new PropertyValueFactory("price"));
@@ -113,5 +147,4 @@ public class BuyerMainController {
         ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.getLog().getElectronics());
         itemsTable.setItems(list);
     }
-
 }

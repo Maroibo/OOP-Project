@@ -1,7 +1,9 @@
 package UI;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
+import eQatarSystem.Deal;
 import eQatarSystem.Electronic;
 import eQatarSystem.Trader;
 import files.ReaderAndWriter;
@@ -57,21 +59,75 @@ public class SellerMainController {
     private UpdateCameraController uCamera;
  
     private Electronic selected;
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
+
 
     @FXML
-    void onCloseDealClick(ActionEvent event) {
-    	try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("CloseDealSmartphonePane.fxml"));
-            Stage stage = (Stage) closeDealButton.getScene().getWindow();
-            Scene scene = new Scene(loader.load());
-            stage.setScene(scene);
-        }catch (IOException io){
-            io.printStackTrace();
-        }
+    void onCloseDealClick(ActionEvent event) throws ClassNotFoundException, IOException {
+    	this.selected=itemsTable.getSelectionModel().getSelectedItem();
+    	if(selected!=null) {
+    	if(selected.getType().equals("Camera")) {
+    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CloseDealCameraPane.fxml"));    
+	        Parent root = (Parent)fxmlLoader.load();          
+	        CloseDealCameraController controller = fxmlLoader.getController();
+	        controller.setSelected(selected);
+	        controller.CameraBrandTextField.setText(controller.getSelected().getBrand());
+	        controller.CameraColourTextField.setText(controller.getSelected().getColor());
+	        controller.CameraIdTextField.setText(Integer.toString(controller.getSelected().getId()));
+	        controller.CameraIdTextField.setEditable(false);
+	        controller.CameraLensSizeTextField.setText(controller.getSelected().getLensSize());
+	        controller.CameraPixelSizeTextField.setText(controller.getSelected().getPixelSize());
+	        controller.CameraPriceTextField.setText(Double.toString(controller.getSelected().getPrice()));
+	        controller.CameraZoomTextField.setText(controller.getSelected().getZoom());
+	        Scene scene = new Scene(root);
+	        Stage stage = (Stage) updateButton.getScene().getWindow();
+	        stage.setScene(scene);    
+	        stage.show();	
+	    	}
+    	if(selected.getType().equals("Smartphone")) {
+    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CloseDealSmartphonePane.fxml"));    
+	        Parent root = (Parent)fxmlLoader.load();          
+	        CloseDealSmartphoneController controller = fxmlLoader.getController();
+	        controller.setSelected(selected);
+	        controller.smartphoneBrandTextField.setText(controller.getSelected().getBrand());
+	        controller.smartphoneColourTextField.setText(controller.getSelected().getColor());
+	        controller.smartphoneIdTextField.setText(Integer.toString(controller.getSelected().getId()));
+	        controller.smartphoneIdTextField.setEditable(false);
+	        controller.smartphoneCamResTextField.setText(controller.getSelected().getCameraResolution());
+	        controller.smartphonePriceTextField.setText(Double.toString(controller.getSelected().getPrice()));
+	        controller.smartphoneScreenSizeTextField.setText(controller.getSelected().getScreenSize());
+	        Scene scene = new Scene(root);
+	        Stage stage = (Stage) updateButton.getScene().getWindow();
+	        stage.setScene(scene);    
+	        stage.show();
     }
+    	if(selected.getType().equals("Video Game")) {
+    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CloseDealVideoGamePane.fxml"));    
+	        Parent root = (Parent)fxmlLoader.load();          
+	        CloseDealVideoGameController controller = fxmlLoader.getController();
+	        controller.setSelected(selected);
+	        controller.VideoGameBrandTextField.setText(controller.getSelected().getBrand());
+	        controller.VideoGameColourTextField.setText(controller.getSelected().getColor());
+	        controller.VideoGameIdTextField.setText(Integer.toString(controller.getSelected().getId()));
+	        controller.VideoGameIdTextField.setEditable(false);
+	        controller.VideoGameConnectivityTextField.setText(controller.getSelected().getConnectivity());
+	        controller.VideoGameControllerTextField.setText(controller.getSelected().getController());
+	        controller.VideoGamePriceTextField.setText(Double.toString(controller.getSelected().getPrice()));
+	        controller.VideoGameDimensionsTextField.setText(controller.getSelected().getDimensions());
+	        controller.VideoGameDisplayTextField.setText(controller.getSelected().getDisplay());
+	        controller.VideoGameMemoryTextField.setText(controller.getSelected().getMemory());
+	        Scene scene = new Scene(root);
+	        Stage stage = (Stage) updateButton.getScene().getWindow();
+	        stage.setScene(scene);    
+	        stage.show();	
+    	}
+}		     else {
+	Alert alert=new Alert(AlertType.ERROR);
+	alert.setTitle("Selection Error");
+	alert.setHeaderText("Electronic Item not selected");
+	alert.setContentText("You have to select an electronic items to close a deal");
+	alert.showAndWait();
+    }
+    	}
 
     @FXML
     void onLogoutClick(ActionEvent event) throws IOException {
@@ -87,8 +143,16 @@ public class SellerMainController {
     }
 
     @FXML
-    void onSaveClick(ActionEvent event) {
+    void onSaveClick(ActionEvent event) throws ClassNotFoundException, IOException {
+    	ArrayList<Electronic> list=ReaderAndWriter.getLog().getList();
+    	for(int i=0;i<list.size();i++ ) {
+    		if(list.get(i).getIsSold()==true)
+    			list.remove(list.get(i));
 
+    	}ReaderAndWriter.getLog().setElectronics(list);
+    	ReaderAndWriter.save();
+        ObservableList<Electronic> list1=FXCollections.observableArrayList(ReaderAndWriter.getLog().getList());
+        itemsTable.setItems(list1);	
     }
 
     @FXML
@@ -180,23 +244,8 @@ public class SellerMainController {
     	colorColumn1.setCellValueFactory(new PropertyValueFactory("color"));
     	soldColumn1.setCellValueFactory(new PropertyValueFactory("isSold"));
         ReaderAndWriter.refresh();
-        ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.getLog().getElectronics());
+        ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.getLog().getList());
         itemsTable.setItems(list);
-    }
-    @FXML
-    void updateSelected(Electronic e) throws ClassNotFoundException, IOException{
-    	ReaderAndWriter.refresh();
-        ReaderAndWriter.getLog().modifyProperties(e);
-    	typeColomn.setCellValueFactory(new PropertyValueFactory("type"));
-    	idColumn1.setCellValueFactory(new PropertyValueFactory("id"));
-    	priceColumn1.setCellValueFactory(new PropertyValueFactory("price"));
-    	brandColumn1.setCellValueFactory(new PropertyValueFactory("brand"));
-    	colorColumn1.setCellValueFactory(new PropertyValueFactory("color"));
-    	soldColumn1.setCellValueFactory(new PropertyValueFactory("isSold"));
-        ReaderAndWriter.refresh();
-        ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.getLog().getElectronics());
-        itemsTable.setItems(list);
-        
     }
     @FXML
 	public Electronic getSelected() {

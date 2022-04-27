@@ -84,6 +84,27 @@ public class ReaderAndWriter {
 		objOut2.writeObject(e);
 		objOut2.close();
 	}
+	public static void save() throws IOException {
+		FileOutputStream f=new FileOutputStream("trader.dat");
+		ObjectOutputStream objOut=new ObjectOutputStream(f);
+		objOut.writeObject(t);
+		objOut.close();
+		sys.setTraders(t);
+		FileOutputStream f1=new FileOutputStream("deal.dat");
+		ObjectOutputStream objOut1=new ObjectOutputStream(f1);
+		objOut1.writeObject(d);
+		objOut1.close();
+		sys.setDeals(d);
+		FileOutputStream f2=new FileOutputStream("electronic.dat");
+		ObjectOutputStream objOut2=new ObjectOutputStream(f2);
+		objOut2.writeObject(e);
+		objOut2.close();
+		sys.setElectronics(e);
+		FileOutputStream f3=new FileOutputStream("log.dat");
+		ObjectOutputStream objOut3=new ObjectOutputStream(f3);
+		objOut3.writeObject(loginTrader);
+		objOut3.close();
+	}
 	public static void currentLog(Trader t) throws IOException {
 		loginTrader=t;
 		FileOutputStream f2=new FileOutputStream("log.dat");

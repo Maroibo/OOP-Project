@@ -14,8 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="UI.CloseDealVideoGameController">
+<BorderPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.CloseDealVideoGameController">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -111,7 +110,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="-5.0">
                      <image>
-                        <Image url="Img/controller.png"></Image>
+                        <Image url="@../../../../../../Downloads/smartphone.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -125,7 +124,7 @@
    <bottom>
       <HBox prefHeight="85.0" prefWidth="315.0" BorderPane.alignment="CENTER">
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onCloseDealClick" prefHeight="35.0" prefWidth="0.0" style="-fx-background-radius: 10; -fx-background-color: #24a0ed; -fx-border-radius: 10; -fx-border-color: black;" text="Close Deal" textAlignment="CENTER" textFill="WHITE" translateY="25.0" HBox.hgrow="ALWAYS">
+            <Button fx:id="closeDealButton" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onCloseDealClick" prefHeight="35.0" prefWidth="0.0" style="-fx-background-radius: 10; -fx-background-color: #24a0ed; -fx-border-radius: 10; -fx-border-color: black;" text="Close Deal" textAlignment="CENTER" textFill="WHITE" translateY="25.0" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -133,7 +132,7 @@
                   <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onCancelClick" prefHeight="35.0" prefWidth="0.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" text="Cancel" textAlignment="CENTER" translateY="25.0" HBox.hgrow="ALWAYS">
+            <Button fx:id="cancelButton" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onCancelClick" prefHeight="35.0" prefWidth="0.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" text="Cancel" textAlignment="CENTER" translateY="25.0" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -145,4 +144,3 @@
       </HBox>
    </bottom>
 </BorderPane>
-
