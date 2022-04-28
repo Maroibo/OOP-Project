@@ -187,7 +187,7 @@ public class SellController {
     private boolean tabisBlankChecker() {
     	String selectedTab = ElectronicTabPane.getSelectionModel().getSelectedItem().getText();
     	if(selectedTab.equalsIgnoreCase("Smartphone")) {
-    		if(smartphoneisBlankChecker()) {
+    		if (smartphoneisBlankChecker()) {
     			return true;
     		}else {
     			return false;
