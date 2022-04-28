@@ -116,7 +116,7 @@ public class SellController {
     private Electronic getElectronic() {
     	Electronic e = null;
     	try {
-    		if (CameraIdTextField.getText().isBlank() && VideoGameIdTextField.getText().isBlank()) {
+    		if(CameraIdTextField.getText().isBlank() && VideoGameIdTextField.getText().isBlank()) {
     			String type = "Smartphone";
     		    int id = Integer.parseInt(smartphoneIdTextField.getText());
     		    double price = Double.parseDouble(smartphonePriceTextField.getText());
