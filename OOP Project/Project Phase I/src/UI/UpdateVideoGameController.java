@@ -1,6 +1,7 @@
 package UI;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Optional;
 
 import eQatarSystem.Electronic;
@@ -91,6 +92,22 @@ public class UpdateVideoGameController {
             Trader t1=ReaderAndWriter.getLog();
             t1.modifyProperties(c1);
             ReaderAndWriter.currentLog(t1);
+            ReaderAndWriter.refresh();
+            ArrayList<Electronic> electronics=ReaderAndWriter.e;
+            int count=0;
+            for(Electronic e: electronics) {
+            	if(c1.getId()==e.getId())
+            		electronics.set(count, c1);
+            	count++;
+            }ReaderAndWriter.setE(electronics);
+            ArrayList<Trader> traders=ReaderAndWriter.t;
+             count=0;
+            for(Trader t: traders) {
+            	if(t1.getId()==t.getId())
+            		traders.set(count, t1);
+            	count++;
+            }ReaderAndWriter.setT(traders);
+            ReaderAndWriter.save();
             ReaderAndWriter.refresh();
             ObservableList<Electronic> list=FXCollections.observableArrayList(ReaderAndWriter.getLog().getList());
             sellerController.itemsTable.setItems(list);

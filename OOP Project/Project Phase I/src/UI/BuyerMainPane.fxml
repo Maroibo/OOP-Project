@@ -28,7 +28,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../Downloads/smartphone.png" />
+                              <Image url="Img/logout.png"></Image>
                            </image>
                         </ImageView>
                      </graphic>
@@ -62,7 +62,7 @@
                      <graphic>
                         <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../Downloads/smartphone.png" />
+                              <Image url="Img/buy.png"></Image>
                            </image>
                            <effect>
                               <ColorAdjust brightness="1.0" saturation="-1.0">
@@ -81,7 +81,7 @@
                      <graphic>
                         <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../Downloads/smartphone.png" />
+                              <Image url="Img/handshake.png"></Image>
                            </image>
                         </ImageView>
                      </graphic>
@@ -109,7 +109,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="itemsTable" prefHeight="376.0" prefWidth="736.0" AnchorPane.bottomAnchor="0.6666666666666856" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.6666666666666288">
+            <TableView fx:id="itemsTable" prefHeight="376.0" prefWidth="736.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.6666666666666288">
                <columns>
                   <TableColumn fx:id="typeColomn" prefWidth="122.5" text="Type" />
                   <TableColumn fx:id="idColumn" prefWidth="122.5" text="ID" />

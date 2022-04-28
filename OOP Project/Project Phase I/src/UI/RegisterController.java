@@ -48,6 +48,14 @@ public class RegisterController {
     @FXML
     private ComboBox<String> traderTypeComboBox;
 
+    private boolean registerisBlankChecker() {
+    	if(idTextField.getText().isBlank() || phoneTextField.getText().isBlank() || nameTextField.getText().isBlank() ||
+           adressTextField.getText().isBlank() || traderTypeComboBox.getValue() == null) {
+    		return true;
+    	} else
+    		return false;
+    }
+    
     @FXML
     void onBackClick(ActionEvent event) {
     	Alert alert=new Alert(AlertType.CONFIRMATION);
@@ -78,45 +86,53 @@ public class RegisterController {
 
     @FXML
     void onRegisterClick(ActionEvent event) throws ClassNotFoundException, IOException {
-    	String name=nameTextField.getText();
-    	int id=Integer.parseInt(idTextField.getText());
-    	int phone=Integer.parseInt(phoneTextField.getText());
-    	String adress=adressTextField.getText();
-    	if(traderTypeComboBox.getValue().equals("Buyer")) {
-    		Trader t1=new Trader(id,name,false,true,phone,adress);
-    		ReaderAndWriter.currentLog(t1);
-        	try {
-        		ReaderAndWriter.refresh();
-    			ReaderAndWriter.twrite(t1);
-    		} catch (IOException e) {
-    			e.printStackTrace();
-    		}
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("BuyerMainPane.fxml"));
-                Stage stage = (Stage) registerButton.getScene().getWindow();
-                Scene scene = new Scene(loader.load());
-                stage.setScene(scene);
-            }catch (IOException io){
-                io.printStackTrace();
-            }
-    	}if(traderTypeComboBox.getValue().equals("Seller")) {
-    		Trader t1=new Trader(id,name,true,false,phone,adress);
-    		ReaderAndWriter.currentLog(t1);
-    	try {
-    		ReaderAndWriter.refresh();
-			ReaderAndWriter.twrite(t1);
-			ReaderAndWriter.refresh();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}            
-    	try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("SellerMainPane.fxml"));
-            Stage stage = (Stage) registerButton.getScene().getWindow();
-            Scene scene = new Scene(loader.load());
-            stage.setScene(scene);
-        }catch (IOException io){
-            io.printStackTrace();
-        }
+    	if(registerisBlankChecker()) {
+    		Alert alert=new Alert(AlertType.ERROR);
+        	alert.setTitle("Invalid Data");
+        	alert.setHeaderText("Invalid Data Passed or Empty Input");
+        	alert.setContentText("You have to insert valid data.");
+        	alert.showAndWait();
+    	} else {
+	    	String name=nameTextField.getText();
+	    	int id=Integer.parseInt(idTextField.getText());
+	    	int phone=Integer.parseInt(phoneTextField.getText());
+	    	String adress=adressTextField.getText();
+	    	if(traderTypeComboBox.getValue().equals("Buyer")) {
+	    		Trader t1=new Trader(id,name,false,true,phone,adress);
+	    		ReaderAndWriter.currentLog(t1);
+	        	try {
+	        		ReaderAndWriter.refresh();
+	    			ReaderAndWriter.twrite(t1);
+	    		} catch (IOException e) {
+	    			e.printStackTrace();
+	    		}
+	            try {
+	                FXMLLoader loader = new FXMLLoader(getClass().getResource("BuyerMainPane.fxml"));
+	                Stage stage = (Stage) registerButton.getScene().getWindow();
+	                Scene scene = new Scene(loader.load());
+	                stage.setScene(scene);
+	            }catch (IOException io){
+	                io.printStackTrace();
+	            }
+	    	}if(traderTypeComboBox.getValue().equals("Seller")) {
+	    		Trader t1=new Trader(id,name,true,false,phone,adress);
+	    		ReaderAndWriter.currentLog(t1);
+	    	try {
+	    		ReaderAndWriter.refresh();
+				ReaderAndWriter.twrite(t1);
+				ReaderAndWriter.refresh();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}            
+	    	try {
+	            FXMLLoader loader = new FXMLLoader(getClass().getResource("SellerMainPane.fxml"));
+	            Stage stage = (Stage) registerButton.getScene().getWindow();
+	            Scene scene = new Scene(loader.load());
+	            stage.setScene(scene);
+	        }catch (IOException io){
+	            io.printStackTrace();
+	        }
+	    	}
     	}
     }
 
