@@ -164,6 +164,12 @@ public class SellerMainController {
 
     	}ReaderAndWriter.getLog().setElectronics(list);
     	ReaderAndWriter.save();
+    	ArrayList<Trader> traders=ReaderAndWriter.tread();
+    	for(Trader t: traders) {
+    		if(t.getId()==ReaderAndWriter.getLog().getId())
+    			t.setElectronics(list);
+    	}ReaderAndWriter.setT(traders);
+    	ReaderAndWriter.save();
         ObservableList<Electronic> list1=FXCollections.observableArrayList(ReaderAndWriter.getLog().getList());
         itemsTable.setItems(list1);	
     }

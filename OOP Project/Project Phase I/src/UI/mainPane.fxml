@@ -29,7 +29,7 @@
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-						<Image url="@../../../../../../Downloads/smartphone.png" />
+						<Image url="Img/login.png"></Image>
                      </image>
                      <effect>
                         <ColorAdjust brightness="1.0" saturation="-1.0">
@@ -59,7 +59,7 @@
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../Downloads/smartphone.png" />
+                        <Image url="Img/register.png"></Image>
                      </image>
                   </ImageView>
                </graphic>
@@ -84,4 +84,3 @@
       </VBox>
    </top>
 </BorderPane>
-

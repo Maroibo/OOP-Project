@@ -36,6 +36,13 @@ public class LoginController {
     @FXML
     private Label registerLBL;
 
+    private boolean loginisBlankChecker() {
+    	if(idTextField.getText().isBlank() || phoneNumberTextField.getText().isBlank()) {
+    		return true;
+    	} else
+    		return false;
+    }
+    
     @FXML
     void onBackClicked(ActionEvent event){
         try {
@@ -55,8 +62,15 @@ public class LoginController {
 
     @FXML
     void onLoginButton(ActionEvent event) throws ClassNotFoundException, IOException {
-    	ReaderAndWriter.refresh();
-    	Trader t=ReaderAndWriter.sys.findTrader(Integer.parseInt(idTextField.getText()));
+    	if(loginisBlankChecker()) {
+    		Alert alert=new Alert(AlertType.ERROR);
+        	alert.setTitle("Invalid Data");
+        	alert.setHeaderText("Invalid Data Passed or Empty Input");
+        	alert.setContentText("You have to insert valid data.");
+        	alert.showAndWait();
+    	} else {
+    		ReaderAndWriter.refresh();
+        	Trader t=ReaderAndWriter.sys.findTrader(Integer.parseInt(idTextField.getText()));
     	if(t!=null) {
     		if(t.getId()==Integer.parseInt(idTextField.getText())&&t.getPhoneNumber()==Integer.parseInt(phoneNumberTextField.getText())) {
     			ReaderAndWriter.currentLog(t);
@@ -87,7 +101,7 @@ public class LoginController {
         	alert.setHeaderText("Trader Not Found");
         	alert.setContentText("ID or Phone Number is Incorrect");
         	alert.showAndWait();
-    	}
+    	}}
     }
 
     @FXML

@@ -11,6 +11,7 @@ import eQatarSystem.Trader;
 import eQatarSystem.VideoGame;
 import files.ReaderAndWriter;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -18,6 +19,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
@@ -44,6 +47,9 @@ public class SellController {
 
     @FXML
     private TextField CameraZoomTextField;
+    
+    @FXML
+    private TabPane ElectronicTabPane;
 
     @FXML
     private TextField VideoGameBrandTextField;
@@ -71,6 +77,9 @@ public class SellController {
 
     @FXML
     private TextField VideoGamePriceTextField;
+    
+    @FXML
+    private Tab cameraTab;
 
     @FXML
     private Button cancelButton;
@@ -95,9 +104,15 @@ public class SellController {
 
     @FXML
     private ComboBox<String> smartphoneStorageComboBox;
+    
+    @FXML
+    private Tab smartphoneTab;
 
     @FXML
     private Button submitButton;
+    
+    @FXML
+    private Tab videoGameTab;
 
     private Electronic getElectronic() {
     	Electronic e = null;
@@ -143,6 +158,57 @@ public class SellController {
     	return e;
     }
     
+    private boolean smartphoneisBlankChecker() {
+    	if(smartphoneIdTextField.getText().isBlank() || smartphonePriceTextField.getText().isBlank() || smartphoneColourTextField.getText().isBlank() ||
+    	   smartphoneBrandTextField.getText().isBlank() || smartphoneCamResTextField.getText().isBlank() || smartphoneScreenSizeTextField.getText().isBlank() ||
+    	   smartphoneStorageComboBox.getValue() == null) {
+    		return true;
+    	} else
+    		return false;
+    }
+    
+    private boolean videoGameisBlankChecker() {
+    	if(VideoGameIdTextField.getText().isBlank() || VideoGamePriceTextField.getText().isBlank() || VideoGameColourTextField.getText().isBlank() ||
+    	   VideoGameBrandTextField.getText().isBlank() || VideoGameConnectivityTextField.getText().isBlank() || VideoGameDimensionsTextField.getText().isBlank() ||
+    	   VideoGameDisplayTextField.getText().isBlank() || VideoGameControllerTextField.getText().isBlank() || VideoGameMemoryTextField.getText().isBlank()) {
+    		return true;
+    	} else
+    		return false;
+    }
+    
+    private boolean cameraisBlankChecker() {
+    	if(CameraIdTextField.getText().isBlank() || CameraPriceTextField.getText().isBlank() || CameraColourTextField.getText().isBlank() ||
+    	   CameraBrandTextField.getText().isBlank() || CameraLensSizeTextField.getText().isBlank() || CameraPixelSizeTextField.getText().isBlank() ||
+    	   CameraZoomTextField.getText().isBlank()) {
+    		return true;
+    	} else
+    		return false;
+    }
+    
+    private boolean tabisBlankChecker() {
+    	String selectedTab = ElectronicTabPane.getSelectionModel().getSelectedItem().getText();
+    	if(selectedTab.equalsIgnoreCase("Smartphone")) {
+    		if (smartphoneisBlankChecker()) {
+    			return true;
+    		}else {
+    			return false;
+    		}
+    	} if(selectedTab.equalsIgnoreCase("Video Game")) {
+    		if(videoGameisBlankChecker()) {
+    			return true;
+    		}else {
+    		 return false;
+    		}
+    	} if(selectedTab.equalsIgnoreCase("Camera")) {
+    		if(cameraisBlankChecker()) {
+    			return true;
+    		} else {
+    		 return false;
+    		}
+    	}
+		return false;
+    }
+    
     @FXML
     void onCancelClick(ActionEvent event) {
     	try{
@@ -157,6 +223,13 @@ public class SellController {
 
     @FXML
     void onSubmitClick(ActionEvent event) throws ClassNotFoundException, IOException {
+    	if(tabisBlankChecker()) {
+    		Alert alert=new Alert(AlertType.ERROR);
+        	alert.setTitle("Invalid Data");
+        	alert.setHeaderText("Invalid Data Passed or Empty Input");
+        	alert.setContentText("You have to insert valid data.");
+        	alert.showAndWait();
+    	} else {
     	Alert alert=new Alert(AlertType.CONFIRMATION);
     	alert.setTitle("Confirmation Panel");
     	alert.setHeaderText("Are you sure you want to sell this item?");
@@ -186,12 +259,74 @@ public class SellController {
                 io.printStackTrace();
             }
     	}
-    }
+    }}
     
     @FXML
     public void initialize() {
         smartphoneStorageComboBox.getItems().removeAll(smartphoneStorageComboBox.getItems());
         smartphoneStorageComboBox.getItems().addAll("16GB", "32GB", "64GB", "128GB", "256GB", "512GB", "1TB");
+    } 
+    @FXML
+    void onCameraSelected(Event event) {
+    	if(cameraTab.isSelected()) {
+    		VideoGameBrandTextField.clear();
+    		VideoGameColourTextField.clear();
+    		VideoGameConnectivityTextField.clear();
+    		VideoGameControllerTextField.clear();
+    		VideoGameDimensionsTextField.clear();
+    		VideoGameDisplayTextField.clear();
+    		VideoGameIdTextField.clear();
+    		VideoGameMemoryTextField.clear();
+    		VideoGamePriceTextField.clear();
+    		smartphoneBrandTextField.clear();
+    		smartphoneCamResTextField.clear();
+    		smartphoneColourTextField.clear();
+    		smartphoneIdTextField.clear();
+    		smartphonePriceTextField.clear();
+    		smartphoneScreenSizeTextField.clear();
+    		}
+    	}
+
+
+    @FXML
+    void onSmartphoneSelected(Event event) {
+    	if(smartphoneTab.isSelected()) {
+    	if(VideoGameBrandTextField!=null){
+		VideoGameBrandTextField.setText("");
+		VideoGameColourTextField.setText("");
+		VideoGameConnectivityTextField.setText("");
+		VideoGameControllerTextField.setText("");
+		VideoGameDimensionsTextField.setText("");
+		VideoGameDisplayTextField.setText("");
+		VideoGameIdTextField.setText("");
+		VideoGameMemoryTextField.setText("");
+		VideoGamePriceTextField.setText("");
+		CameraBrandTextField.setText("");
+		CameraColourTextField.setText("");
+		CameraIdTextField.setText("");
+		CameraLensSizeTextField.setText("");
+		CameraPixelSizeTextField.setText("");
+		CameraPriceTextField.setText("");
+		CameraZoomTextField.setText("");}}
     }
 
+
+
+    @FXML
+    void onVideoGameSelected(Event event) {
+    	if(videoGameTab.isSelected()) {
+		CameraBrandTextField.setText("");
+		CameraColourTextField.setText("");
+		CameraIdTextField.setText("");
+		CameraLensSizeTextField.setText("");
+		CameraPixelSizeTextField.setText("");
+		CameraPriceTextField.setText("");
+		CameraZoomTextField.setText("");
+		smartphoneBrandTextField.setText("");
+		smartphoneCamResTextField.setText("");
+		smartphoneColourTextField.setText("");
+		smartphoneIdTextField.setText("");
+		smartphonePriceTextField.setText("");
+		smartphoneScreenSizeTextField.setText("");}
+    }
 }

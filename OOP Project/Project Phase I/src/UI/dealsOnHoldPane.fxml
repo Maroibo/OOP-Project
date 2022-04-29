@@ -27,7 +27,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../Downloads/smartphone.png" />
+                        <Image url="Img/handshake.png"></Image>
                      </image>
                      <effect>
                         <ColorAdjust brightness="1.0" saturation="-1.0">
@@ -52,7 +52,7 @@
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" translateY="1.0">
                      <image>
-                        <Image url="@../../../../../../Downloads/smartphone.png" />
+                        <Image url="Img/back.png"></Image>
                      </image>
                      <effect>
                         <ColorAdjust brightness="1.0" saturation="-1.0">
