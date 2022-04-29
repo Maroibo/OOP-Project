@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?> 
+<?import javafx.scene.text.Font?>
 
 <BorderPane prefHeight="369.0" prefWidth="316.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.SellController">
    <top>
@@ -63,8 +63,8 @@
                                     <Font name="System Bold" size="13.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="smartphoneIdTextField" promptText="Enter Smartphone ID" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
-                              <TextField fx:id="smartphonePriceTextField" promptText="Enter Smartphone Price" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="smartphoneIdTextField" onKeyTyped="#smartphoneIdValidation" promptText="Enter Smartphone ID" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
+                              <TextField fx:id="smartphonePriceTextField" onKeyTyped="#smartphonePriceValidation" promptText="Enter Smartphone Price" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <TextField fx:id="smartphoneColourTextField" promptText="Enter Smartphone Colour" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <TextField fx:id="smartphoneBrandTextField" promptText="Enter Smartphone Brand" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                               <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="49.0" prefWidth="203.0" text="Camera Resolution" textAlignment="CENTER" GridPane.rowIndex="4">
@@ -96,7 +96,7 @@
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="Img/smartphone.png"></Image>
+                        <Image url="@../../../../../../Downloads/smartphone.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -145,8 +145,8 @@
                                     <Font name="System Bold" size="13.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="VideoGameIdTextField" promptText="Enter Video Game ID" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
-                              <TextField fx:id="VideoGamePriceTextField" promptText="Enter Video Game Price" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="VideoGameIdTextField" onKeyTyped="#videoGameIdValidation" promptText="Enter Video Game ID" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
+                              <TextField fx:id="VideoGamePriceTextField" onKeyTyped="#videoGamePriceValidation" promptText="Enter Video Game Price" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <TextField fx:id="VideoGameColourTextField" promptText="Enter Video Game Colour" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <TextField fx:id="VideoGameBrandTextField" promptText="Enter Video Game Brand" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                               <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="49.0" prefWidth="203.0" text="Connectivity" textAlignment="CENTER" GridPane.rowIndex="4">
@@ -190,7 +190,7 @@
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                       <Image url="Img/controller.png"></Image>
+                       <Image url="@../../../../../../Downloads/smartphone.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -237,8 +237,8 @@
                                     <Font name="System Bold" size="13.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="CameraIdTextField" promptText="Enter Camera ID" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
-                              <TextField fx:id="CameraPriceTextField" promptText="Enter Camera Price" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="CameraIdTextField" onKeyTyped="#cameraIdValidation" promptText="Enter Camera ID" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
+                              <TextField fx:id="CameraPriceTextField" onKeyTyped="#cameraPriceValidation" promptText="Enter Camera Price" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <TextField fx:id="CameraColourTextField" promptText="Enter Camera Colour" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <TextField fx:id="CameraBrandTextField" promptText="Enter Camera Brand" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                               <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="49.0" prefWidth="203.0" text="Lens Size" textAlignment="CENTER" GridPane.rowIndex="4">
@@ -270,7 +270,7 @@
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="Img/camera.png"></Image>
+                        <Image url="@../../../../../../Downloads/smartphone.png" />
                      </image>
                   </ImageView>
                </graphic>

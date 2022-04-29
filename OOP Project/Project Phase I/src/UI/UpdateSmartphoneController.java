@@ -21,7 +21,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 public class UpdateSmartphoneController {
@@ -47,7 +49,17 @@ public class UpdateSmartphoneController {
     @FXML
     private ComboBox<String> smartphoneStorageComboBox;
     private Smartphone c1;
-    @FXML
+    private Smartphone show;
+    
+    public Smartphone getShow() {
+		return show;
+	}
+
+	public void setShow(Smartphone show) {
+		this.show = show;
+	}
+
+	@FXML
     void onCancelClick(ActionEvent event) {
     	try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("SellerMainPane.fxml"));
@@ -61,10 +73,19 @@ public class UpdateSmartphoneController {
 
     @FXML
     void onSaveClick(ActionEvent event) throws IOException, ClassNotFoundException {
+    	int id= Integer.parseInt(smartphoneIdTextField.getText());
+    	String brand=smartphoneBrandTextField.getText();
+    	String color=smartphoneColourTextField.getText();
+    	String screen=smartphoneScreenSizeTextField.getText();
+    	String cameras=smartphoneCamResTextField.getText();
+    	double price=Double.parseDouble(smartphonePriceTextField.getText());
+    	String storage=smartphoneStorageComboBox.getValue();
+    	Smartphone smart=new Smartphone(id,price,brand,color,storage,screen,cameras);
+    	this.setShow(smart);
     	Alert alert=new Alert(AlertType.CONFIRMATION);
     	alert.setTitle("Confirmation Panel");
     	alert.setHeaderText("Are you sure you want to save changes?");
-    	alert.setContentText("Item info: "+c1.toString());
+    	alert.setContentText("Item info: "+show.toString());
     	Optional<ButtonType> result=alert.showAndWait();
     	if(result.isPresent()&&result.get()==ButtonType.OK) {
         	c1.setBrand(smartphoneBrandTextField.getText());
@@ -121,5 +142,26 @@ public class UpdateSmartphoneController {
     @FXML
     Smartphone getSelected() {
     	return this.c1;
+    }
+    @FXML
+    void inputValidation1(KeyEvent event) {
+    	smartphonePriceTextField.setTextFormatter(new TextFormatter<>(c -> {
+    	    if (!c.getControlNewText().matches("\\d*")) 
+    	        return null;
+    	    else
+    	        return c;
+    	    }
+    	));
+    }
+
+    @FXML
+    void inputValidaton(KeyEvent event) {
+    	smartphoneIdTextField.setTextFormatter(new TextFormatter<>(c -> {
+    	    if (!c.getControlNewText().matches("\\d*")) 
+    	        return null;
+    	    else
+    	        return c;
+    	    }
+    	));
     }
 }

@@ -21,6 +21,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
@@ -112,6 +114,72 @@ public class SellController {
     
     @FXML
     private Tab videoGameTab;
+
+    @FXML
+    void cameraIdValidation(KeyEvent event) {
+    	CameraIdTextField.setTextFormatter(new TextFormatter<>(c -> {
+    	    if (!c.getControlNewText().matches("\\d*")) 
+    	        return null;
+    	    else
+    	        return c;
+    	    }
+    	));
+    }
+
+    @FXML
+    void cameraPriceValidation(KeyEvent event) {
+    	CameraPriceTextField.setTextFormatter(new TextFormatter<>(c -> {
+    	    if (!c.getControlNewText().matches("\\d*")) 
+    	        return null;
+    	    else
+    	        return c;
+    	    }
+    	));
+    }
+    
+    @FXML
+    void smartphoneIdValidation(KeyEvent event) {
+    	smartphoneIdTextField.setTextFormatter(new TextFormatter<>(c -> {
+    	    if (!c.getControlNewText().matches("\\d*")) 
+    	        return null;
+    	    else
+    	        return c;
+    	    }
+    	));
+    }
+
+    @FXML
+    void smartphonePriceValidation(KeyEvent event) {
+    	smartphonePriceTextField.setTextFormatter(new TextFormatter<>(c -> {
+    	    if (!c.getControlNewText().matches("\\d*")) 
+    	        return null;
+    	    else
+    	        return c;
+    	    }
+    	));
+    }
+
+    @FXML
+    void videoGameIdValidation(KeyEvent event) {
+    	VideoGameIdTextField.setTextFormatter(new TextFormatter<>(c -> {
+    	    if (!c.getControlNewText().matches("\\d*")) 
+    	        return null;
+    	    else
+    	        return c;
+    	    }
+    	));
+    }
+
+    @FXML
+    void videoGamePriceValidation(KeyEvent event) {
+    	VideoGamePriceTextField.setTextFormatter(new TextFormatter<>(c -> {
+    	    if (!c.getControlNewText().matches("\\d*")) 
+    	        return null;
+    	    else
+    	        return c;
+    	    }
+    	));
+    }
 
     private Electronic getElectronic() {
     	Electronic e = null;

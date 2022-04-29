@@ -53,6 +53,14 @@ public class Invoice implements Serializable{
 		this.isPaid = isPaid;
 	}
 	
+	public String getisPaid() {
+		if(this.isPaid) {
+			return "PAID";
+		} else {
+			return "UNPAID";
+		}
+	}
+	
 	public String toString() {
 		String details = String.format("Invoice Number: %d\nAmount: %.2f\nDate Created: %s\nPaid: %s",
 				this.getInvoiceNo(), this.getAmount(), this.getDateCreated(), this.isPaid());

@@ -16,7 +16,7 @@ public class SellApp extends Application {
     	String windowTite = "Sell Window";
         Parent root = FXMLLoader.load(getClass().getResource(viewFileName));
         stage.setTitle(windowTite);
-        stage.setScene(new Scene(root, 400,450));
+        stage.setScene(new Scene(root, 320,450));
         stage.setResizable(false);
         stage.show();
 	}

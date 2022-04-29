@@ -20,7 +20,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 public class UpdateVideoGameController {
@@ -58,25 +60,45 @@ public class UpdateVideoGameController {
     @FXML
     private Button saveButton;
     private VideoGame c1;
+    private VideoGame show;
 
-    @FXML
+    public VideoGame getShow() {
+		return show;
+	}
+
+	public void setShow(VideoGame show) {
+		this.show = show;
+	}
+
+	@FXML
     void onCancelClick(ActionEvent event) {
     	try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("SellerMainPane.fxml"));
             Stage stage = (Stage) cancelButton.getScene().getWindow();
             Scene scene = new Scene(loader.load());
             stage.setScene(scene);
-        } catch (IOException io){
+        }catch (IOException io){
             io.printStackTrace();
         }
     }
 
     @FXML
     void onSaveClick(ActionEvent event) throws IOException, ClassNotFoundException {
+    	int id= Integer.parseInt(VideoGameIdTextField.getText());
+    	String brand=VideoGameBrandTextField.getText();
+    	String color=VideoGameColourTextField.getText();
+    	String controller=VideoGameControllerTextField.getText();
+    	String dimensions=VideoGameDimensionsTextField.getText();
+    	double price=Double.parseDouble(VideoGamePriceTextField.getText());
+    	String memory=VideoGameMemoryTextField.getText();
+    	String contectivity=VideoGameConnectivityTextField.getText();
+    	String display=VideoGameDisplayTextField.getText();
+    	VideoGame vid=new VideoGame(id,price,brand,color,memory,display,contectivity,controller,dimensions);
+    	this.setShow(vid);
     	Alert alert=new Alert(AlertType.CONFIRMATION);
     	alert.setTitle("Confirmation Panel");
     	alert.setHeaderText("Are you sure you want to save changes?");
-    	alert.setContentText("Item info: "+c1.toString());
+    	alert.setContentText("Item info: "+show.toString());
     	Optional<ButtonType> result=alert.showAndWait();
     	if(result.isPresent()&&result.get()==ButtonType.OK) {
         	c1.setBrand(VideoGameBrandTextField.getText());
@@ -128,5 +150,27 @@ public class UpdateVideoGameController {
     @FXML
     VideoGame getSelected() {
     	return this.c1;
+    }
+
+    @FXML
+    void inputValidaiton(KeyEvent event) {
+        VideoGameIdTextField.setTextFormatter(new TextFormatter<>(c -> {
+   	    if (!c.getControlNewText().matches("\\d*")) 
+   	        return null;
+   	    else
+   	        return c;
+   	    }
+   	));
+    }
+
+    @FXML
+    void inputValidation1(KeyEvent event) {
+    	VideoGamePriceTextField.setTextFormatter(new TextFormatter<>(c -> {
+    	    if (!c.getControlNewText().matches("\\d*")) 
+    	        return null;
+    	    else
+    	        return c;
+    	    }
+    	));
     }
 }

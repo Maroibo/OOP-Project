@@ -1,9 +1,13 @@
 package UI;
 
 import java.io.IOException;
+import java.util.function.UnaryOperator;
 
 import eQatarSystem.Trader;
 import files.ReaderAndWriter;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.ListChangeListener.Change;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +17,8 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -114,6 +120,26 @@ public class LoginController {
         }catch (IOException io){
             io.printStackTrace();
         }
+    
     }
-
+    @FXML
+    void loginValidation(KeyEvent event) {
+    	idTextField.setTextFormatter(new TextFormatter<>(c -> {
+    	    if (!c.getControlNewText().matches("\\d*")) 
+    	        return null;
+    	    else
+    	        return c;
+    	    }
+    	));
+}
+    @FXML
+    void loginValidation1(KeyEvent event) {
+    	phoneNumberTextField.setTextFormatter(new TextFormatter<>(c -> {
+    	    if (!c.getControlNewText().matches("\\d*")) 
+    	        return null;
+    	    else
+    	        return c;
+    	    }
+    	));
+    }
 }

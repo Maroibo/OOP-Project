@@ -57,8 +57,8 @@
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="smartphoneIdTextField" promptText="Enter Smartphone ID" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
-                  <TextField fx:id="smartphonePriceTextField" promptText="Enter Smartphone Price" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="smartphoneIdTextField" disable="true" onKeyTyped="#inputValidaton" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
+                  <TextField fx:id="smartphonePriceTextField" onKeyTyped="#inputValidation1" promptText="Enter Smartphone Price" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <TextField fx:id="smartphoneColourTextField" promptText="Enter Smartphone Colour" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <TextField fx:id="smartphoneBrandTextField" promptText="Enter Smartphone Brand" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="49.0" prefWidth="203.0" text="Camera Resolution" textAlignment="CENTER" GridPane.rowIndex="4">
@@ -119,7 +119,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="-5.0">
                      <image>
-                          <Image url="Img/smartphone.png"></Image>
+                          <Image url="@../../../../../../Downloads/smartphone.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -134,4 +134,3 @@
       </HBox>
    </top>
 </BorderPane>
-

@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?> 
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" prefHeight="726.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.BuyBigController">
+<BorderPane maxHeight="-Infinity" prefHeight="616.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.BuyBigController">
    <top>
-      <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="226.0" prefWidth="638.0" BorderPane.alignment="CENTER">
+      <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="219.0" prefWidth="638.0" BorderPane.alignment="CENTER">
          <children>
             <Label text="Deal No: " underline="true" VBox.vgrow="ALWAYS">
                <font>
@@ -22,11 +22,17 @@
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
             </Label>
             <Label fx:id="dealNoLabel" text="00" translateX="100.0" translateY="-35.0" VBox.vgrow="ALWAYS">
                <font>
-                  <Font name="System Bold" size="16.0" />
+                  <Font size="16.0" />
                </font>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
             </Label>
             <Label text="Invoice No: " translateY="-20.0" underline="true" VBox.vgrow="ALWAYS">
                <font>
@@ -35,11 +41,17 @@
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
             </Label>
             <Label fx:id="invoiceNoLabel" text="00" translateX="123.0" translateY="-55.0" VBox.vgrow="ALWAYS">
                <font>
-                  <Font name="System Bold" size="16.0" />
+                  <Font size="16.0" />
                </font>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
             </Label>
             <Label alignment="CENTER" text="Date Created: " translateY="-40.0" underline="true" VBox.vgrow="ALWAYS">
                <font>
@@ -48,11 +60,17 @@
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
             </Label>
             <Label fx:id="dateCreatedLabel" text="dd/mm/yyyy" translateX="143.0" translateY="-75.0" VBox.vgrow="ALWAYS">
                <font>
-                  <Font name="System Bold" size="16.0" />
+                  <Font size="16.0" />
                </font>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
             </Label>
             <Label text="Invoice Status: " translateY="-60.0" underline="true">
                <font>
@@ -61,11 +79,17 @@
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
             </Label>
-            <Label fx:id="invoiceStatusLabel" text="UN/PAID" translateX="153.0" translateY="-95.0">
+            <Label fx:id="invoiceStatusLabel" text="UN/PAID" translateX="153.0" translateY="-95.0" VBox.vgrow="ALWAYS">
                <font>
-                  <Font name="System Bold" size="16.0" />
+                  <Font size="16.0" />
                </font>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
             </Label>
             <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" translateX="520.0" translateY="-270.0" VBox.vgrow="ALWAYS">
                <image>
@@ -76,26 +100,26 @@
       </VBox>
    </top>
    <center>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="349.0" prefWidth="638.0" BorderPane.alignment="CENTER">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="357.0" prefWidth="638.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" layoutY="-15.0" prefHeight="45.0" prefWidth="638.0" text="Item Description" translateY="15.0" underline="true" AnchorPane.bottomAnchor="416.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-15.0">
+            <Label alignment="CENTER" layoutY="-16.0" prefHeight="45.0" prefWidth="638.0" text="Item Description" translateY="15.0" underline="true" AnchorPane.bottomAnchor="334.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-16.0">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <Label fx:id="itemDescriptionLabel" alignment="CENTER" layoutX="-1.0" layoutY="45.0" prefHeight="205.0" prefWidth="638.0" text="&lt;&lt;ELECTRONIC ITEM TOSTRING&gt;&gt;">
+            <Label fx:id="itemDescriptionLabel" alignment="CENTER" layoutX="-1.0" layoutY="52.0" prefHeight="115.0" prefWidth="638.0" text="&lt;&lt;ELECTRONIC ITEM TOSTRING&gt;&gt;">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutY="246.0" prefHeight="45.0" prefWidth="638.0" text="Seller Description" underline="true">
+            <Label alignment="CENTER" layoutY="171.0" prefHeight="45.0" prefWidth="638.0" text="Seller Description" underline="true">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <Label fx:id="sellerDescriptionLabel" alignment="CENTER" layoutY="300.0" prefHeight="146.0" prefWidth="638.0" text="&lt;&lt;SELLER TOSTRING&gt;&gt;">
+            <Label fx:id="sellerDescriptionLabel" alignment="CENTER" layoutY="223.0" prefHeight="115.0" prefWidth="638.0" text="&lt;&lt;SELLER TOSTRING&gt;&gt;">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font size="18.0" />
                </font>
             </Label>
          </children>

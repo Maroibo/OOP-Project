@@ -20,6 +20,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -54,8 +56,18 @@ public class UpdateCameraController{
     @FXML
     private Button saveButton;
      private Camera c1;
+     private Camera show;
+     
 
-    @FXML
+    public Camera getShow() {
+		return show;
+	}
+
+	public void setShow(Camera show) {
+		this.show = show;
+	}
+
+	@FXML
     void onCancelClick(ActionEvent event) {
     	try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("SellerMainPane.fxml"));
@@ -69,10 +81,19 @@ public class UpdateCameraController{
 
     @FXML
     void onSaveClick(ActionEvent event) throws ClassNotFoundException, IOException {
+    	int id= Integer.parseInt(CameraIdTextField.getText());
+    	String brand=CameraBrandTextField.getText();
+    	String color=CameraColourTextField.getText();
+    	String lens=CameraLensSizeTextField.getText();
+    	String pixel=CameraPixelSizeTextField.getText();
+    	double price=Double.parseDouble(CameraPriceTextField.getText());
+    	String zoom=CameraZoomTextField.getText();
+    	Camera cam=new Camera(id,price,brand,color,pixel,zoom,lens);
+    	this.setShow(cam);
     	Alert alert=new Alert(AlertType.CONFIRMATION);
     	alert.setTitle("Confirmation Panel");
     	alert.setHeaderText("Are you sure you want to save changes?");
-    	alert.setContentText("Item info: "+c1.toString());
+    	alert.setContentText("Item info: "+show.toString());
     	Optional<ButtonType> result=alert.showAndWait();
     	if(result.isPresent()&&result.get()==ButtonType.OK) {
         	c1.setBrand(CameraBrandTextField.getText());
@@ -123,5 +144,26 @@ public class UpdateCameraController{
     @FXML
     Camera getSelected() {
     	return this.c1;
+    }
+    @FXML
+    void inputValidation(KeyEvent event) {
+    	CameraIdTextField.setTextFormatter(new TextFormatter<>(c -> {
+    	    if (!c.getControlNewText().matches("\\d*")) 
+    	        return null;
+    	    else
+    	        return c;
+    	    }
+    	));
+    }
+
+    @FXML
+    void inputValidation1(KeyEvent event) {
+    	CameraPriceTextField.setTextFormatter(new TextFormatter<>(c -> {
+    	    if (!c.getControlNewText().matches("\\d*")) 
+    	        return null;
+    	    else
+    	        return c;
+    	    }
+    	));
     }
 }
