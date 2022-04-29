@@ -265,5 +265,4 @@ public class SellController {
         smartphoneStorageComboBox.getItems().removeAll(smartphoneStorageComboBox.getItems());
         smartphoneStorageComboBox.getItems().addAll("16GB", "32GB", "64GB", "128GB", "256GB", "512GB", "1TB");
     } 
-
 }
