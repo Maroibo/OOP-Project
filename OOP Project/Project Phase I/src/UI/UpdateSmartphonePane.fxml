@@ -119,7 +119,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="-5.0">
                      <image>
-                          <Image url="@../../../../../../Downloads/smartphone.png" />
+                          <Image url="Img/smartphone.png"></Image>
                      </image>
                   </ImageView>
                </graphic>

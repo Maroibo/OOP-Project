@@ -96,7 +96,7 @@
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../Downloads/smartphone.png" />
+                        <Image url="Img/smartphone.png"></Image>
                      </image>
                   </ImageView>
                </graphic>
@@ -190,7 +190,7 @@
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                       <Image url="@../../../../../../Downloads/smartphone.png" />
+                       <Image url="Img/controller.png"></Image>
                      </image>
                   </ImageView>
                </graphic>
@@ -270,7 +270,7 @@
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../Downloads/smartphone.png" />
+                        <Image url="Img/camera.png"></Image>
                      </image>
                   </ImageView>
                </graphic>
