@@ -38,8 +38,8 @@
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <TextField fx:id="phoneNumberTextField" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="130.0" promptText="Enter Your Phone Number" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
-            <TextField fx:id="idTextField" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="225.0" promptText="Enter Your ID" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+            <TextField fx:id="phoneNumberTextField" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#loginValidation1" prefHeight="35.0" prefWidth="130.0" promptText="Enter Your Phone Number" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
+            <TextField fx:id="idTextField" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#loginValidation" prefHeight="35.0" prefWidth="225.0" promptText="Enter Your ID" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
@@ -109,7 +109,7 @@
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="Img/login.png"></Image>
+                        <Image url="@../../../../../../Downloads/smartphone.png" />
                      </image>
                      <effect>
                         <ColorAdjust brightness="1.0" saturation="-1.0">

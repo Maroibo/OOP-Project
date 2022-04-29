@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import eQatarSystem.Trader;
 import files.ReaderAndWriter;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +18,8 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -153,5 +157,26 @@ public class RegisterController {
     	traderTypeComboBox.getItems().addAll("Buyer", "Seller");
 
     }
+    @FXML
+    void RegisterValidation(KeyEvent event) {
+    	idTextField.setTextFormatter(new TextFormatter<>(c -> {
+    	    if (!c.getControlNewText().matches("\\d*")) 
+    	        return null;
+    	    else
+    	        return c;
+    	    }
+    	));
+}
+
+    @FXML
+    void RegisterValidation1(KeyEvent event) {
+    	phoneTextField.setTextFormatter(new TextFormatter<>(c -> {
+    	    if (!c.getControlNewText().matches("\\d*")) 
+    	        return null;
+    	    else
+    	        return c;
+    	    }
+    	));
+}
 
 }

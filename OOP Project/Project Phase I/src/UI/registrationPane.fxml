@@ -58,8 +58,8 @@
                </font>
             </Label>
             <TextField fx:id="nameTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="266.0" promptText="Enter Your Name" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS" />
-            <TextField fx:id="idTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="265.0" promptText="Enter Your ID" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
-            <TextField fx:id="phoneTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="265.0" promptText="Enter Your Phone Number" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS" />
+            <TextField fx:id="idTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#RegisterValidation" prefHeight="35.0" prefWidth="265.0" promptText="Enter Your ID" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
+            <TextField fx:id="phoneTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#RegisterValidation1" prefHeight="35.0" prefWidth="265.0" promptText="Enter Your Phone Number" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS" />
             <TextField fx:id="adressTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="266.0" promptText="Enter Your Address" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS" />
             <ComboBox fx:id="traderTypeComboBox" prefHeight="35.0" prefWidth="265.0" promptText="Choose The Type Of Trader" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="ALWAYS" />
             <Button fx:id="registerButton" mnemonicParsing="false" onAction="#onRegisterClick" prefHeight="35.0" prefWidth="265.0" style="-fx-background-radius: 20; -fx-background-color: linear-gradient(from 14.511% 0.0% to 100.0% 100.0%, #5ec4ff 0.0%, #5ec4ff 0.6711%, #24a3ed 99.7763%, #24a3ed 100.0%); -fx-border-radius: 20; -fx-border-color: black;" text="Sign Up" textFill="WHITE" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS">
@@ -89,7 +89,7 @@
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="Img/register.png"></Image>
+                        <Image url="@../../../../../../Downloads/smartphone.png" />
                      </image>
                      <effect>
                         <ColorAdjust brightness="1.0" saturation="-1.0">
