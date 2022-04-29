@@ -20,7 +20,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 public class UpdateVideoGameController {
@@ -128,5 +130,27 @@ public class UpdateVideoGameController {
     @FXML
     VideoGame getSelected() {
     	return this.c1;
+    }
+
+    @FXML
+    void inputValidaiton(KeyEvent event) {
+        VideoGameIdTextField.setTextFormatter(new TextFormatter<>(c -> {
+   	    if (!c.getControlNewText().matches("\\d*")) 
+   	        return null;
+   	    else
+   	        return c;
+   	    }
+   	));
+    }
+
+    @FXML
+    void inputValidation1(KeyEvent event) {
+    	VideoGamePriceTextField.setTextFormatter(new TextFormatter<>(c -> {
+    	    if (!c.getControlNewText().matches("\\d*")) 
+    	        return null;
+    	    else
+    	        return c;
+    	    }
+    	));
     }
 }

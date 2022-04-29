@@ -21,7 +21,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 public class UpdateSmartphoneController {
@@ -121,5 +123,26 @@ public class UpdateSmartphoneController {
     @FXML
     Smartphone getSelected() {
     	return this.c1;
+    }
+    @FXML
+    void inputValidation1(KeyEvent event) {
+    	smartphonePriceTextField.setTextFormatter(new TextFormatter<>(c -> {
+    	    if (!c.getControlNewText().matches("\\d*")) 
+    	        return null;
+    	    else
+    	        return c;
+    	    }
+    	));
+    }
+
+    @FXML
+    void inputValidaton(KeyEvent event) {
+    	smartphoneIdTextField.setTextFormatter(new TextFormatter<>(c -> {
+    	    if (!c.getControlNewText().matches("\\d*")) 
+    	        return null;
+    	    else
+    	        return c;
+    	    }
+    	));
     }
 }

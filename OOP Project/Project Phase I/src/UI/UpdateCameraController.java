@@ -20,6 +20,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -123,5 +125,26 @@ public class UpdateCameraController{
     @FXML
     Camera getSelected() {
     	return this.c1;
+    }
+    @FXML
+    void inputValidation(KeyEvent event) {
+    	CameraIdTextField.setTextFormatter(new TextFormatter<>(c -> {
+    	    if (!c.getControlNewText().matches("\\d*")) 
+    	        return null;
+    	    else
+    	        return c;
+    	    }
+    	));
+    }
+
+    @FXML
+    void inputValidation1(KeyEvent event) {
+    	CameraPriceTextField.setTextFormatter(new TextFormatter<>(c -> {
+    	    if (!c.getControlNewText().matches("\\d*")) 
+    	        return null;
+    	    else
+    	        return c;
+    	    }
+    	));
     }
 }

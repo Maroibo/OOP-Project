@@ -25,7 +25,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="-5.0">
                      <image>
-                         <Image url="Img/camera.png"></Image>
+                         <Image url="@../../../../../../Downloads/smartphone.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -99,8 +99,8 @@
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="CameraIdTextField" promptText="Enter Camera ID" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
-                  <TextField fx:id="CameraPriceTextField" promptText="Enter Camera Price" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="CameraIdTextField" onKeyTyped="#inputValidation" promptText="Enter Camera ID" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
+                  <TextField fx:id="CameraPriceTextField" onKeyTyped="#inputValidation1" promptText="Enter Camera Price" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <TextField fx:id="CameraColourTextField" promptText="Enter Camera Colour" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <TextField fx:id="CameraBrandTextField" promptText="Enter Camera Brand" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="49.0" prefWidth="203.0" text="Lens Size" textAlignment="CENTER" GridPane.rowIndex="4">
@@ -130,4 +130,3 @@
       </AnchorPane>
    </center>
 </BorderPane>
-

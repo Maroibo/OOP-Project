@@ -25,7 +25,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="-5.0">
                      <image>
-                        <Image url="Img/controller.png"></Image>
+                        <Image url="@../../../../../../Downloads/smartphone.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -101,8 +101,8 @@
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="VideoGameIdTextField" promptText="Enter Video Game ID" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
-                  <TextField fx:id="VideoGamePriceTextField" promptText="Enter Video Game Price" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="VideoGameIdTextField" onKeyTyped="#inputValidaiton" promptText="Enter Video Game ID" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
+                  <TextField fx:id="VideoGamePriceTextField" onKeyTyped="#inputValidation1" promptText="Enter Video Game Price" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <TextField fx:id="VideoGameColourTextField" promptText="Enter Video Game Colour" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <TextField fx:id="VideoGameBrandTextField" promptText="Enter Video Game Brand" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="49.0" prefWidth="203.0" text="Connectivity" textAlignment="CENTER" GridPane.rowIndex="4">
