@@ -66,7 +66,7 @@ public class UpdateVideoGameController {
             Stage stage = (Stage) cancelButton.getScene().getWindow();
             Scene scene = new Scene(loader.load());
             stage.setScene(scene);
-        }catch (IOException io){
+        } catch (IOException io){
             io.printStackTrace();
         }
     }
