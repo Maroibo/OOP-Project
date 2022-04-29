@@ -60,8 +60,17 @@ public class UpdateVideoGameController {
     @FXML
     private Button saveButton;
     private VideoGame c1;
+    private VideoGame show;
 
-    @FXML
+    public VideoGame getShow() {
+		return show;
+	}
+
+	public void setShow(VideoGame show) {
+		this.show = show;
+	}
+
+	@FXML
     void onCancelClick(ActionEvent event) {
     	try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("SellerMainPane.fxml"));
@@ -75,10 +84,21 @@ public class UpdateVideoGameController {
 
     @FXML
     void onSaveClick(ActionEvent event) throws IOException, ClassNotFoundException {
+    	int id= Integer.parseInt(VideoGameIdTextField.getText());
+    	String brand=VideoGameBrandTextField.getText();
+    	String color=VideoGameColourTextField.getText();
+    	String controller=VideoGameControllerTextField.getText();
+    	String dimensions=VideoGameDimensionsTextField.getText();
+    	double price=Double.parseDouble(VideoGamePriceTextField.getText());
+    	String memory=VideoGameMemoryTextField.getText();
+    	String contectivity=VideoGameConnectivityTextField.getText();
+    	String display=VideoGameDisplayTextField.getText();
+    	VideoGame vid=new VideoGame(id,price,brand,color,memory,display,contectivity,controller,dimensions);
+    	this.setShow(vid);
     	Alert alert=new Alert(AlertType.CONFIRMATION);
     	alert.setTitle("Confirmation Panel");
     	alert.setHeaderText("Are you sure you want to save changes?");
-    	alert.setContentText("Item info: "+c1.toString());
+    	alert.setContentText("Item info: "+show.toString());
     	Optional<ButtonType> result=alert.showAndWait();
     	if(result.isPresent()&&result.get()==ButtonType.OK) {
         	c1.setBrand(VideoGameBrandTextField.getText());
