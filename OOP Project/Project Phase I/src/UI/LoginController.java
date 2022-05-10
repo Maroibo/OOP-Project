@@ -75,39 +75,51 @@ public class LoginController {
         	alert.setContentText("You have to insert valid data.");
         	alert.showAndWait();
     	} else {
+    		//This is the Admin panel for testing purposes only.
+    		if(idTextField.getText().equals("000") && phoneNumberTextField.getText().equals("000")) {
+				try {
+		            FXMLLoader loader = new FXMLLoader(getClass().getResource("adminPanel.fxml"));
+		            Stage stage = (Stage) loginButton.getScene().getWindow();
+		            Scene scene = new Scene(loader.load());
+		            stage.setScene(scene);
+		        }catch (IOException io){
+		            io.printStackTrace();
+		        }
+			} else {
     		ReaderAndWriter.refresh();
         	Trader t=ReaderAndWriter.sys.findTrader(Integer.parseInt(idTextField.getText()));
-    	if(t!=null) {
-    		if(t.getId()==Integer.parseInt(idTextField.getText())&&t.getPhoneNumber()==Integer.parseInt(phoneNumberTextField.getText())) {
-    			ReaderAndWriter.currentLog(t);
-    			if(t.isBuyer()) {
-    		        try {
-    		            FXMLLoader loader = new FXMLLoader(getClass().getResource("BuyerMainPane.fxml"));
-    		            Stage stage = (Stage) backButton.getScene().getWindow();
-    		            Scene scene = new Scene(loader.load());
-    		            stage.setScene(scene);
-    		        }catch (IOException io){
-    		            io.printStackTrace();
-    		        }
-    			}if(t.isSeller()) {
-    		        try {
-    		            FXMLLoader loader = new FXMLLoader(getClass().getResource("SellerMainPane.fxml"));
-    		            Stage stage = (Stage) backButton.getScene().getWindow();
-    		            Scene scene = new Scene(loader.load());
-    		            stage.setScene(scene);
-    		        }catch (IOException io){
-    		            io.printStackTrace();
-    		        }
-    			}
-    				
-    		}
-    	} else {
+	    	if(t!=null) {
+	    		if(t.getId()==Integer.parseInt(idTextField.getText())&&t.getPhoneNumber()==Integer.parseInt(phoneNumberTextField.getText())) {
+	    			ReaderAndWriter.currentLog(t);
+	    			if(t.isBuyer()) {
+	    		        try {
+	    		            FXMLLoader loader = new FXMLLoader(getClass().getResource("BuyerMainPane.fxml"));
+	    		            Stage stage = (Stage) backButton.getScene().getWindow();
+	    		            Scene scene = new Scene(loader.load());
+	    		            stage.setScene(scene);
+	    		        }catch (IOException io){
+	    		            io.printStackTrace();
+	    		        }
+	    			}if(t.isSeller()) {
+	    		        try {
+	    		            FXMLLoader loader = new FXMLLoader(getClass().getResource("SellerMainPane.fxml"));
+	    		            Stage stage = (Stage) backButton.getScene().getWindow();
+	    		            Scene scene = new Scene(loader.load());
+	    		            stage.setScene(scene);
+	    		        }catch (IOException io){
+	    		            io.printStackTrace();
+	    		        }
+	    			}
+	    				
+	    		}
+	    	} else {
         	Alert alert=new Alert(AlertType.ERROR);
         	alert.setTitle("Login Error");
         	alert.setHeaderText("Trader Not Found");
         	alert.setContentText("ID or Phone Number is Incorrect");
         	alert.showAndWait();
-    	}}
+	    	}}
+    	}
     }
 
     @FXML

@@ -21,7 +21,7 @@
    <top>
       <TabPane fx:id="ElectronicTabPane" prefHeight="358.0" prefWidth="316.0" tabClosingPolicy="UNAVAILABLE" tabMaxWidth="1.7976931234862315E308" BorderPane.alignment="CENTER">
         <tabs>
-          <Tab fx:id="smartphoneTab" text="Smartphone">
+          <Tab fx:id="smartphoneTab" onSelectionChanged="#onSmartphoneSelected" text="Smartphone">
             <content>
               <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="255.0" prefWidth="316.0">
                      <children>
@@ -101,7 +101,7 @@
                   </ImageView>
                </graphic>
           </Tab>
-          <Tab fx:id="videoGameTab" text="Video Game">
+          <Tab fx:id="videoGameTab" onSelectionChanged="#onVideoGameSelected" text="Video Game">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -195,7 +195,7 @@
                   </ImageView>
                </graphic>
           </Tab>
-            <Tab fx:id="cameraTab" text="Camera">
+            <Tab fx:id="cameraTab" onSelectionChanged="#onCameraSelected" text="Camera">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>

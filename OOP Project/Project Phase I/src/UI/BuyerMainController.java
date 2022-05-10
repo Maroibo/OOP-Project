@@ -108,7 +108,7 @@ public class BuyerMainController {
     		Alert alert=new Alert(AlertType.CONFIRMATION);
         	alert.setTitle("Confirmation Panel");
         	alert.setHeaderText("Are you sure you want to buy this item?");
-        	alert.setContentText("Item info: "+selected.toString());
+        	alert.setContentText("Seller Info: "+ReaderAndWriter.sys.findSellerByElectronicId(selected.getId()));
         	Optional<ButtonType> result=alert.showAndWait();
         	if(result.isPresent()&&result.get()==ButtonType.OK) {
         		ReaderAndWriter.refresh();

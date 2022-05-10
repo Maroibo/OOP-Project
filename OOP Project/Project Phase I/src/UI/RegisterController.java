@@ -60,6 +60,14 @@ public class RegisterController {
     		return false;
     }
     
+    private boolean exist() {
+    	for(Trader t: ReaderAndWriter.t) {
+    		if(t.getId()==Integer.parseInt(idTextField.getText())) {
+    			return true;
+    		}
+    	}
+		return false;
+    }
     @FXML
     void onBackClick(ActionEvent event) {
     	Alert alert=new Alert(AlertType.CONFIRMATION);
@@ -101,44 +109,51 @@ public class RegisterController {
 	    	int id=Integer.parseInt(idTextField.getText());
 	    	int phone=Integer.parseInt(phoneTextField.getText());
 	    	String adress=adressTextField.getText();
-	    	if(traderTypeComboBox.getValue().equals("Buyer")) {
-	    		Trader t1=new Trader(id,name,false,true,phone,adress);
-	    		ReaderAndWriter.currentLog(t1);
-	        	try {
-	        		ReaderAndWriter.refresh();
-	    			ReaderAndWriter.twrite(t1);
-	    		} catch (IOException e) {
-	    			e.printStackTrace();
-	    		}
-	            try {
-	                FXMLLoader loader = new FXMLLoader(getClass().getResource("BuyerMainPane.fxml"));
-	                Stage stage = (Stage) registerButton.getScene().getWindow();
-	                Scene scene = new Scene(loader.load());
-	                stage.setScene(scene);
-	            }catch (IOException io){
-	                io.printStackTrace();
-	            }
-	    	}if(traderTypeComboBox.getValue().equals("Seller")) {
-	    		Trader t1=new Trader(id,name,true,false,phone,adress);
-	    		ReaderAndWriter.currentLog(t1);
-	    	try {
-	    		ReaderAndWriter.refresh();
-				ReaderAndWriter.twrite(t1);
-				ReaderAndWriter.refresh();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}            
-	    	try {
-	            FXMLLoader loader = new FXMLLoader(getClass().getResource("SellerMainPane.fxml"));
-	            Stage stage = (Stage) registerButton.getScene().getWindow();
-	            Scene scene = new Scene(loader.load());
-	            stage.setScene(scene);
-	        }catch (IOException io){
-	            io.printStackTrace();
-	        }
+	    	if(exist()) {
+	    		Alert alert=new Alert(AlertType.ERROR);
+            	alert.setTitle("Invalid ID");
+            	alert.setHeaderText("This ID is already taken.");
+            	alert.showAndWait();
+	    	} else {
+		    	if(traderTypeComboBox.getValue().equals("Buyer")) {
+		    		Trader t1=new Trader(id,name,false,true,phone,adress);
+		    		ReaderAndWriter.currentLog(t1);
+		        	try {
+		        		ReaderAndWriter.refresh();
+		    			ReaderAndWriter.twrite(t1);
+		    		} catch (IOException e) {
+		    			e.printStackTrace();
+		    		}
+		            try {
+		                FXMLLoader loader = new FXMLLoader(getClass().getResource("BuyerMainPane.fxml"));
+		                Stage stage = (Stage) registerButton.getScene().getWindow();
+		                Scene scene = new Scene(loader.load());
+		                stage.setScene(scene);
+		            }catch (IOException io){
+		                io.printStackTrace();
+		            }
+		    	}if(traderTypeComboBox.getValue().equals("Seller")) {
+		    		Trader t1=new Trader(id,name,true,false,phone,adress);
+		    		ReaderAndWriter.currentLog(t1);
+		    	try {
+		    		ReaderAndWriter.refresh();
+					ReaderAndWriter.twrite(t1);
+					ReaderAndWriter.refresh();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}            
+		    	try {
+		            FXMLLoader loader = new FXMLLoader(getClass().getResource("SellerMainPane.fxml"));
+		            Stage stage = (Stage) registerButton.getScene().getWindow();
+		            Scene scene = new Scene(loader.load());
+		            stage.setScene(scene);
+		        }catch (IOException io){
+		            io.printStackTrace();
+		        	}
+		    	}
 	    	}
     	}
-    }
+	}	
 
     @FXML
     void onSignInLBLClicked(MouseEvent event) {

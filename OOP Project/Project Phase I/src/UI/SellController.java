@@ -11,6 +11,7 @@ import eQatarSystem.Trader;
 import eQatarSystem.VideoGame;
 import files.ReaderAndWriter;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -333,4 +334,65 @@ public class SellController {
         smartphoneStorageComboBox.getItems().removeAll(smartphoneStorageComboBox.getItems());
         smartphoneStorageComboBox.getItems().addAll("16GB", "32GB", "64GB", "128GB", "256GB", "512GB", "1TB");
     } 
+    
+    @FXML
+    void onCameraSelected(Event event) {
+    	if(cameraTab.isSelected()) {
+    		VideoGameBrandTextField.clear();
+    		VideoGameColourTextField.clear();
+    		VideoGameConnectivityTextField.clear();
+    		VideoGameControllerTextField.clear();
+    		VideoGameDimensionsTextField.clear();
+    		VideoGameDisplayTextField.clear();
+    		VideoGameIdTextField.clear();
+    		VideoGameMemoryTextField.clear();
+    		VideoGamePriceTextField.clear();
+    		smartphoneBrandTextField.clear();
+    		smartphoneCamResTextField.clear();
+    		smartphoneColourTextField.clear();
+    		smartphoneIdTextField.clear();
+    		smartphonePriceTextField.clear();
+    		smartphoneScreenSizeTextField.clear();
+    		}
+    	}
+
+    @FXML
+    void onSmartphoneSelected(Event event) {
+    	if(smartphoneTab.isSelected()) {
+    	if(VideoGameBrandTextField!=null){
+		VideoGameBrandTextField.setText("");
+		VideoGameColourTextField.setText("");
+		VideoGameConnectivityTextField.setText("");
+		VideoGameControllerTextField.setText("");
+		VideoGameDimensionsTextField.setText("");
+		VideoGameDisplayTextField.setText("");
+		VideoGameIdTextField.setText("");
+		VideoGameMemoryTextField.setText("");
+		VideoGamePriceTextField.setText("");
+		CameraBrandTextField.setText("");
+		CameraColourTextField.setText("");
+		CameraIdTextField.setText("");
+		CameraLensSizeTextField.setText("");
+		CameraPixelSizeTextField.setText("");
+		CameraPriceTextField.setText("");
+		CameraZoomTextField.setText("");}}
+    }
+
+    @FXML
+    void onVideoGameSelected(Event event) {
+    	if(videoGameTab.isSelected()) {
+		CameraBrandTextField.setText("");
+		CameraColourTextField.setText("");
+		CameraIdTextField.setText("");
+		CameraLensSizeTextField.setText("");
+		CameraPixelSizeTextField.setText("");
+		CameraPriceTextField.setText("");
+		CameraZoomTextField.setText("");
+		smartphoneBrandTextField.setText("");
+		smartphoneCamResTextField.setText("");
+		smartphoneColourTextField.setText("");
+		smartphoneIdTextField.setText("");
+		smartphonePriceTextField.setText("");
+		smartphoneScreenSizeTextField.setText("");}
+    }
 }
