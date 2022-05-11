@@ -14,8 +14,9 @@ public class BuyBigPaneApp extends Application {
     	String windowTite = "Buy Window";
         Parent root = FXMLLoader.load(getClass().getResource(viewFileName));
         stage.setTitle(windowTite);
-        stage.setScene(new Scene(root, 640, 750));
+        stage.setScene(new Scene(root, 640, 670));
         stage.setResizable(false);
+        stage.centerOnScreen();
         stage.show();
 	}
 

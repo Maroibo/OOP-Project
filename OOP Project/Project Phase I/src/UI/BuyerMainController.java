@@ -108,7 +108,7 @@ public class BuyerMainController {
     		Alert alert=new Alert(AlertType.CONFIRMATION);
         	alert.setTitle("Confirmation Panel");
         	alert.setHeaderText("Are you sure you want to buy this item?");
-        	alert.setContentText("Item info: "+selected.toString());
+        	alert.setContentText("Seller Info: "+ReaderAndWriter.sys.findSellerByElectronicId(selected.getId()));
         	Optional<ButtonType> result=alert.showAndWait();
         	if(result.isPresent()&&result.get()==ButtonType.OK) {
         		ReaderAndWriter.refresh();
@@ -132,7 +132,7 @@ public class BuyerMainController {
 		        controller.dealNoLabel.setText(Integer.toString(controller.getC1().getDealNo()));
 		        controller.invoiceNoLabel.setText(Integer.toString(controller.getC1().getInvoice().getInvoiceNo()));
 		        controller.dateCreatedLabel.setText(controller.getC1().getDateCreated());
-		        controller.invoiceStatusLabel.setText(Boolean.toString(controller.getC1().getInvoice().isPaid()));
+		        controller.invoiceStatusLabel.setText(controller.getC1().getInvoice().getisPaid());
 		        controller.itemDescriptionLabel.setText(controller.getC1().getElectronicItem().toString());
 		        controller.sellerDescriptionLabel.setText(controller.getC1().getSeller().toString());
 		        Scene scene = new Scene(root);

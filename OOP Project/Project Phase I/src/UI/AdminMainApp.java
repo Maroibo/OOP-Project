@@ -8,15 +8,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class SellApp extends Application {
+public class AdminMainApp extends Application {
 
 	@Override
 	public void start(Stage stage) throws IOException {
-		String viewFileName = "sellPane.fxml";
-    	String windowTite = "Sell Window";
+		String viewFileName = "adminPanel.fxml";
+    	String windowTite = "Admin UI Window";
         Parent root = FXMLLoader.load(getClass().getResource(viewFileName));
         stage.setTitle(windowTite);
-        stage.setScene(new Scene(root, 320,450));
+        stage.setScene(new Scene(root, 350, 350));
         stage.setResizable(false);
         stage.show();
 	}
