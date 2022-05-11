@@ -158,11 +158,12 @@ public class SellerMainController {
     @FXML
     void onSaveClick(ActionEvent event) throws ClassNotFoundException, IOException {
     	ArrayList<Electronic> list=ReaderAndWriter.getLog().getList();
-    	for(int i=0;i<list.size();i++ ) {
-    		if(list.get(i).getIsSold()==true)
-    			list.remove(list.get(i));
-
-    	}ReaderAndWriter.getLog().setElectronics(list);
+    	ArrayList<Electronic> sold = new ArrayList<Electronic>();
+    	for(Electronic e: list) {
+    		if(e.getIsSold()) {
+    			sold.add(e);
+    		}
+    	} list.removeAll(sold);
     	ReaderAndWriter.save();
     	ArrayList<Trader> traders=ReaderAndWriter.tread();
     	for(Trader t: traders) {
