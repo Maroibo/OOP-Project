@@ -84,7 +84,7 @@ public abstract class Electronic implements Serializable{
 	}
 	
 	public String toString() {
-		String details = String.format("ID: %d\tPrice: %.2f\tBrand: %s\nColour: %s\tSold: %S\t",
+		String details = String.format("ID: %d\t Price: %.2f\t Brand: %s\n Colour: %s\t Sold: %S\t ",
 				this.getId(), this.getPrice(), this.getBrand(), this.getColor(), this.getIsSold());
 		return details;
 	}

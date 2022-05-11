@@ -68,7 +68,7 @@ public class VideoGame extends Electronic {
 	
 	@Override
 	public String toString() {
-		String details = String.format("Memory: %s\nDisplay: %s\tConnectivity: %s\tController: %s\nDimensions: %s",
+		String details = String.format("Memory: %s\n Display: %s\t Connectivity: %s\t Controller: %s\n Dimensions: %s",
 				this.getMemory(), this.getDisplay(), this.getConnectivity(), this.getController(), this.getDimensions());
 		return super.toString() + details;
 	}

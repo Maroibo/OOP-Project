@@ -46,7 +46,7 @@ public class Smartphone extends Electronic {
 	
 	@Override
 	public String toString() {
-		String details = String.format("Storage: %s\nScreen Size: %s\tCamera Resolution: %s",
+		String details = String.format("Storage: %s\n Screen Size: %s\t Camera Resolution: %s",
 				this.getStorage(), this.getScreenSize(), this.getCameraResolution());
 		return super.toString() + details;
 	}
